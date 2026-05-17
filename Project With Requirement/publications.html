@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Publications — WormEra Research Lab</title>
+<meta name="description" content="15+ peer-reviewed publications by WormEra founders in C. elegans biology, antimicrobials, and functional screening.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--teal:#0F6E56;--teal-light:#E1F5EE;--teal-mid:#1D9E75;--teal-dark:#085041;--teal-deeper:#04342C;--text:#1a1a1a;--text-muted:#5F5E5A;--text-light:#888780;--border:#e5e3dc;--border-strong:#d3d1c7;--bg:#FAFAF8;--white:#ffffff;--radius:10px;--radius-lg:16px}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+.container{max-width:1100px;margin:0 auto;padding:0 2rem}
+.section-label{font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+.section-title{font-family:'DM Serif Display',serif;font-size:clamp(26px,4vw,44px);line-height:1.1;letter-spacing:-0.5px;margin-bottom:16px}
+.section-body{font-size:15.5px;line-height:1.75;color:var(--text-muted);max-width:580px}
+nav:not(.footer-nav){position:sticky;top:0;z-index:200;background:rgba(250,250,248,0.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:80px}
+.logo{border:none!important;background:transparent!important;padding:0;display:flex;align-items:center;text-decoration:none;flex-shrink:0;margin-right:12px}
+.logo-text{display:flex;flex-direction:column;justify-content:center;gap:2px}
+.logo-name{font-family:'DM Serif Display',serif;font-size:15.5px;color:var(--text);line-height:1.15;white-space:nowrap}
+.logo-sub{font-size:10px;color:var(--text-muted);letter-spacing:0.6px;text-transform:uppercase;white-space:nowrap;line-height:1.3}
+.nav-links{display:flex;gap:1.5rem;list-style:none;flex-shrink:1}
+.nav-links a{font-size:13.5px;color:var(--text-muted);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--teal);font-weight:500}
+.nav-cta{background:var(--teal);color:#fff;padding:9px 20px;border-radius:7px;font-size:13px;font-weight:500;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:none;transition:background 0.2s}
+.nav-cta:hover{background:var(--teal-dark)}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;color:var(--text);font-size:24px}
+.mobile-menu{display:none;position:fixed;top:80px;left:0;right:0;bottom:0;background:var(--white);z-index:199;padding:2rem;flex-direction:column;overflow-y:auto}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:17px;color:var(--text);text-decoration:none;padding:14px 0;border-bottom:1px solid var(--border)}
+.mobile-cta-btn{background:var(--teal);color:#fff;padding:14px;border-radius:8px;text-align:center;font-size:16px;font-weight:500;margin-top:16px;display:block}
+/* BANNER */
+.page-banner{background:var(--white);border-bottom:1px solid var(--border);padding:68px 0 56px}
+.stats-row{display:flex;gap:40px;margin-top:32px}
+.stat-item .stat-num{font-family:'DM Serif Display',serif;font-size:36px;color:var(--teal);line-height:1}
+.stat-item .stat-label{font-size:12.5px;color:var(--text-muted);margin-top:4px}
+/* FILTER */
+.pub-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px;margin-top:48px}
+.filter-btn{padding:8px 18px;border-radius:100px;font-size:13px;font-weight:500;border:1px solid var(--border);background:var(--white);color:var(--text-muted);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s}
+.filter-btn:hover{border-color:var(--teal);color:var(--teal)}
+.filter-btn.active{background:var(--teal);color:#fff;border-color:var(--teal)}
+/* PUBS */
+.pub-section{padding:60px 0 80px}
+.pubs-list{border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;background:var(--white)}
+.pub-item{display:flex;gap:20px;align-items:flex-start;padding:22px 28px;border-bottom:1px solid var(--border);transition:background 0.15s;text-decoration:none;color:inherit}
+.pub-item:last-child{border-bottom:none}
+.pub-item:hover{background:var(--teal-light)}
+.pub-num{font-family:'DM Serif Display',serif;font-size:22px;color:var(--border-strong);min-width:30px;padding-top:2px;flex-shrink:0}
+.pub-content{flex:1}
+.pub-title{font-size:14px;font-weight:500;color:var(--text);margin-bottom:6px;line-height:1.55}
+.pub-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.pub-doi{font-size:12px;color:var(--teal);display:inline-flex;align-items:center;gap:4px}
+.pub-tag{font-size:11px;font-weight:600;padding:2px 8px;border-radius:4px;background:var(--teal-light);color:var(--teal-dark)}
+.no-results{padding:48px;text-align:center;color:var(--text-muted);font-size:14px;display:none}
+/* CTA */
+.cta-band{padding:72px 0;background:var(--teal);position:relative;overflow:hidden}
+.cta-band::before{content:'';position:absolute;top:-80px;right:-80px;width:360px;height:360px;background:rgba(255,255,255,0.04);border-radius:50%}
+.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:40px;position:relative}
+.cta-text h2{font-family:'DM Serif Display',serif;font-size:clamp(24px,3.5vw,36px);color:#fff;margin-bottom:10px}
+.cta-text p{font-size:15px;color:rgba(255,255,255,0.75);line-height:1.65;max-width:500px}
+.btn-white{background:#fff;color:var(--teal);padding:13px 26px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
+.btn-white:hover{background:var(--teal-light)}
+.btn-white-outline{background:transparent;color:#fff;padding:13px 26px;border-radius:8px;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.4);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+footer{background:var(--teal-deeper);padding:40px 0 28px}
+.footer-inner{display:flex;flex-direction:column;align-items:center}
+.footer-logo{font-family:'DM Serif Display',serif;font-size:20px;color:#fff;margin-bottom:6px}
+.footer-tagline{font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:22px;text-align:center}
+.footer-nav{display:flex;gap:24px;margin-bottom:22px;flex-wrap:wrap;justify-content:center;position:static;background:transparent;backdrop-filter:none;border-bottom:none;z-index:auto}
+.footer-nav a{font-size:13px;color:rgba(255,255,255,0.92);font-weight:500;text-decoration:none;transition:color 0.2s}
+.footer-nav a:hover{color:#fff}
+.footer-socials{display:flex;gap:12px;margin-bottom:22px}
+.social-btn{width:36px;height:36px;background:rgba(255,255,255,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;text-decoration:none;color:rgba(255,255,255,0.7);font-size:17px}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.25);text-align:center}
+@media(max-width:900px){.cta-inner{flex-direction:column;text-align:center}.nav-links{display:none}.nav-toggle{display:block}.logo{margin-right:0}.logo-name{font-size:14px}.logo-sub{font-size:9px;letter-spacing:0.4px}.stats-row{flex-wrap:wrap;gap:24px}}
+@media(max-width:480px){.logo-name{font-size:13px}.logo-sub{display:none}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <a class="logo" href="index.html">
+        <div class="logo-text">
+          <div class="logo-name">WormEra Research Lab</div>
+          <div class="logo-sub">C. elegans CRO · Ahmedabad</div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li><li><a href="workshops.html">Workshops</a></li>
+        <li><a href="publications.html" class="active">Publications</a></li><li><a href="team.html">Team</a></li><li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a class="nav-cta" href="contact.html">Get a Consultation</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><i class="ti ti-menu-2"></i></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a>
+  <a href="workshops.html">Workshops</a><a href="publications.html">Publications</a>
+  <a href="team.html">Team</a><a href="contact.html">Contact</a>
+  <a href="contact.html" class="mobile-cta-btn">Get a Free Consultation</a>
+</div>
+
+<section class="page-banner">
+  <div class="container">
+    <div class="section-label">Research Output</div>
+    <h1 class="section-title">Publications</h1>
+    <p class="section-body">15+ peer-reviewed publications demonstrating rigorous scientific grounding across C. elegans biology, antimicrobials, functional screening, and translational research.</p>
+    <div class="stats-row">
+      <div class="stat-item"><div class="stat-num">15+</div><div class="stat-label">Peer-reviewed publications</div></div>
+      <div class="stat-item"><div class="stat-num">5+</div><div class="stat-label">Years of active research</div></div>
+      <div class="stat-item"><div class="stat-num">2</div><div class="stat-label">Google Scholar profiles</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="pub-section">
+  <div class="container">
+    <div class="pub-filters">
+      <button class="filter-btn active" onclick="filterPubs('all',this)">All Publications</button>
+      <button class="filter-btn" onclick="filterPubs('celegans',this)">C. elegans</button>
+      <button class="filter-btn" onclick="filterPubs('antimicrobial',this)">Antimicrobial</button>
+      <button class="filter-btn" onclick="filterPubs('nanosilver',this)">Nanosilver</button>
+      <button class="filter-btn" onclick="filterPubs('herbal',this)">Herbal / AYUSH</button>
+    </div>
+
+    <div class="pubs-list" id="pubsList">
+      <a class="pub-item" href="https://doi.org/10.1002/cbdv.202503727" target="_blank" rel="noopener" data-tags="antimicrobial celegans">
+        <div class="pub-num">01</div>
+        <div class="pub-content"><div class="pub-title">Berberine Attenuates Chromobacterium violaceum's Virulence by Targeting Efflux and Denitrification Machinery</div>
+        <div class="pub-meta"><span class="pub-doi"><i class="ti ti-external-link" aria-hidden="true" style="font-size:12px"></i>10.1002/cbdv.202503727 · PMID: 42127231</span><span class="pub-tag">Antimicrobial</span><span class="pub-tag">C. elegans</span></div></div>
+      </a>
+      <a class="pub-item" href="https://doi.org/10.64898/2025.12.18.695325" target="_blank" rel="noopener" data-tags="celegans herbal">
+        <div class="pub-num">02</div>
+        <div class="pub-content"><div class="pub-title">Withania somnifera root extract reduces susceptibility of C. elegans to different types of stressors</div>
+        <div class="pub-meta"><span class="pub-doi"><i class="ti ti-external-link" aria-hidden="true" style="font-size:12px"></i>10.64898/2025.12.18.695325 · PMC12767675</span><span class="pub-tag">C. elegans</span><span class="pub-tag">Herbal</span></div></div>
+      </a>
+      <a class="pub-item" href="https://doi.org/10.33393/dti.2025.3368" target="_blank" rel="noopener" data-tags="celegans herbal">
+        <div class="pub-num">03</div>
+        <div class="pub-content"><div class="pub-title">Withania somnifera root extract (LongeFera™) confers beneficial effects on health and lifespan of C. elegans</div>
+        <div class="pub-meta"><span class="pub-doi"><i class="ti ti-external-link" aria-hidden="true" style="font-size:12px"></i>10.33393/dti.2025.3368 · PMC11969495</span><span class="pub-tag">C. elegans</span><span class="pub-tag">Herbal</span></div></div>
+      </a>
+      <a class="pub-item" href="https://doi.org/10.1201/9781032642864" target="_blank" rel="noopener" data-tags="antimicrobial">
+        <div class="pub-num">04</div>
+        <div class="pub-content"><div class="pub-title">Emerging Prevalence of Fungal Infections and Challenges in Development of New Antifungals</div>
+        <div class="pub-meta"><span class="pub-doi"><i class="ti ti-external-link" aria-hidden="true" style="font-size:12px"></i>10.1201/9781032642864</span><span class="pub-tag">Antimicrobial</span></div></div>
+      </a>
+      <a class="pub-item" href="https://doi.org/10.33393/dti.2024.3082" target="_blank" rel="noopener" data-tags="antimicrobial herbal celegans">
+        <div class="pub-num">05</div>
+        <div class="pub-content"><div class="pub-title">Deciphering molecular mechanisms of anti-pathogenic potential of Enteropan® against MDR Pseudomonas aeruginosa</div>
+        <div class="pub-meta"><span class="pub-doi"><i class="ti ti-external-link" aria-hidden="true" style="font-size:12px"></i>10.33393/dti.2024.3082 · PMID: 39224464</span><span class="pub-tag">Antimicrobial</span><span class="pub-tag">Herbal</span></div></div>
+      </a>
+      <a class="pub-item" href="https://www.researchgate.net/publication/396252218" target="_blank" rel="noopener" data-tags="celegans">
+        <div class="pub-num">06</div>
+        <div class="pub-content"><div class="pub-title">Identification of anthelmintic activity in a small chemical library through random screening using C. elegans as a model helminth</div>
+        <div class="pub-meta"><span class="pub-doi"><i class="ti ti-external-link" aria-hidden="true" style="font-size:12px"></i>ResearchGate</span><span class="pub-tag">C. elegans</span></div></div>
+      </a>
+      <a class="pub-item" href="https://doi.org/10.3390/pharmaceutics16060726" target="_blank" rel="noopener" data-tags="antimicrobial nanosilver">
+        <div class="pub-num">07</div>
+        <div class="pub-content"><div class="pub-title">Silversol® (Colloidal Nanosilver Formulation) Inhibits Growth of Antibiotic-Resistant Staphylococcus aureus by Disrupting Its Physiology</div>
+        <div class="pub-meta"><span class="pub-doi"><i class="ti ti-external-link" aria-hidden="true" style="font-size:12px"></i>10.3390/pharmaceutics16060726 · PMC11206351</span><span class="pub-tag">Nanosilver</span><span class="pub-tag">Antimicrobial</span></div></div>
+      </a>
+      <a class="pub-item" href="https://doi.org/10.1016/j.jaim.2023.100880" target="_blank" rel="noopener" data-tags="herbal">
+        <div class="pub-num">08</div>
+        <div class="pub-content"><div class="pub-title">Duration of fermentation affects microbiome composition and biological activity of Panchagavya</div>
+        <div class="pub-meta"><span class="pub-doi"><i class="ti ti-external-link" aria-hidden="true" style="font-size:12px"></i>10.1016/j.jaim.2023.100880 · PMC10940934</span><span class="pub-tag">Herbal</span></div></div>
+      </a>
+      <a class="pub-item" href="https://doi.org/10.1186/s12866-023-03062-x" target="_blank" rel="noopener" data-tags="antimicrobial nanosilver">
+        <div class="pub-num">09</div>
+        <div class="pub-content"><div class="pub-title">Sub-lethal Silversol® triggers dysregulation of iron homeostasis and nitrogen metabolism in MDR Pseudomonas aeruginosa</div>
+        <div class="pub-meta"><span class="pub-doi"><i class="ti ti-external-link" aria-hidden="true" style="font-size:12px"></i>10.1186/s12866-023-03062-x · PMC10591374</span><span class="pub-tag">Nanosilver</span><span class="pub-tag">Antimicrobial</span></div></div>
+      </a>
+      <a class="pub-item" href="https://doi.org/10.33393/dti.2023.2638" target="_blank" rel="noopener" data-tags="antimicrobial">
+        <div class="pub-num">10</div>
+        <div class="pub-content"><div class="pub-title">Identification of anti-pathogenic activity among in silico predicted small-molecule inhibitors of P. aeruginosa LasR or nitric oxide reductase</div>
+        <div class="pub-meta"><span class="pub-doi"><i class="ti ti-external-link" aria-hidden="true" style="font-size:12px"></i>10.33393/dti.2023.2638 · PMID: 37811195</span><span class="pub-tag">Antimicrobial</span></div></div>
+      </a>
+      <a class="pub-item" href="https://doi.org/10.1186/s13104-023-06392-1" target="_blank" rel="noopener" data-tags="celegans nanosilver">
+        <div class="pub-num">11</div>
+        <div class="pub-content"><div class="pub-title">Potent anthelmintic activity of a colloidal nano-silver formulation (Silversol®) against the model worm Caenorhabditis elegans</div>
+        <div class="pub-meta"><span class="pub-doi"><i class="ti ti-external-link" aria-hidden="true" style="font-size:12px"></i>10.1186/s13104-023-06392-1 · PMC10318827</span><span class="pub-tag">C. elegans</span><span class="pub-tag">Nanosilver</span></div></div>
+      </a>
+      <a class="pub-item" href="https://doi.org/10.33393/dti.2022.2595" target="_blank" rel="noopener" data-tags="antimicrobial herbal">
+        <div class="pub-num">12</div>
+        <div class="pub-content"><div class="pub-title">Network analysis for identifying anti-virulence targets from whole transcriptome of P. aeruginosa and S. aureus exposed to polyherbal formulations</div>
+        <div class="pub-meta"><span class="pub-doi"><i class="ti ti-external-link" aria-hidden="true" style="font-size:12px"></i>10.33393/dti.2022.2595 · PMID: 37275512</span><span class="pub-tag">Antimicrobial</span><span class="pub-tag">Herbal</span></div></div>
+      </a>
+      <a class="pub-item" href="https://www.researchgate.net/publication/354563471" target="_blank" rel="noopener" data-tags="antimicrobial herbal">
+        <div class="pub-num">13</div>
+        <div class="pub-content"><div class="pub-title">Antipathogenic Potential of Ferula asafoetida Essential Oil</div>
+        <div class="pub-meta"><span class="pub-doi"><i class="ti ti-external-link" aria-hidden="true" style="font-size:12px"></i>ResearchGate</span><span class="pub-tag">Antimicrobial</span><span class="pub-tag">Herbal</span></div></div>
+      </a>
+      <a class="pub-item" href="https://www.researchgate.net/publication/354563563" target="_blank" rel="noopener" data-tags="celegans">
+        <div class="pub-num">14</div>
+        <div class="pub-content"><div class="pub-title">Sonic Stimulation at Certain Frequencies Can Confer Limited Protection on Nematode Host Infected with Serratia marcescens</div>
+        <div class="pub-meta"><span class="pub-doi"><i class="ti ti-external-link" aria-hidden="true" style="font-size:12px"></i>ResearchGate</span><span class="pub-tag">C. elegans</span></div></div>
+      </a>
+      <a class="pub-item" href="https://doi.org/10.31219/osf.io/ra3zp" target="_blank" rel="noopener" data-tags="celegans herbal">
+        <div class="pub-num">15</div>
+        <div class="pub-content"><div class="pub-title">Anthelmintic Activity of Ferula asafoetida against the Model Worm Caenorhabditis elegans</div>
+        <div class="pub-meta"><span class="pub-doi"><i class="ti ti-external-link" aria-hidden="true" style="font-size:12px"></i>10.31219/osf.io/ra3zp</span><span class="pub-tag">C. elegans</span><span class="pub-tag">Herbal</span></div></div>
+      </a>
+      <div class="no-results" id="noResults">No publications match this filter.</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="cta-text"><h2>Want to collaborate on research?</h2><p>We actively collaborate with academic and industry partners. Reach out to discuss joint research, data sharing, or study design.</p></div>
+      <div style="display:flex;gap:12px;flex-shrink:0;flex-wrap:wrap">
+        <a class="btn-white" href="contact.html"><i class="ti ti-mail" aria-hidden="true"></i>Get in Touch</a>
+        <a class="btn-white-outline" href="team.html">Meet the Team</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">WormEra Research Lab</div>
+      <div class="footer-tagline">Pioneering Rapid In Vivo Screening through C. elegans · Ahmedabad, India</div>
+      <nav class="footer-nav"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="workshops.html">Workshops</a><a href="publications.html">Publications</a><a href="team.html">Team</a><a href="contact.html">Contact</a></nav>
+      <div class="footer-socials">
+        <a class="social-btn" href="mailto:wormeraresearchlab@gmail.com" aria-label="Email"><i class="ti ti-mail" aria-hidden="true"></i></a>
+        <a class="social-btn" href="https://wa.me/919925993634" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i></a>
+        <a class="social-btn" href="#" aria-label="LinkedIn"><i class="ti ti-brand-linkedin" aria-hidden="true"></i></a>
+        <a class="social-btn" href="#" aria-label="Instagram"><i class="ti ti-brand-instagram" aria-hidden="true"></i></a>
+      </div>
+      <div class="footer-copy">© 2025 WormEra Research Lab. Founded by researchers from Nirma University, Ahmedabad.</div>
+    </div>
+  </div>
+</footer>
+<script>
+function filterPubs(tag,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  var items=document.querySelectorAll('.pub-item');
+  var count=0;
+  items.forEach(function(item){
+    if(tag==='all'||item.dataset.tags.includes(tag)){item.style.display='flex';count++;}
+    else{item.style.display='none';}
+  });
+  document.getElementById('noResults').style.display=count===0?'block':'none';
+}
+var navToggle=document.getElementById('navToggle'),mobileMenu=document.getElementById('mobileMenu');
+navToggle.addEventListener('click',function(){var open=mobileMenu.classList.contains('open');mobileMenu.classList.toggle('open',!open);navToggle.innerHTML=open?'<i class="ti ti-menu-2"></i>':'<i class="ti ti-x"></i>';});
+</script>
+</body>
+</html>

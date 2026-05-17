@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>About Us — WormEra Research Lab</title>
+<meta name="description" content="Built by researchers from Nirma University — WormEra's mission, vision, and the science behind our C. elegans platform.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--teal:#0F6E56;--teal-light:#E1F5EE;--teal-mid:#1D9E75;--teal-dark:#085041;--teal-deeper:#04342C;--text:#1a1a1a;--text-muted:#5F5E5A;--text-light:#888780;--border:#e5e3dc;--border-strong:#d3d1c7;--bg:#FAFAF8;--white:#ffffff;--radius:10px;--radius-lg:16px}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+.container{max-width:1100px;margin:0 auto;padding:0 2rem}
+.section-label{font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+.section-title{font-family:'DM Serif Display',serif;font-size:clamp(26px,4vw,44px);line-height:1.1;letter-spacing:-0.5px;margin-bottom:16px}
+.section-body{font-size:15.5px;line-height:1.75;color:var(--text-muted);max-width:580px}
+nav:not(.footer-nav){position:sticky;top:0;z-index:200;background:rgba(250,250,248,0.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:80px}
+.logo{border:none!important;background:transparent!important;padding:0;display:flex;align-items:center;text-decoration:none;flex-shrink:0;margin-right:12px}
+.logo-text{display:flex;flex-direction:column;justify-content:center;gap:2px}
+.logo-name{font-family:'DM Serif Display',serif;font-size:15.5px;color:var(--text);line-height:1.15;white-space:nowrap}
+.logo-sub{font-size:10px;color:var(--text-muted);letter-spacing:0.6px;text-transform:uppercase;white-space:nowrap;line-height:1.3}
+.nav-links{display:flex;gap:1.5rem;list-style:none;flex-shrink:1}
+.nav-links a{font-size:13.5px;color:var(--text-muted);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--teal);font-weight:500}
+.nav-cta{background:var(--teal);color:#fff;padding:9px 20px;border-radius:7px;font-size:13px;font-weight:500;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:none;transition:background 0.2s}
+.nav-cta:hover{background:var(--teal-dark)}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;color:var(--text);font-size:24px}
+.mobile-menu{display:none;position:fixed;top:80px;left:0;right:0;bottom:0;background:var(--white);z-index:199;padding:2rem;flex-direction:column;overflow-y:auto}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:17px;color:var(--text);text-decoration:none;padding:14px 0;border-bottom:1px solid var(--border)}
+.mobile-cta-btn{background:var(--teal);color:#fff;padding:14px;border-radius:8px;text-align:center;font-size:16px;font-weight:500;margin-top:16px;display:block}
+/* PAGE BANNER */
+.page-banner{background:var(--white);border-bottom:1px solid var(--border);padding:68px 0 56px}
+/* ABOUT BODY */
+.about-body{padding:80px 0}
+.about-intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-bottom:72px}
+.about-intro-text p{font-size:15.5px;line-height:1.8;color:var(--text-muted);margin-bottom:18px}
+.highlight-stat{display:inline-flex;align-items:center;gap:10px;background:var(--teal-light);border-radius:var(--radius);padding:12px 18px;margin-top:8px}
+.hs-num{font-family:'DM Serif Display',serif;font-size:28px;color:var(--teal)}
+.hs-label{font-size:13px;color:var(--teal-dark)}
+.vm-section{margin-bottom:72px}
+.vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:36px}
+.vm-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px}
+.vm-icon{width:44px;height:44px;background:var(--teal-light);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.vm-icon i{font-size:22px;color:var(--teal)}
+.vm-label{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
+.vm-title{font-family:'DM Serif Display',serif;font-size:20px;margin-bottom:12px}
+.vm-text{font-size:13.5px;line-height:1.7;color:var(--text-muted)}
+.values-section{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:72px 0;margin-bottom:72px}
+.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:40px}
+.value-card{text-align:center;padding:24px 16px}
+.value-icon{width:52px;height:52px;background:var(--teal-light);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.value-icon i{font-size:24px;color:var(--teal)}
+.value-name{font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px}
+.value-desc{font-size:13px;line-height:1.6;color:var(--text-muted)}
+.industries-section{margin-bottom:0}
+.ind-grid{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.ind-tag{background:var(--white);border:1px solid var(--border);color:var(--text-muted);font-size:13.5px;font-weight:500;padding:10px 18px;border-radius:100px;display:flex;align-items:center;gap:8px}
+.ind-tag i{font-size:15px;color:var(--teal)}
+.affil-block{background:var(--teal-light);border:1px solid rgba(15,110,86,0.2);border-radius:var(--radius);padding:20px 24px;font-size:13.5px;line-height:1.7;color:var(--teal-dark);margin-top:28px}
+.affil-block strong{display:block;margin-bottom:4px;font-size:14px}
+.cta-band{padding:72px 0;background:var(--teal);position:relative;overflow:hidden}
+.cta-band::before{content:'';position:absolute;top:-80px;right:-80px;width:360px;height:360px;background:rgba(255,255,255,0.04);border-radius:50%}
+.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:40px;position:relative}
+.cta-text h2{font-family:'DM Serif Display',serif;font-size:clamp(24px,3.5vw,36px);color:#fff;margin-bottom:10px}
+.cta-text p{font-size:15px;color:rgba(255,255,255,0.75);line-height:1.65;max-width:500px}
+.btn-white{background:#fff;color:var(--teal);padding:13px 26px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
+.btn-white:hover{background:var(--teal-light)}
+.btn-white-outline{background:transparent;color:#fff;padding:13px 26px;border-radius:8px;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.4);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-white-outline:hover{background:rgba(255,255,255,0.1)}
+footer{background:var(--teal-deeper);padding:40px 0 28px}
+.footer-inner{display:flex;flex-direction:column;align-items:center}
+.footer-logo{font-family:'DM Serif Display',serif;font-size:20px;color:#fff;margin-bottom:6px}
+.footer-tagline{font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:22px;text-align:center}
+.footer-nav{display:flex;gap:24px;margin-bottom:22px;flex-wrap:wrap;justify-content:center;position:static;background:transparent;backdrop-filter:none;border-bottom:none;z-index:auto}
+.footer-nav a{font-size:13px;color:rgba(255,255,255,0.92);font-weight:500;text-decoration:none;transition:color 0.2s}
+.footer-nav a:hover{color:#fff}
+.footer-socials{display:flex;gap:12px;margin-bottom:22px}
+.social-btn{width:36px;height:36px;background:rgba(255,255,255,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;text-decoration:none;color:rgba(255,255,255,0.7);font-size:17px}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.25);text-align:center}
+@media(max-width:900px){.about-intro-grid{grid-template-columns:1fr;gap:40px}.vm-grid{grid-template-columns:1fr}.values-grid{grid-template-columns:1fr 1fr}.cta-inner{flex-direction:column;text-align:center}.nav-links{display:none}.nav-toggle{display:block}.logo{margin-right:0}.logo-name{font-size:14px}.logo-sub{font-size:9px;letter-spacing:0.4px}}
+@media(max-width:480px){.logo-name{font-size:13px}.logo-sub{display:none}}
+@media(max-width:600px){.values-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <a class="logo" href="index.html">
+        <div class="logo-text">
+          <div class="logo-name">WormEra Research Lab</div>
+          <div class="logo-sub">C. elegans CRO · Ahmedabad</div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li><li><a href="about.html" class="active">About</a></li>
+        <li><a href="services.html">Services</a></li><li><a href="workshops.html">Workshops</a></li>
+        <li><a href="publications.html">Publications</a></li><li><a href="team.html">Team</a></li><li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a class="nav-cta" href="contact.html">Get a Consultation</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><i class="ti ti-menu-2"></i></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a>
+  <a href="workshops.html">Workshops</a><a href="publications.html">Publications</a>
+  <a href="team.html">Team</a><a href="contact.html">Contact</a>
+  <a href="contact.html" class="mobile-cta-btn">Get a Free Consultation</a>
+</div>
+
+<section class="page-banner">
+  <div class="container">
+    <div class="section-label">About Us</div>
+    <h1 class="section-title">Built by researchers,<br>for researchers</h1>
+    <p class="section-body">WormEra Research Lab is a specialized CRO founded on scientific integrity, reproducibility, and a deep commitment to making rigorous biology accessible to innovators at every stage.</p>
+  </div>
+</section>
+
+<section class="about-body">
+  <div class="container">
+    <!-- INTRO -->
+    <div class="about-intro-grid">
+      <div class="about-intro-text">
+        <div class="section-label">Our Story</div>
+        <h2 class="section-title" style="font-size:32px">Science without shortcuts</h2>
+        <p>WormEra Research Lab is a specialized contract research organization (CRO) founded by researchers, for researchers. Built on over five years of hands-on expertise in <em>Caenorhabditis elegans</em> biology, we offer scientifically rigorous, whole-organism bioassay services to industries that demand reliable pre-clinical data — faster and more affordably than conventional models allow.</p>
+        <p>We are established in Ahmedabad and founded by researchers from Nirma University with deep expertise in host-pathogen interactions, stress biology, functional screening, and validated experimental design. With 15+ peer-reviewed publications and a commitment to reproducibility, our work is grounded in science — not shortcuts.</p>
+        <p>Because good science shouldn't be slow, expensive, or inaccessible. We built this lab to close the gap between promising compounds and credible biological evidence — with integrity, precision, and impact at every step.</p>
+        <div class="highlight-stat"><div class="hs-num">15+</div><div class="hs-label">Peer-reviewed publications backing our expertise</div></div>
+      </div>
+      <div>
+        <div class="section-label">Our Platform</div>
+        <h2 class="section-title" style="font-size:28px">Why C. elegans?</h2>
+        <p style="font-size:14px;line-height:1.75;color:var(--text-muted);margin-bottom:20px">At the heart of WormEra is <em>C. elegans</em> — a ~1mm transparent nematode with conserved biological pathways remarkably relevant to human physiology. This whole-organism model enables us to go beyond conventional cell-based assays, delivering true in vivo context across toxicity, efficacy, and antimicrobial studies.</p>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;gap:14px;align-items:flex-start"><div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti ti-eye" style="color:var(--teal);font-size:18px" aria-hidden="true"></i></div><div><strong style="font-size:13.5px;color:var(--text);display:block;margin-bottom:3px">Transparent body</strong><span style="font-size:13px;color:var(--text-muted);line-height:1.5">Enables live imaging and real-time monitoring at every assay stage</span></div></div>
+          <div style="display:flex;gap:14px;align-items:flex-start"><div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti ti-clock-fast" style="color:var(--teal);font-size:18px" aria-hidden="true"></i></div><div><strong style="font-size:13.5px;color:var(--text);display:block;margin-bottom:3px">Rapid lifecycle</strong><span style="font-size:13px;color:var(--text-muted);line-height:1.5">Faster results than rodent models, enabling quicker decision-making</span></div></div>
+          <div style="display:flex;gap:14px;align-items:flex-start"><div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti ti-dna" style="color:var(--teal);font-size:18px" aria-hidden="true"></i></div><div><strong style="font-size:13.5px;color:var(--text);display:block;margin-bottom:3px">Well-mapped genetics</strong><span style="font-size:13px;color:var(--text-muted);line-height:1.5">Enables mechanistic insight into compound activity and toxicity</span></div></div>
+          <div style="display:flex;gap:14px;align-items:flex-start"><div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti ti-coin" style="color:var(--teal);font-size:18px" aria-hidden="true"></i></div><div><strong style="font-size:13.5px;color:var(--text);display:block;margin-bottom:3px">Cost-efficient</strong><span style="font-size:13px;color:var(--text-muted);line-height:1.5">Organism-level data at a fraction of mammalian study costs</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VISION & MISSION -->
+    <div class="vm-section">
+      <div class="section-label">Purpose</div>
+      <h2 class="section-title">Vision &amp; Mission</h2>
+      <div class="vm-grid">
+        <div class="vm-card">
+          <div class="vm-icon"><i class="ti ti-telescope" aria-hidden="true"></i></div>
+          <div class="vm-label">Vision</div>
+          <div class="vm-title">Bridge science and industry</div>
+          <div class="vm-text">To advance biological research through innovative and scientifically validated model systems that contribute to better health, sustainable science, and next-generation product development. We aim to bridge academic excellence with industrial research by delivering reliable and impactful scientific solutions globally.<br><br>To establish C. elegans as a trusted platform for early-stage decision-making in life sciences, and to make India a recognized hub for this emerging research discipline.</div>
+        </div>
+        <div class="vm-card">
+          <div class="vm-icon"><i class="ti ti-target" aria-hidden="true"></i></div>
+          <div class="vm-label">Mission</div>
+          <div class="vm-title">Rigorous science, accessible</div>
+          <div class="vm-text">Innovation, scientific integrity, quality, and collaboration are the core values of WormEra Research Lab. We are committed to providing standardized, accurate, and research-driven assay services using advanced in vivo model systems and modern scientific methodologies.<br><br>Our mission is to support researchers and industries with reliable biological screening platforms that accelerate scientific discovery, product validation, and translational research.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CORE VALUES -->
+    <div class="values-section">
+      <div class="container">
+        <div class="section-label">Core Values</div>
+        <h2 class="section-title">What drives us</h2>
+        <div class="values-grid">
+          <div class="value-card"><div class="value-icon"><i class="ti ti-flask-2" aria-hidden="true"></i></div><div class="value-name">Scientific Integrity</div><div class="value-desc">Every assay is designed, executed, and reported with full transparency and reproducibility.</div></div>
+          <div class="value-card"><div class="value-icon"><i class="ti ti-bulb" aria-hidden="true"></i></div><div class="value-name">Innovation</div><div class="value-desc">We push the boundaries of what C. elegans-based screening can deliver for modern life sciences.</div></div>
+          <div class="value-card"><div class="value-icon"><i class="ti ti-rosette" aria-hidden="true"></i></div><div class="value-name">Quality</div><div class="value-desc">Publication-quality data and meticulous experimental design — no shortcuts, no compromises.</div></div>
+          <div class="value-card"><div class="value-icon"><i class="ti ti-users" aria-hidden="true"></i></div><div class="value-name">Collaboration</div><div class="value-desc">We work as partners, not just service providers — invested in your compound's success.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INDUSTRIES -->
+    <div class="industries-section">
+      <div class="section-label">Who We Serve</div>
+      <h2 class="section-title">Industries &amp; Clients</h2>
+      <p class="section-body">We serve a wide spectrum of clients — from global pharma companies and AYUSH formulators to early-stage startups and academic research groups.</p>
+      <div class="ind-grid">
+        <div class="ind-tag"><i class="ti ti-pill" aria-hidden="true"></i>Pharma</div>
+        <div class="ind-tag"><i class="ti ti-leaf" aria-hidden="true"></i>Nutraceuticals</div>
+        <div class="ind-tag"><i class="ti ti-sparkles" aria-hidden="true"></i>Cosmetics</div>
+        <div class="ind-tag"><i class="ti ti-herb" aria-hidden="true"></i>AYUSH</div>
+        <div class="ind-tag"><i class="ti ti-dna-2" aria-hidden="true"></i>Biotechnology</div>
+        <div class="ind-tag"><i class="ti ti-plant" aria-hidden="true"></i>Agrochemicals</div>
+        <div class="ind-tag"><i class="ti ti-school" aria-hidden="true"></i>Academia</div>
+        <div class="ind-tag"><i class="ti ti-rocket" aria-hidden="true"></i>Startups</div>
+      </div>
+      <div class="affil-block">
+        <strong>AIC-GISC Foundation — Affiliated with Nirma University, Ahmedabad</strong>
+        Block No. 5, Bh. GTU Main Building, Nigam Nagar, Chandkheda, Ahmedabad, Gujarat – 382424
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="cta-text"><h2>Ready to collaborate?</h2><p>Whether you're a pharma company, nutraceutical brand, or academic researcher — let's design the right study for your compound.</p></div>
+      <div style="display:flex;gap:12px;flex-shrink:0;flex-wrap:wrap">
+        <a class="btn-white" href="contact.html"><i class="ti ti-mail" aria-hidden="true"></i>Get in Touch</a>
+        <a class="btn-white-outline" href="team.html">Meet the Team</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">WormEra Research Lab</div>
+      <div class="footer-tagline">Pioneering Rapid In Vivo Screening through C. elegans · Ahmedabad, India</div>
+      <nav class="footer-nav"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="workshops.html">Workshops</a><a href="publications.html">Publications</a><a href="team.html">Team</a><a href="contact.html">Contact</a></nav>
+      <div class="footer-socials">
+        <a class="social-btn" href="mailto:wormeraresearchlab@gmail.com" aria-label="Email"><i class="ti ti-mail" aria-hidden="true"></i></a>
+        <a class="social-btn" href="https://wa.me/919925993634" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i></a>
+        <a class="social-btn" href="#" aria-label="LinkedIn"><i class="ti ti-brand-linkedin" aria-hidden="true"></i></a>
+        <a class="social-btn" href="#" aria-label="Instagram"><i class="ti ti-brand-instagram" aria-hidden="true"></i></a>
+      </div>
+      <div class="footer-copy">© 2025 WormEra Research Lab. Founded by researchers from Nirma University, Ahmedabad.</div>
+    </div>
+  </div>
+</footer>
+<script>
+var navToggle=document.getElementById('navToggle'),mobileMenu=document.getElementById('mobileMenu');
+navToggle.addEventListener('click',function(){var open=mobileMenu.classList.contains('open');mobileMenu.classList.toggle('open',!open);navToggle.innerHTML=open?'<i class="ti ti-menu-2"></i>':'<i class="ti ti-x"></i>';});
+</script>
+</body>
+</html>
