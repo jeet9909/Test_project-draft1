@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import DarkModeToggle from "./DarkModeToggle";
@@ -41,32 +40,19 @@ export default function Navbar() {
     >
       <nav className="max-w-7xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" aria-label="WormEra Research Lab — Home" className="flex items-center gap-2">
-          <div className={cn(
-            "rounded-xl overflow-hidden transition-all duration-300",
-            scrolled ? "bg-transparent" : "bg-white/90 dark:bg-white/10"
-          )}>
-            <Image
-              src="/logo.png"
-              alt="WormEra Research Lab"
-              width={44}
-              height={44}
-              className="w-10 h-10 md:w-11 md:h-11 object-contain"
-              priority
-            />
-          </div>
-          <div className="hidden sm:block">
+        <Link href="/" aria-label="WormEra Research Lab — Home" className="flex items-center">
+          <div>
             <span className={cn(
               "font-display font-bold text-lg leading-tight block transition-colors duration-300",
               scrolled ? "text-[#0A4F5C] dark:text-white" : "text-white"
             )}>
-              WormEra
+              WormEra Research Lab
             </span>
             <span className={cn(
-              "text-[10px] font-medium leading-none block transition-colors duration-300 tracking-wide",
+              "text-[10px] font-semibold leading-none block transition-colors duration-300 tracking-widest uppercase",
               scrolled ? "text-gray-500 dark:text-gray-400" : "text-white/65"
             )}>
-              Whole-organism research platform
+              C. elegans CRO · Ahmedabad
             </span>
           </div>
         </Link>
