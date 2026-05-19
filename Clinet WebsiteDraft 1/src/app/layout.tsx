@@ -4,7 +4,6 @@ import { ThemeProvider } from "next-themes";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppFAB from "@/components/contact/WhatsAppFAB";
-import LoaderWrapper from "@/components/LoaderWrapper";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -62,7 +61,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           enableSystem={false}
           disableTransitionOnChange={false}
         >
-          <LoaderWrapper />
           <Navbar />
           <main>{children}</main>
           <Footer />
