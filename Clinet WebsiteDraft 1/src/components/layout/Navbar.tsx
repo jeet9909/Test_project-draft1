@@ -55,12 +55,20 @@ export default function Navbar() {
               priority
             />
           </div>
-          <span className={cn(
-            "font-display font-bold text-lg hidden sm:block transition-colors duration-300",
-            scrolled ? "text-[#0A4F5C] dark:text-white" : "text-white"
-          )}>
-            WormEra
-          </span>
+          <div className="hidden sm:block">
+            <span className={cn(
+              "font-display font-bold text-lg leading-tight block transition-colors duration-300",
+              scrolled ? "text-[#0A4F5C] dark:text-white" : "text-white"
+            )}>
+              WormEra
+            </span>
+            <span className={cn(
+              "text-[10px] font-medium leading-none block transition-colors duration-300 tracking-wide",
+              scrolled ? "text-gray-500 dark:text-gray-400" : "text-white/65"
+            )}>
+              Whole-organism research platform
+            </span>
+          </div>
         </Link>
 
         {/* Desktop nav */}
