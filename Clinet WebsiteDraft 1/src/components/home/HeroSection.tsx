@@ -55,9 +55,7 @@ export default function HeroSection() {
             variants={itemVariants}
             className="font-display font-bold text-4xl md:text-6xl lg:text-[68px] text-white leading-[1.08] mb-4"
           >
-            Whole-organism
-            <br />
-            <span className="text-[#E86A33]">research platform</span>
+            Whole-organism research platform
           </motion.h1>
 
           {/* H2 */}
