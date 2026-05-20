@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import logoSrc from "@/../public/logo.png";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -21,7 +22,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-3 mb-4 group">
               <div className="w-12 h-12 bg-white rounded-xl overflow-hidden flex items-center justify-center shadow-md">
                 <Image
-                  src="/logo.png"
+                  src={logoSrc}
                   alt="WormEra Research Lab"
                   width={48}
                   height={48}
