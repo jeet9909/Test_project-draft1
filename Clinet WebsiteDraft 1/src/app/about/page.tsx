@@ -3,6 +3,8 @@ import Image from "next/image";
 import { ExternalLink, BookOpen, Award, Calendar, Users } from "lucide-react";
 import SectionHeader from "@/components/common/SectionHeader";
 import ScrollReveal from "@/components/common/ScrollReveal";
+import geminiPhoto from "@/../public/images/team/gemini-gajera.png";
+import nidhiPhoto from "@/../public/images/team/nidhi-thakkar.png";
 
 export const metadata: Metadata = {
   title: "About — WormEra Research Lab",
@@ -17,7 +19,7 @@ const team = [
     affiliation: "Nirma University, Ahmedabad",
     expertise: "Host-pathogen interactions, functional screening, C. elegans biology",
     scholarUrl: "https://scholar.google.com/citations?user=9gwqNg8AAAAJ",
-    photo: "/images/team/gemini-gajera.png",
+    photo: geminiPhoto,
   },
   {
     name: "Ms. Nidhi Thakkar",
@@ -25,7 +27,7 @@ const team = [
     affiliation: "Nirma University, Ahmedabad (Ph.D. Thesis Submitted)",
     expertise: "Stress biology, antimicrobial research, experimental design",
     scholarUrl: "https://scholar.google.com/citations?user=3T0DfMcAAAAJ",
-    photo: "/images/team/nidhi-thakkar.png",
+    photo: nidhiPhoto,
   },
 ];
 

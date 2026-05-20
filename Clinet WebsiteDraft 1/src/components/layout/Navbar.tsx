@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
+import logoSrc from "@/../public/logo.png";
 import { Menu, X } from "lucide-react";
 import DarkModeToggle from "./DarkModeToggle";
 import { cn } from "@/lib/utils";
@@ -40,7 +42,20 @@ export default function Navbar() {
     >
       <nav className="max-w-7xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" aria-label="WormEra Research Lab — Home" className="flex items-center">
+        <Link href="/" aria-label="WormEra Research Lab — Home" className="flex items-center gap-2.5">
+          <div className={cn(
+            "rounded-xl overflow-hidden flex-shrink-0 transition-all duration-300",
+            scrolled ? "bg-transparent" : "bg-white/90 dark:bg-white/10"
+          )}>
+            <Image
+              src={logoSrc}
+              alt="WormEra Research Lab"
+              width={44}
+              height={44}
+              className="w-10 h-10 md:w-11 md:h-11 object-contain"
+              priority
+            />
+          </div>
           <div>
             <span className={cn(
               "font-display font-bold text-lg leading-tight block transition-colors duration-300",
