@@ -32,7 +32,7 @@ export default function HeroSection() {
         {/* Strong teal gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A4F5C]/95 via-[#0A4F5C]/80 to-[#0A4F5C]/40" />
         <div className="absolute inset-0 bg-[#0A4F5C]/20" />
-        <WormBackground config={{ count: 20, alpha: 0.08, speedMultiplier: 0.9 }} />
+        <WormBackground count={20} alpha={0.08} speed={0.9} />
       </div>
 
       <div className="relative z-20 max-w-7xl mx-auto px-4 md:px-8 pt-28 pb-20">

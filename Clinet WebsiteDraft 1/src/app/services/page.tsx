@@ -1,210 +1,145 @@
-import { Metadata } from "next";
-import { CheckCircle, Download, ArrowRight } from "lucide-react";
-import Link from "next/link";
-import SectionHeader from "@/components/common/SectionHeader";
-import ScrollReveal from "@/components/common/ScrollReveal";
-import { servicePillars, pricingTiers } from "@/lib/services-data";
+'use client'
+import { useState } from 'react'
+import Link from 'next/link'
 
-export const metadata: Metadata = {
-  title: "Services — WormEra Research Lab",
-  description:
-    "Explore WormEra's three service pillars: Toxicity & Safety Profiling, Efficacy & Functional Bioassays, and Microbiological & Anti-Infective Assays — all using C. elegans as the in vivo model.",
-};
+const PILLARS = [
+  {
+    id: 'toxicity',
+    tab: 'Toxicity & safety',
+    title: 'Toxicity & safety profiling',
+    description: 'Quantifying systemic physiological responses to chemical and environmental challenges using whole-organism readouts — from lethality curves to motility analysis.',
+    tags: ['Ideal for pharma', 'nutraceuticals', 'agrochemicals'],
+    subservices: [
+      { name: 'Acute & sub-chronic toxicity', detail: 'Rapid LD₅₀ determination; lethality dose curves; live-dead microscopic count; worm activity quantification.' },
+      { name: 'Sub-chronic toxicity', detail: 'Long-term exposure effects over 7–14 days; survival curves; motility analysis at multiple time points.' },
+      { name: 'Live-dead staining', detail: 'Trypan Blue or Neutral Red validation to confirm cuticular and membrane integrity in dead worms.' },
+      { name: 'Anthelmintic screening', detail: 'LD₅₀/LD₁₀₀ determination for nematocide compounds; comparative liquid/solid media assays.' },
+    ],
+  },
+  {
+    id: 'efficacy',
+    tab: 'Efficacy & functional',
+    title: 'Efficacy & functional bioassays',
+    description: 'Measuring systemic health, longevity, and metabolic responses in a living host — validating anti-aging claims, probiotic efficacy, neuroprotection, and AYUSH formulations.',
+    tags: ['Ideal for nutraceuticals', 'cosmetics', 'AYUSH', 'biotech'],
+    subservices: [
+      { name: 'Anti-aging & longevity', detail: 'Simultaneous quantification of lifespan and healthspan (motility) to validate anti-aging claims.' },
+      { name: 'Probiotic screening', detail: 'Gnotobiotic worm models to study host-probiotic interactions, survival improvement, and immune modulation.' },
+      { name: 'Neuroprotection', detail: "Wild-type and transgenic models (e.g. CL4176) for symptoms relevant to Alzheimer's and Parkinson's disease." },
+      { name: 'Metabolic health', detail: 'Optimized Alamar Blue® assays providing a linear correlation between worm number and metabolic response.' },
+      { name: 'Stress biology', detail: 'Assessing AYUSH formulations against stress induced by mitotoxins, neurotoxins, oxidizing agents, or heat.' },
+    ],
+  },
+  {
+    id: 'antimicrobial',
+    tab: 'Microbiological & anti-infective',
+    title: 'Microbiological & anti-infective assays',
+    description: 'C. elegans is an excellent in vivo host for studying human-pathogenic bacteria and fungi — enabling simultaneous anti-virulence and immunomodulatory readouts.',
+    tags: ['Ideal for pharma', 'biotech', 'AMR research'],
+    subservices: [
+      { name: 'In vivo anti-pathogenic assay', detail: 'Challenge with human-pathogenic bacteria/fungi to detect simultaneous anti-virulence and immunomodulatory effects.' },
+      { name: 'Prophylactic & post-infection', detail: 'Testing immunomodulatory effects and therapeutic efficacy in established infections.' },
+      { name: 'Anti-virulence studies', detail: 'Screening for quorum sensing inhibition and virulence factor attenuation.' },
+      { name: 'AMR research', detail: 'Long-term resistance development studies and Post-Antibiotic Effect (PAE) analysis.' },
+    ],
+  },
+]
 
-const pillarColors: Record<string, { bg: string; border: string; text: string }> = {
-  toxicity: { bg: "bg-primary/10 dark:bg-primary/20", border: "border-primary", text: "text-primary dark:text-teal-300" },
-  efficacy: { bg: "bg-accent/10 dark:bg-accent/20", border: "border-accent", text: "text-amber-700 dark:text-amber-300" },
-  antimicrobial: { bg: "bg-secondary/10 dark:bg-secondary/20", border: "border-secondary", text: "text-secondary dark:text-orange-300" },
-};
+const PRICING = [
+  {
+    name: 'Fee-for-service',
+    items: ['Fixed price per assay (e.g. toxicity)', 'Volume discounts for bulk orders', 'Add-on mechanistic analysis'],
+  },
+  {
+    name: 'Subscriptions',
+    items: ['Monthly/quarterly testing packages', 'Priority slot allocation', 'Dedicated scientific support'],
+  },
+  {
+    name: 'Workshops & training',
+    items: ['Hands-on certification training', 'Custom corporate onboarding', 'High per-seat registration options'],
+  },
+]
 
 export default function ServicesPage() {
+  const [active, setActive] = useState('toxicity')
+  const pillar = PILLARS.find(p => p.id === active)!
+
   return (
     <>
-      {/* Hero */}
-      <section className="pt-32 pb-16 bg-primary dark:bg-dark-surface">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <span className="tag-pill bg-white/15 text-white mb-4 inline-block">
-            Services
-          </span>
-          <h1 className="font-display font-bold text-4xl md:text-5xl text-white mb-4 leading-tight">
-            C. elegans-Based Bioassay Services
-          </h1>
-          <p className="text-white/75 text-lg max-w-2xl leading-relaxed">
-            Three pillars of scientifically validated, whole-organism screening
-            — covering toxicity, functional efficacy, and antimicrobial
-            evaluation.
-          </p>
-          <div className="mt-6 p-4 bg-white/10 rounded-xl border border-white/15 max-w-xl">
-            <p className="text-white/80 text-sm">
-              ✓ All assays follow published, peer-reviewed methodologies ·
-              Raw data delivered in Excel/CSV · Reports in PDF
-            </p>
-          </div>
+      <section className="pt-28 md:pt-36 pb-0 section-pad bg-white">
+        <p className="eyebrow text-teal mb-3">What we offer</p>
+        <h1 className="font-serif text-3xl md:text-4xl text-slate font-bold mb-3">Our services</h1>
+        <p className="text-[15px] text-gray-500 max-w-xl mb-10">
+          Three core pillars of whole-organism research, each delivering true <em>in vivo</em> data
+          that goes beyond what cell-based assays can provide.
+        </p>
+
+        <div className="flex flex-wrap gap-2">
+          {PILLARS.map(p => (
+            <button
+              key={p.id}
+              onClick={() => setActive(p.id)}
+              className={`px-4 py-2 rounded-full text-[13px] font-medium transition-colors cursor-pointer ${
+                active === p.id
+                  ? 'bg-teal text-white'
+                  : 'bg-white border border-gray-200 text-gray-500 hover:border-teal/40 hover:text-teal'
+              }`}
+            >
+              {p.tab}
+            </button>
+          ))}
         </div>
       </section>
 
-      {/* Pillars */}
-      {servicePillars.map((pillar, idx) => {
-        const colors = pillarColors[pillar.id];
-        return (
-          <section
-            key={pillar.id}
-            id={pillar.id}
-            className={`py-20 ${idx % 2 === 0 ? "bg-white dark:bg-dark-bg" : "bg-gray-50 dark:bg-dark-surface"}`}
-          >
-            <div className="section-padding">
-              <ScrollReveal>
-                <div className="flex items-start gap-4 mb-10">
-                  <div
-                    className={`w-12 h-12 rounded-2xl ${colors.bg} flex items-center justify-center shrink-0`}
-                  >
-                    <span className={`font-bold text-xl ${colors.text}`}>
-                      {idx + 1}
-                    </span>
-                  </div>
-                  <div>
-                    <h2 className="section-title mb-2">{pillar.title}</h2>
-                    <p className="text-gray-600 dark:text-dark-muted max-w-2xl">
-                      {pillar.overview}
-                    </p>
-                  </div>
-                </div>
-              </ScrollReveal>
-
-              {/* Sub-services */}
-              <div className="space-y-4">
-                {pillar.subServices.map((sub, si) => (
-                  <ScrollReveal key={sub.name} delay={si * 0.06}>
-                    <div
-                      className={`card-base p-6 border-l-4 ${colors.border}`}
-                    >
-                      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                        <div className="md:col-span-1">
-                          <h3 className="font-sans font-semibold text-sm text-neutral dark:text-white mb-1">
-                            {sub.name}
-                          </h3>
-                          <span className={`tag-pill text-xs ${colors.bg} ${colors.text}`}>
-                            {sub.timeline}
-                          </span>
-                        </div>
-                        <div className="md:col-span-1">
-                          <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">
-                            Methodology
-                          </p>
-                          <p className="text-xs text-gray-600 dark:text-dark-muted leading-relaxed">
-                            {sub.methodology}
-                          </p>
-                        </div>
-                        <div className="md:col-span-2">
-                          <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">
-                            Deliverables
-                          </p>
-                          <p className="text-xs text-gray-600 dark:text-dark-muted leading-relaxed">
-                            {sub.deliverables}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </ScrollReveal>
-                ))}
-              </div>
-
-              <div className="mt-8 flex gap-4">
-                <Link
-                  href="/contact"
-                  className="btn-primary text-sm"
-                >
-                  Request Quote <ArrowRight size={14} />
-                </Link>
-              </div>
+      <section className="section-pad py-12 bg-white">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+          <div className="lg:col-span-1">
+            <div className="w-10 h-10 rounded bg-teal/10 mb-4" />
+            <h2 className="font-serif text-[22px] font-semibold text-slate mb-3">{pillar.title}</h2>
+            <p className="text-[14px] text-gray-500 leading-relaxed mb-4">{pillar.description}</p>
+            <div className="flex flex-wrap gap-1.5">
+              {pillar.tags.map(t => (
+                <span key={t} className="bg-sage/10 text-sage text-[11px] font-medium px-2.5 py-1 rounded-full">{t}</span>
+              ))}
             </div>
-          </section>
-        );
-      })}
+          </div>
 
-      {/* Pricing Tiers */}
-      <section className="py-20 bg-white dark:bg-dark-bg">
-        <div className="section-padding">
-          <SectionHeader
-            eyebrow="Pricing"
-            title="Choose Your Tier"
-            subtitle="No public pricing — we scope every project to your exact needs. All tiers include raw data, statistical report, and a post-delivery consultation call."
-            centered
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {pricingTiers.map((tier, i) => (
-              <ScrollReveal key={tier.name} delay={i * 0.1}>
-                <div
-                  className={`card-base p-8 flex flex-col text-center ${
-                    tier.highlight
-                      ? "ring-2 ring-secondary shadow-lg scale-105"
-                      : ""
-                  }`}
-                >
-                  {tier.highlight && (
-                    <span className="tag-pill bg-secondary text-white mb-4 self-center">
-                      Most Popular
-                    </span>
-                  )}
-                  <h3 className="font-display font-bold text-2xl text-primary dark:text-white mb-3">
-                    {tier.name}
-                  </h3>
-                  <p className="text-sm text-gray-600 dark:text-dark-muted leading-relaxed flex-1 mb-6">
-                    {tier.description}
-                  </p>
-                  <div className="space-y-2 text-sm text-left mb-6">
-                    <div className="flex items-center gap-2 text-gray-600 dark:text-dark-muted">
-                      <CheckCircle size={14} className="text-sage shrink-0" />
-                      Raw data (Excel/CSV)
-                    </div>
-                    <div className="flex items-center gap-2 text-gray-600 dark:text-dark-muted">
-                      <CheckCircle size={14} className="text-sage shrink-0" />
-                      PDF report with statistics
-                    </div>
-                    {tier.highlight && (
-                      <div className="flex items-center gap-2 text-gray-600 dark:text-dark-muted">
-                        <CheckCircle size={14} className="text-sage shrink-0" />
-                        Annotated microscopy images
-                      </div>
-                    )}
-                  </div>
-                  <Link href="/contact" className={tier.highlight ? "btn-primary w-full justify-center" : "btn-outline w-full justify-center"}>
-                    Request Quote
-                  </Link>
-                </div>
-              </ScrollReveal>
+          <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {pillar.subservices.map(s => (
+              <div key={s.name} className="border-t border-gray-100 pt-4">
+                <h3 className="text-[14px] font-semibold text-slate mb-1.5">{s.name}</h3>
+                <p className="text-[13px] text-gray-400 leading-relaxed">{s.detail}</p>
+              </div>
             ))}
           </div>
-
-          <div className="text-center mt-10">
-            <p className="text-sm text-gray-500 dark:text-dark-muted mb-3">
-              Not sure which assay is right for you?
-            </p>
-            <Link href="/contact" className="btn-outline text-sm">
-              Book a Free Consultation <ArrowRight size={14} />
-            </Link>
-          </div>
         </div>
-      </section>
 
-      {/* Download CTA */}
-      <section className="py-12 bg-gray-50 dark:bg-dark-surface">
-        <div className="max-w-2xl mx-auto px-4 text-center">
-          <Download size={32} className="text-primary mx-auto mb-3" />
-          <h3 className="font-display font-semibold text-xl text-primary dark:text-white mb-2">
-            Sample Report
-          </h3>
-          <p className="text-gray-500 dark:text-dark-muted text-sm mb-4">
-            Download a sample assay report to understand the level of detail we
-            deliver — including GraphPad Prism graphs, statistical tables, and
-            microscopy images.
-          </p>
-          <Link href="/contact" className="btn-primary text-sm">
-            Request Sample Report
+        <div className="mt-14 pt-10 border-t border-gray-100 grid grid-cols-1 sm:grid-cols-3 gap-8">
+          {PRICING.map(pr => (
+            <div key={pr.name}>
+              <h4 className="text-[13px] font-semibold text-slate mb-3">{pr.name}</h4>
+              <ul className="space-y-1.5">
+                {pr.items.map(item => (
+                  <li key={item} className="flex items-start gap-2 text-[13px] text-gray-400">
+                    <span className="mt-1 w-1 h-1 rounded-full bg-teal/50 shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10 bg-sage/10 border border-sage/20 rounded-lg p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
+            <p className="text-[14px] font-medium text-slate">Not sure which service fits your compound?</p>
+            <p className="text-[13px] text-gray-400">We design the study around your research question — free consultation.</p>
+          </div>
+          <Link href="/contact" className="shrink-0 bg-teal hover:bg-teal-dark text-white px-5 py-2.5 rounded text-[13px] font-medium transition-colors whitespace-nowrap cursor-pointer">
+            Request consultation →
           </Link>
         </div>
       </section>
     </>
-  );
+  )
 }

@@ -1,147 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+html { scroll-behavior: smooth; }
+* { box-sizing: border-box; }
+
 @layer base {
-  :root {
-    --primary: #0A4F5C;
-    --secondary: #E86A33;
-    --accent: #C9A227;
-    --neutral: #2D3748;
-    --bg: #F7FAFC;
-    --surface: #FFFFFF;
-    --text-primary: #1A202C;
-    --text-muted: #4A5568;
-    --border: #E2E8F0;
-  }
-
-  .dark {
-    --bg: #0F172A;
-    --surface: #1E293B;
-    --text-primary: #E2E8F0;
-    --text-muted: #94A3B8;
-    --border: #334155;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  * {
-    transition: background-color 0.25s ease, border-color 0.2s ease, color 0.15s ease;
-  }
-
   body {
-    background-color: #F7FAFC;
-    color: #1A202C;
+    @apply font-sans text-slate bg-white antialiased;
   }
-
-  .dark body {
-    background-color: #0F172A;
-    color: #E2E8F0;
+  h1, h2, h3 {
+    @apply font-serif;
   }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-playfair), Georgia, serif;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
-  }
-}
-
-@layer components {
-  .section-padding {
-    @apply py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto;
-  }
-
-  /* Light mode card: white bg, visible border */
-  .card-base {
-    @apply bg-white dark:bg-[#1E293B] rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700/60 transition-all duration-300;
-  }
-
-  .btn-primary {
-    @apply bg-[#E86A33] hover:bg-[#C55A28] text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 inline-flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-[#E86A33] focus:ring-offset-2 cursor-pointer;
-  }
-
-  .btn-outline {
-    @apply border-2 border-[#0A4F5C] text-[#0A4F5C] dark:border-white/60 dark:text-white hover:bg-[#0A4F5C] hover:text-white dark:hover:bg-white dark:hover:text-[#0A4F5C] font-semibold px-6 py-3 rounded-lg transition-all duration-200 inline-flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-[#0A4F5C] focus:ring-offset-2 cursor-pointer;
-  }
-
-  .section-title {
-    @apply font-display text-3xl md:text-4xl font-bold text-[#0A4F5C] dark:text-white leading-tight;
-  }
-
-  .section-subtitle {
-    @apply text-lg text-gray-600 dark:text-[#94A3B8] leading-relaxed mt-3;
-  }
-
-  .tag-pill {
-    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider;
-  }
-
-  .doi-text {
-    @apply font-mono text-[#0A4F5C] dark:text-blue-400 text-xs break-all;
-  }
-
-  /* Styled form inputs — visible in BOTH modes */
-  .form-input {
-    @apply w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600
-           bg-white dark:bg-[#0F172A]
-           text-gray-900 dark:text-[#E2E8F0]
-           placeholder:text-gray-400 dark:placeholder:text-gray-500
-           text-sm focus:outline-none focus:ring-2 focus:ring-[#0A4F5C] dark:focus:ring-teal-500;
-  }
-
-  .form-select {
-    @apply w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600
-           bg-white dark:bg-[#0F172A]
-           text-gray-900 dark:text-[#E2E8F0]
-           text-sm focus:outline-none focus:ring-2 focus:ring-[#0A4F5C] dark:focus:ring-teal-500
-           cursor-pointer appearance-none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%230A4F5C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    padding-right: 36px;
-  }
-
-  .dark .form-select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-  }
+  em { font-style: italic; }
 }
 
 @layer utilities {
-  .text-balance { text-wrap: balance; }
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  .section-pad { @apply px-6 md:px-12 lg:px-20; }
+  .eyebrow {
+    @apply text-[11px] font-sans font-medium tracking-[0.22em] uppercase;
   }
-  .scrollbar-hide::-webkit-scrollbar { display: none; }
 }
-
-/* WhatsApp FAB pulse */
-@keyframes whatsapp-pulse {
-  0%   { box-shadow: 0 0 0 0 rgba(232, 106, 51, 0.5); }
-  70%  { box-shadow: 0 0 0 12px rgba(232, 106, 51, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(232, 106, 51, 0); }
-}
-.whatsapp-fab-pulse {
-  animation: whatsapp-pulse 3s ease-out infinite;
-}
-@media (prefers-reduced-motion: reduce) {
-  .whatsapp-fab-pulse { animation: none; }
-}
-
-/* Publication topic tag colors — light + dark */
-.tag-anti-pathogenic  { @apply bg-teal-100 text-teal-800 dark:bg-teal-900/30 dark:text-teal-300; }
-.tag-anthelmintic     { @apply bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300; }
-.tag-aging            { @apply bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300; }
-.tag-microbiome       { @apply bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300; }
-.tag-review           { @apply bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300; }
-.tag-in-vivo          { @apply bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300; }
-.tag-stress           { @apply bg-rose-100 text-rose-800 dark:bg-rose-900/30 dark:text-rose-300; }

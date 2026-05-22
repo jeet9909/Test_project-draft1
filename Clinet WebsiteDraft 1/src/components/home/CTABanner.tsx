@@ -5,7 +5,7 @@ import WormBackground from "@/components/WormBackground";
 export default function CTABanner() {
   return (
     <section className="py-20 bg-gradient-cta relative overflow-hidden">
-      <WormBackground config={{ count: 16, alpha: 0.09, speedMultiplier: 1.0 }} />
+      <WormBackground count={16} alpha={0.09} speed={1.0} />
       <div className="relative z-10 max-w-4xl mx-auto px-4 md:px-8 text-center">
         <span className="inline-block px-4 py-1.5 rounded-full border border-white/20 text-white/80 text-xs font-semibold uppercase tracking-widest mb-6">
           Get Started
