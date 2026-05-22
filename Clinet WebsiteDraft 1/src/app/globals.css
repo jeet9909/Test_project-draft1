@@ -1,24 +1,74 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 html { scroll-behavior: smooth; }
-* { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: border-box; }
 
 @layer base {
   body {
     @apply font-sans text-slate bg-white antialiased;
+    font-feature-settings: "kern" 1, "liga" 1;
   }
-  h1, h2, h3 {
-    @apply font-serif;
-  }
+  h1, h2, h3 { @apply font-serif; }
   em { font-style: italic; }
+  ::selection { background: #0A4F5C22; color: #0A4F5C; }
 }
 
 @layer utilities {
   .section-pad { @apply px-6 md:px-12 lg:px-20; }
   .eyebrow {
-    @apply text-[11px] font-sans font-medium tracking-[0.22em] uppercase;
+    @apply text-[11px] font-sans font-semibold tracking-[0.25em] uppercase;
+  }
+
+  /* Dot grid pattern for off-white sections */
+  .dot-grid {
+    background-image: radial-gradient(#0A4F5C18 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Card lift */
+  .card-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+  .card-hover:hover {
+    @apply -translate-y-1 shadow-lg shadow-teal/5;
+  }
+
+  /* Focus ring */
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-teal/50 focus-visible:ring-offset-2;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-coral hover:bg-coral-dark active:scale-[0.98]
+           text-white px-6 py-3 rounded-lg text-[14px] font-semibold
+           transition-all duration-200 cursor-pointer shadow-sm shadow-coral/20
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-coral/50 focus-visible:ring-offset-2;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2
+           border-2 border-teal text-teal hover:bg-teal hover:text-white active:scale-[0.98]
+           px-6 py-3 rounded-lg text-[14px] font-semibold
+           transition-all duration-200 cursor-pointer
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-teal/50 focus-visible:ring-offset-2;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2
+           text-teal hover:bg-teal/8 active:scale-[0.98]
+           px-4 py-2 rounded-lg text-[14px] font-medium
+           transition-all duration-200 cursor-pointer;
+  }
+
+  /* Form inputs */
+  .form-input {
+    @apply w-full bg-[#0F172A] border border-gray-700/80 rounded-lg px-4 py-3
+           text-[14px] text-white placeholder:text-gray-600
+           focus:outline-none focus:border-teal focus:ring-1 focus:ring-teal/30
+           transition-all duration-200;
   }
 }

@@ -1,117 +1,263 @@
+'use client'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { ArrowRight, FlaskConical, Clock, Eye, DollarSign, CheckCircle } from 'lucide-react'
 import WormBackground from '@/components/WormBackground'
+import AnimateIn from '@/components/ui/AnimateIn'
+import CountUp from '@/components/ui/CountUp'
+
+const PLATFORM_CARDS = [
+  {
+    icon: Eye,
+    title: 'Transparent organism',
+    body: 'Enables live imaging and real-time monitoring at every assay stage — no sacrifice required mid-study.',
+  },
+  {
+    icon: Clock,
+    title: 'Rapid lifecycle',
+    body: 'Short life cycle delivers results in days, not months — far faster than rodent model timelines.',
+  },
+  {
+    icon: FlaskConical,
+    title: 'Conserved biology',
+    body: '~1 mm organism with human-relevant conserved pathways — true in vivo context beyond cell culture.',
+  },
+  {
+    icon: DollarSign,
+    title: 'Cost-efficient',
+    body: 'Organism-level screening with measurable phenotypic outputs at a fraction of mammalian study costs.',
+  },
+]
+
+const INDUSTRIES = [
+  { name: 'Pharma',          icon: '💊' },
+  { name: 'Nutraceuticals',  icon: '🌿' },
+  { name: 'Cosmetics',       icon: '✨' },
+  { name: 'AYUSH',           icon: '🌺' },
+  { name: 'Biotechnology',   icon: '🔬' },
+  { name: 'Agrochemicals',   icon: '🌱' },
+  { name: 'Academia',        icon: '🎓' },
+  { name: 'Startups',        icon: '🚀' },
+]
+
+const SERVICES_PREVIEW = [
+  {
+    tag: 'Pillar 01',
+    title: 'Toxicity & Safety Profiling',
+    desc: 'Acute & sub-chronic toxicity, live-dead staining, anthelmintic screening.',
+    href: '/services',
+  },
+  {
+    tag: 'Pillar 02',
+    title: 'Efficacy & Functional Bioassays',
+    desc: 'Anti-aging, probiotic screening, neuroprotection, metabolic health, stress biology.',
+    href: '/services',
+  },
+  {
+    tag: 'Pillar 03',
+    title: 'Microbiological & Anti-Infective',
+    desc: 'In vivo anti-pathogenic, AMR research, anti-virulence, host-microbe interactions.',
+    href: '/services',
+  },
+]
 
 export default function HomePage() {
   return (
     <>
-      {/* HERO */}
-      <section className="pt-28 md:pt-36 pb-16 md:pb-24 section-pad bg-white">
-        <div className="max-w-3xl">
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-slate leading-tight mb-6">
-            Whole-organism research platform.<br />
-            <span className="text-teal">Pioneering Rapid In Vivo Screening</span><br />
-            through <em>C. elegans</em> Model.
-          </h1>
-          <p className="text-[17px] text-gray-500 leading-relaxed max-w-2xl mb-10">
-            WormEra Research Lab is a specialized research and service laboratory focused on{' '}
-            <em>Caenorhabditis elegans</em>–based in vivo screening for nutraceutical, pharmaceutical,
-            antimicrobial, and functional ingredient evaluation. With a strong emphasis on scientific
-            accuracy, innovation, and translational research, the laboratory provides reliable
-            preclinical screening solutions for academia and industry.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Link href="/contact" className="inline-flex items-center gap-2 bg-coral hover:bg-coral-dark text-white px-6 py-3 rounded text-[14px] font-medium transition-colors cursor-pointer">
+      {/* ─── HERO ──────────────────────────────────────────── */}
+      <section className="relative pt-28 md:pt-36 pb-20 md:pb-28 section-pad bg-white overflow-hidden">
+        {/* Subtle dot grid */}
+        <div className="absolute inset-0 dot-grid opacity-60 pointer-events-none" />
+        {/* Teal glow blob */}
+        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-teal/5 blur-3xl pointer-events-none" />
+
+        <div className="relative max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+          >
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal/8 border border-teal/15 text-teal text-[11px] font-semibold uppercase tracking-widest mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-teal animate-pulse" />
+              C. elegans Model Platform · Ahmedabad, India
+            </span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+            className="font-serif text-[2.6rem] md:text-[3.5rem] lg:text-[4rem] font-bold text-slate leading-[1.1] mb-6 tracking-tight"
+          >
+            Whole-organism research<br className="hidden md:block" /> platform.{' '}
+            <span className="text-teal">Pioneering Rapid</span>{' '}
+            <span className="relative whitespace-nowrap">
+              <em>In Vivo</em> Screening
+              <svg className="absolute -bottom-1 left-0 w-full" height="4" viewBox="0 0 200 4" preserveAspectRatio="none">
+                <path d="M0 3 Q50 0 100 2 Q150 4 200 1" stroke="#E86A33" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+              </svg>
+            </span>
+            {' '}through <em>C. elegans</em>.
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.18, ease: 'easeOut' }}
+            className="text-[16px] md:text-[17px] text-gray-500 leading-relaxed max-w-2xl mb-10"
+          >
+            WormEra Research Lab provides scientifically rigorous, whole-organism bioassay services
+            for nutraceutical, pharmaceutical, antimicrobial, and functional ingredient evaluation —
+            grounded in 5+ years of expertise and 14+ peer-reviewed publications.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.28, ease: 'easeOut' }}
+            className="flex flex-wrap gap-3"
+          >
+            <Link href="/contact" className="btn-primary text-[14px] px-7 py-3.5 rounded-xl shadow-md shadow-coral/15">
               Request a free consultation
+              <ArrowRight size={16} />
             </Link>
-            <Link href="/services" className="inline-flex items-center gap-2 border border-teal text-teal hover:bg-teal/5 px-6 py-3 rounded text-[14px] font-medium transition-colors cursor-pointer">
-              View our services
+            <Link href="/services" className="btn-outline text-[14px] px-7 py-3.5 rounded-xl">
+              Explore services
             </Link>
-          </div>
+          </motion.div>
+
+          {/* Trust pills */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.42 }}
+            className="flex flex-wrap gap-3 mt-10"
+          >
+            {['14+ Peer-reviewed publications', '5+ Years C. elegans expertise', 'No ethics clearance required'].map(t => (
+              <span key={t} className="inline-flex items-center gap-1.5 text-[12px] text-gray-500 font-medium">
+                <CheckCircle size={13} className="text-teal shrink-0" />
+                {t}
+              </span>
+            ))}
+          </motion.div>
         </div>
       </section>
 
-      {/* WHY C. ELEGANS */}
-      <section className="section-pad py-16 md:py-24 bg-offwhite">
-        <p className="eyebrow text-teal mb-3">The platform advantage</p>
-        <h2 className="font-serif text-3xl md:text-4xl text-slate font-bold mb-12 max-w-xl">Why <em>C. elegans</em>?</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            {
-              title: 'Transparent organism',
-              body: 'Enables live imaging, photography, and real-time monitoring at every stage of the assay — no sacrifice required mid-study.',
-            },
-            {
-              title: 'Rapid lifecycle model',
-              body: 'Short life cycle enables accelerated experimental timelines compared to rodent models — results in days, not months.',
-            },
-            {
-              title: 'Conserved biology',
-              body: '~1 mm organism with conserved pathways relevant to human systems — true in vivo context beyond cell culture.',
-            },
-            {
-              title: 'Cost-efficient screening',
-              body: 'Organism-level screening with measurable phenotypic outputs at a fraction of mammalian study costs.',
-            },
-          ].map(card => (
-            <div key={card.title} className="bg-white border-l-4 border-teal rounded p-6">
-              <h3 className="font-serif text-[17px] font-semibold text-slate mb-3">{card.title}</h3>
-              <p className="text-[14px] text-gray-500 leading-relaxed">{card.body}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* STATS */}
-      <section className="section-pad py-12 bg-white border-y border-gray-100">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {[
-            { value: '14+', label: 'Peer-reviewed publications' },
-            { value: '5+', label: 'Years C. elegans expertise' },
-            { value: '3', label: 'Service pillars' },
-            { value: '8', label: 'Industries served' },
-          ].map(s => (
-            <div key={s.label}>
-              <p className="font-serif text-4xl font-bold text-teal">{s.value}</p>
-              <p className="text-[12px] text-gray-400 mt-1 leading-snug">{s.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* WHO WE SERVE */}
-      <section className="section-pad py-16 md:py-24 bg-offwhite">
-        <p className="eyebrow text-teal mb-3">Who we serve</p>
-        <h2 className="font-serif text-3xl md:text-4xl text-slate font-bold mb-10">Industries &amp; Clients</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          {['Pharma', 'Nutraceuticals', 'Cosmetics', 'AYUSH', 'Biotechnology', 'Agrochemicals', 'Academia', 'Startups'].map(ind => (
-            <div key={ind} className="bg-white border border-gray-100 rounded-lg p-4 flex flex-col items-center gap-2 hover:border-teal/30 hover:shadow-sm transition-all">
-              <div className="w-8 h-8 rounded-full bg-teal/10 flex items-center justify-center">
-                <div className="w-3 h-3 rounded-full bg-teal/40" />
+      {/* ─── PLATFORM ADVANTAGE ────────────────────────────── */}
+      <section className="section-pad py-20 md:py-28 bg-offwhite dot-grid">
+        <AnimateIn className="mb-12">
+          <p className="eyebrow text-teal mb-2">The platform advantage</p>
+          <h2 className="font-serif text-3xl md:text-4xl text-slate font-bold">Why <em>C. elegans</em>?</h2>
+        </AnimateIn>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {PLATFORM_CARDS.map((card, i) => (
+            <AnimateIn key={card.title} delay={i * 0.08}>
+              <div className="group bg-white rounded-2xl p-6 border border-gray-100 card-hover h-full
+                             hover:border-teal/20 hover:shadow-xl hover:shadow-teal/5 cursor-default">
+                <div className="w-10 h-10 rounded-xl bg-teal/8 flex items-center justify-center mb-4 group-hover:bg-teal/14 transition-colors">
+                  <card.icon size={20} className="text-teal" />
+                </div>
+                <h3 className="font-serif text-[17px] font-semibold text-slate mb-2.5">{card.title}</h3>
+                <p className="text-[13.5px] text-gray-500 leading-relaxed">{card.body}</p>
               </div>
-              <span className="text-[13px] text-slate text-center">{ind}</span>
-            </div>
+            </AnimateIn>
           ))}
         </div>
       </section>
 
-      {/* CTA BANNER */}
-      <section className="relative overflow-hidden bg-teal">
-        <WormBackground count={18} alpha={0.08} speed={0.9} />
-        <div className="relative z-10 section-pad py-16 md:py-20">
-          <h2 className="font-serif text-3xl md:text-4xl text-white font-bold mb-4 max-w-lg">
-            Ready to start your study?
+      {/* ─── STATS ─────────────────────────────────────────── */}
+      <section className="section-pad py-14 bg-white border-y border-gray-100">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
+          {[
+            { end: 14, suffix: '+', label: 'Peer-reviewed publications', desc: 'Spanning 5 research areas' },
+            { end: 5,  suffix: '+', label: 'Years C. elegans expertise', desc: 'Deep domain knowledge' },
+            { end: 3,  suffix: '',  label: 'Core service pillars',       desc: 'Toxicity · Efficacy · AMR' },
+            { end: 8,  suffix: '',  label: 'Industries served',          desc: 'Pharma to AYUSH' },
+          ].map((s, i) => (
+            <AnimateIn key={s.label} delay={i * 0.07} className="text-center">
+              <p className="font-serif text-[3.2rem] font-bold text-teal leading-none mb-1">
+                <CountUp end={s.end} suffix={s.suffix} />
+              </p>
+              <p className="text-[13px] font-semibold text-slate mb-0.5">{s.label}</p>
+              <p className="text-[11px] text-gray-400">{s.desc}</p>
+            </AnimateIn>
+          ))}
+        </div>
+      </section>
+
+      {/* ─── SERVICES PREVIEW ──────────────────────────────── */}
+      <section className="section-pad py-20 md:py-28 bg-white">
+        <AnimateIn className="mb-12">
+          <p className="eyebrow text-teal mb-2">What we offer</p>
+          <h2 className="font-serif text-3xl md:text-4xl text-slate font-bold max-w-lg">
+            Three pillars of whole-organism research
           </h2>
-          <p className="text-[16px] text-white/70 mb-8 max-w-lg">
-            Reach out for a free consultation. We&apos;ll design the right assay for your compound.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Link href="/contact" className="bg-coral hover:bg-coral-dark text-white px-7 py-3 rounded text-[14px] font-medium transition-colors cursor-pointer">
-              Get in touch
-            </Link>
-            <a href="mailto:wormeraresearchlab@gmail.com" className="border border-white/30 text-white/80 hover:border-white hover:text-white px-7 py-3 rounded text-[14px] font-medium transition-colors">
-              wormeraresearchlab@gmail.com
-            </a>
-          </div>
+        </AnimateIn>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {SERVICES_PREVIEW.map((svc, i) => (
+            <AnimateIn key={svc.title} delay={i * 0.1}>
+              <Link href={svc.href}
+                className="group block bg-white border border-gray-100 rounded-2xl p-7 card-hover
+                           hover:border-teal/25 hover:shadow-xl hover:shadow-teal/5 h-full"
+              >
+                <span className="eyebrow text-teal/60 mb-3 block">{svc.tag}</span>
+                <h3 className="font-serif text-[18px] font-semibold text-slate mb-3 group-hover:text-teal transition-colors">
+                  {svc.title}
+                </h3>
+                <p className="text-[13.5px] text-gray-500 leading-relaxed mb-5">{svc.desc}</p>
+                <span className="inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-teal group-hover:gap-2.5 transition-all">
+                  Learn more <ArrowRight size={14} />
+                </span>
+              </Link>
+            </AnimateIn>
+          ))}
+        </div>
+      </section>
+
+      {/* ─── INDUSTRIES ────────────────────────────────────── */}
+      <section className="section-pad py-20 bg-offwhite dot-grid">
+        <AnimateIn className="mb-10">
+          <p className="eyebrow text-teal mb-2">Who we serve</p>
+          <h2 className="font-serif text-3xl md:text-4xl text-slate font-bold">Industries &amp; clients</h2>
+        </AnimateIn>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          {INDUSTRIES.map((ind, i) => (
+            <AnimateIn key={ind.name} delay={i * 0.05}>
+              <div className="group bg-white border border-gray-100 rounded-2xl p-5 flex flex-col items-center gap-3
+                             card-hover hover:border-teal/25 hover:shadow-lg hover:shadow-teal/5 cursor-default">
+                <div className="text-3xl">{ind.icon}</div>
+                <span className="text-[13px] font-medium text-slate text-center">{ind.name}</span>
+              </div>
+            </AnimateIn>
+          ))}
+        </div>
+      </section>
+
+      {/* ─── CTA BANNER ────────────────────────────────────── */}
+      <section className="relative overflow-hidden bg-teal">
+        <WormBackground count={20} alpha={0.09} speed={0.85} />
+        <div className="relative z-10 section-pad py-20 md:py-24">
+          <AnimateIn>
+            <p className="eyebrow text-[#9FE1CB] mb-4">Start your study</p>
+            <h2 className="font-serif text-3xl md:text-[2.6rem] text-white font-bold mb-4 max-w-xl leading-tight">
+              Ready to screen your compound with a living organism?
+            </h2>
+            <p className="text-[15px] text-white/65 mb-9 max-w-lg leading-relaxed">
+              We design the right assay panel for your research question — free initial consultation,
+              fast turnaround, and peer-reviewed methodology.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/contact"
+                className="inline-flex items-center gap-2 bg-white text-teal hover:bg-white/95 px-7 py-3.5 rounded-xl text-[14px] font-semibold transition-all duration-200 shadow-lg shadow-black/10 cursor-pointer">
+                Get in touch
+                <ArrowRight size={16} />
+              </Link>
+              <a href="mailto:wormeraresearchlab@gmail.com"
+                className="inline-flex items-center gap-2 border border-white/25 text-white/80 hover:border-white hover:text-white px-7 py-3.5 rounded-xl text-[14px] font-medium transition-all duration-200 cursor-pointer">
+                wormeraresearchlab@gmail.com
+              </a>
+            </div>
+          </AnimateIn>
         </div>
       </section>
     </>
