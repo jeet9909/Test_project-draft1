@@ -30,7 +30,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-[13.5px] text-gray-500 leading-relaxed max-w-[260px]">
-              Scientifically rigorous whole-organism bioassay services — grounded in 5+ years of expertise and 14+ peer-reviewed publications.
+              Scientifically rigorous whole-organism bioassay services — grounded in 5+ years of expertise and 12+ peer-reviewed publications.
             </p>
             {/* Social icons */}
             <div className="flex items-center gap-4">

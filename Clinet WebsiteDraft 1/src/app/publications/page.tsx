@@ -66,7 +66,7 @@ export default function PublicationsPage() {
               Publications
             </h1>
             <p className="text-[16px] text-gray-500 max-w-2xl leading-relaxed">
-              14 peer-reviewed publications spanning antimicrobial discovery, aging biology, functional screening, and model organism validation.
+              12+ peer-reviewed publications spanning antimicrobial discovery, aging biology, functional screening, and model organism validation.
             </p>
           </AnimateIn>
         </div>

@@ -30,7 +30,7 @@ const TEAM = [
 ]
 
 const TRUST = [
-  { icon: BookOpen, label: '14+', desc: 'Peer-reviewed publications' },
+  { icon: BookOpen, label: '12+', desc: 'Peer-reviewed publications' },
   { icon: FlaskConical, label: '5+', desc: 'Years C. elegans expertise' },
   { icon: Award, label: '3R', desc: 'Aligned — no mammalian ethics required' },
   { icon: Users, label: '8', desc: 'Industries served globally' },
@@ -154,11 +154,11 @@ export default function AboutPage() {
                 We are established in Ahmedabad and founded by researchers from Nirma University with deep expertise in host-pathogen interactions, stress biology, functional screening, and validated experimental design.
               </p>
               <p>
-                With 14+ peer-reviewed publications and a commitment to reproducibility, our work is grounded in science — not shortcuts.
+                With 12+ peer-reviewed publications and a commitment to reproducibility, our work is grounded in science — not shortcuts.
               </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
-              {['14+ publications', '3R-aligned', 'No ethics clearance', 'Peer-reviewed methods'].map(badge => (
+              {['12+ publications', '3R-aligned', 'No ethics clearance', 'Peer-reviewed methods'].map(badge => (
                 <span key={badge} className="inline-flex items-center gap-1.5 text-[12px] text-gray-500 font-medium">
                   <CheckCircle size={13} className="text-teal shrink-0" />
                   {badge}

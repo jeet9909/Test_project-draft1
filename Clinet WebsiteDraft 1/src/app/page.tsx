@@ -73,7 +73,7 @@ export default function HomePage() {
           >
             WormEra Research Lab provides scientifically rigorous, whole-organism bioassay services
             for nutraceutical, pharmaceutical, antimicrobial, and functional ingredient evaluation —
-            grounded in 5+ years of expertise and 14+ peer-reviewed publications.
+            grounded in 5+ years of expertise and 12+ peer-reviewed publications.
           </motion.p>
 
           <motion.div
@@ -97,7 +97,7 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.42 }}
             className="flex flex-wrap gap-3 mt-10"
           >
-            {['14+ Peer-reviewed publications', '5+ Years C. elegans expertise', 'No ethics clearance required'].map(t => (
+            {['12+ Peer-reviewed publications', '5+ Years C. elegans expertise', 'No ethics clearance required'].map(t => (
               <span key={t} className="inline-flex items-center gap-1.5 text-[12px] text-gray-500 font-medium">
                 <CheckCircle size={13} className="text-teal shrink-0" />
                 {t}
@@ -133,7 +133,7 @@ export default function HomePage() {
       <section className="section-pad py-14 bg-white border-y border-gray-100">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
           {[
-            { end: 14, suffix: '+', label: 'Peer-reviewed publications', desc: 'Spanning 5 research areas' },
+            { end: 12, suffix: '+', label: 'Peer-reviewed publications', desc: 'Spanning 5 research areas' },
             { end: 5,  suffix: '+', label: 'Years C. elegans expertise', desc: 'Deep domain knowledge' },
             { end: 3,  suffix: '',  label: 'Core service pillars',       desc: 'Toxicity · Efficacy · AMR' },
             { end: 8,  suffix: '',  label: 'Industries served',          desc: 'Pharma to AYUSH' },
