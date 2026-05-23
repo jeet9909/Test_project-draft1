@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import WormLoader from '@/components/WormLoader'
 
 export const metadata: Metadata = {
   title: { template: '%s | WormEra Research Lab', default: 'WormEra Research Lab' },
@@ -14,7 +13,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <WormLoader />
         <Navbar />
         <main>{children}</main>
         <Footer />

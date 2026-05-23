@@ -29,46 +29,12 @@ const PLATFORM_CARDS = [
   },
 ]
 
-const INDUSTRIES = [
-  { name: 'Pharma',          icon: '💊' },
-  { name: 'Nutraceuticals',  icon: '🌿' },
-  { name: 'Cosmetics',       icon: '✨' },
-  { name: 'AYUSH',           icon: '🌺' },
-  { name: 'Biotechnology',   icon: '🔬' },
-  { name: 'Agrochemicals',   icon: '🌱' },
-  { name: 'Academia',        icon: '🎓' },
-  { name: 'Startups',        icon: '🚀' },
-]
-
-const SERVICES_PREVIEW = [
-  {
-    tag: 'Pillar 01',
-    title: 'Toxicity & Safety Profiling',
-    desc: 'Acute & sub-chronic toxicity, live-dead staining, anthelmintic screening.',
-    href: '/services',
-  },
-  {
-    tag: 'Pillar 02',
-    title: 'Efficacy & Functional Bioassays',
-    desc: 'Anti-aging, probiotic screening, neuroprotection, metabolic health, stress biology.',
-    href: '/services',
-  },
-  {
-    tag: 'Pillar 03',
-    title: 'Microbiological & Anti-Infective',
-    desc: 'In vivo anti-pathogenic, AMR research, anti-virulence, host-microbe interactions.',
-    href: '/services',
-  },
-]
-
 export default function HomePage() {
   return (
     <>
       {/* ─── HERO ──────────────────────────────────────────── */}
       <section className="relative pt-28 md:pt-36 pb-20 md:pb-28 section-pad bg-white overflow-hidden">
-        {/* Subtle dot grid */}
         <div className="absolute inset-0 dot-grid opacity-60 pointer-events-none" />
-        {/* Teal glow blob */}
         <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-teal/5 blur-3xl pointer-events-none" />
 
         <div className="relative max-w-4xl">
@@ -126,7 +92,6 @@ export default function HomePage() {
             </Link>
           </motion.div>
 
-          {/* Trust pills */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -180,54 +145,6 @@ export default function HomePage() {
               </p>
               <p className="text-[13px] font-semibold text-slate mb-0.5">{s.label}</p>
               <p className="text-[11px] text-gray-400">{s.desc}</p>
-            </AnimateIn>
-          ))}
-        </div>
-      </section>
-
-      {/* ─── SERVICES PREVIEW ──────────────────────────────── */}
-      <section className="section-pad py-20 md:py-28 bg-white">
-        <AnimateIn className="mb-12">
-          <p className="eyebrow text-teal mb-2">What we offer</p>
-          <h2 className="font-serif text-3xl md:text-4xl text-slate font-bold max-w-lg">
-            Three pillars of whole-organism research
-          </h2>
-        </AnimateIn>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {SERVICES_PREVIEW.map((svc, i) => (
-            <AnimateIn key={svc.title} delay={i * 0.1}>
-              <Link href={svc.href}
-                className="group block bg-white border border-gray-100 rounded-2xl p-7 card-hover
-                           hover:border-teal/25 hover:shadow-xl hover:shadow-teal/5 h-full"
-              >
-                <span className="eyebrow text-teal/60 mb-3 block">{svc.tag}</span>
-                <h3 className="font-serif text-[18px] font-semibold text-slate mb-3 group-hover:text-teal transition-colors">
-                  {svc.title}
-                </h3>
-                <p className="text-[13.5px] text-gray-500 leading-relaxed mb-5">{svc.desc}</p>
-                <span className="inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-teal group-hover:gap-2.5 transition-all">
-                  Learn more <ArrowRight size={14} />
-                </span>
-              </Link>
-            </AnimateIn>
-          ))}
-        </div>
-      </section>
-
-      {/* ─── INDUSTRIES ────────────────────────────────────── */}
-      <section className="section-pad py-20 bg-offwhite dot-grid">
-        <AnimateIn className="mb-10">
-          <p className="eyebrow text-teal mb-2">Who we serve</p>
-          <h2 className="font-serif text-3xl md:text-4xl text-slate font-bold">Industries &amp; clients</h2>
-        </AnimateIn>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          {INDUSTRIES.map((ind, i) => (
-            <AnimateIn key={ind.name} delay={i * 0.05}>
-              <div className="group bg-white border border-gray-100 rounded-2xl p-5 flex flex-col items-center gap-3
-                             card-hover hover:border-teal/25 hover:shadow-lg hover:shadow-teal/5 cursor-default">
-                <div className="text-3xl">{ind.icon}</div>
-                <span className="text-[13px] font-medium text-slate text-center">{ind.name}</span>
-              </div>
             </AnimateIn>
           ))}
         </div>
