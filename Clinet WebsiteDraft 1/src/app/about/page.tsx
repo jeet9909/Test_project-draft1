@@ -50,40 +50,19 @@ const INDUSTRIES = [
 export default function AboutPage() {
   return (
     <>
-      {/* ── HERO ─────────────────────────────────────────── */}
-      <section className="relative pt-28 md:pt-36 pb-16 section-pad bg-white overflow-hidden">
-        <div className="absolute inset-0 dot-grid opacity-40 pointer-events-none" />
-        <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-teal/5 blur-3xl pointer-events-none" />
-        <div className="relative">
-          <AnimateIn>
-            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal/8 border border-teal/15 text-teal text-[11px] font-semibold uppercase tracking-widest mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-teal animate-pulse" />
-              Ahmedabad, India
-            </span>
-            <h1 className="font-serif text-[2.4rem] md:text-[3.2rem] text-slate font-bold leading-tight mb-4">
-              A blend of scientific expertise<br className="hidden md:block" /> and business acumen driving innovation.
-            </h1>
-            <p className="text-[16px] text-gray-500 max-w-xl leading-relaxed">
-              WormEra Research Lab is built on 5+ years of hands-on expertise in <em>C. elegans</em> biology,
-              delivering reproducible whole-organism bioassay data to researchers and industry worldwide.
-            </p>
-          </AnimateIn>
-        </div>
-      </section>
-
-      {/* ── TEAM CARDS — full width container ────────────── */}
-      <section className="section-pad py-20 md:py-28 bg-offwhite dot-grid">
+      {/* ── TEAM CARDS ────────────────────────────────────── */}
+      <section className="section-pad pt-28 md:pt-36 py-20 md:py-28 bg-offwhite dark:bg-gray-800 dot-grid">
         <AnimateIn className="mb-12">
           <p className="eyebrow text-teal mb-2">Meet the founders</p>
-          <h2 className="font-serif text-3xl md:text-4xl text-slate font-bold">The people behind the research</h2>
+          <h1 className="font-serif text-3xl md:text-4xl text-slate dark:text-gray-100 font-bold">The people behind the research</h1>
         </AnimateIn>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {TEAM.map((person, i) => (
             <AnimateIn key={person.name} delay={i * 0.12}>
-              <div className="group bg-white border border-gray-100 rounded-2xl overflow-hidden card-hover hover:border-teal/20 hover:shadow-xl hover:shadow-teal/5 h-full">
+              <div className="group bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-700 rounded-2xl overflow-hidden card-hover hover:border-teal/20 hover:shadow-xl hover:shadow-teal/5 h-full">
                 <div className="flex flex-col sm:flex-row h-full">
-                  {/* Photo — fixed width column */}
+                  {/* Photo */}
                   <div className="relative w-full sm:w-56 lg:w-64 flex-shrink-0 aspect-[4/3] sm:aspect-auto bg-gradient-to-br from-teal/5 to-teal/10 overflow-hidden">
                     <Image
                       src={person.photo}
@@ -98,14 +77,14 @@ export default function AboutPage() {
                   {/* Details */}
                   <div className="flex flex-col justify-between p-6 lg:p-8 flex-1">
                     <div>
-                      <h3 className="font-serif text-[20px] font-semibold text-slate mb-1">{person.name}</h3>
+                      <h3 className="font-serif text-[20px] font-semibold text-slate dark:text-gray-100 mb-1">{person.name}</h3>
                       <p className="text-[13px] text-coral font-semibold mb-1">{person.role}</p>
-                      <p className="text-[12px] text-gray-400 mb-4">
+                      <p className="text-[12px] text-gray-400 dark:text-gray-500 mb-4">
                         {person.affiliation}{person.note ? ` — ${person.note}` : ''}
                       </p>
-                      <p className="text-[14px] text-gray-500 leading-relaxed">{person.expertise}</p>
+                      <p className="text-[14px] text-gray-500 dark:text-gray-400 leading-relaxed">{person.expertise}</p>
                     </div>
-                    <div className="mt-5 pt-5 border-t border-gray-100">
+                    <div className="mt-5 pt-5 border-t border-gray-100 dark:border-gray-700">
                       <a
                         href={person.scholar}
                         target="_blank"
@@ -124,16 +103,16 @@ export default function AboutPage() {
       </section>
 
       {/* ── TRUST SIGNALS ────────────────────────────────── */}
-      <section className="section-pad py-10 bg-white border-y border-gray-100">
+      <section className="section-pad py-10 bg-white dark:bg-gray-900 border-y border-gray-100 dark:border-gray-700">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {TRUST.map((t, i) => (
             <AnimateIn key={t.label} delay={i * 0.07}>
               <div className="flex flex-col items-center text-center gap-2">
-                <div className="w-10 h-10 rounded-xl bg-teal/8 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-teal/8 dark:bg-teal/15 flex items-center justify-center">
                   <t.icon size={18} className="text-teal" />
                 </div>
                 <p className="font-serif text-[2.2rem] font-bold text-teal leading-none">{t.label}</p>
-                <p className="text-[12px] text-gray-500">{t.desc}</p>
+                <p className="text-[12px] text-gray-500 dark:text-gray-400">{t.desc}</p>
               </div>
             </AnimateIn>
           ))}
@@ -141,12 +120,12 @@ export default function AboutPage() {
       </section>
 
       {/* ── STORY + VISION/MISSION ───────────────────────── */}
-      <section className="section-pad py-20 md:py-28 bg-offwhite dot-grid">
+      <section className="section-pad py-20 md:py-28 bg-offwhite dark:bg-gray-800 dot-grid">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           <AnimateIn direction="left">
             <p className="eyebrow text-coral mb-3">Our story</p>
-            <h2 className="font-serif text-3xl md:text-4xl text-slate font-bold mb-6">About WormEra Research Lab</h2>
-            <div className="space-y-4 text-[15px] text-gray-500 leading-relaxed">
+            <h2 className="font-serif text-3xl md:text-4xl text-slate dark:text-gray-100 font-bold mb-6">About WormEra Research Lab</h2>
+            <div className="space-y-4 text-[15px] text-gray-500 dark:text-gray-400 leading-relaxed">
               <p>
                 WormEra Research Lab is a specialized research platform founded by researchers, for researchers. Built on over five years of hands-on expertise in <em>Caenorhabditis elegans</em> biology, we offer scientifically rigorous, whole-organism bioassay services to industries that demand reliable pre-clinical data — faster and more affordably than conventional models allow.
               </p>
@@ -159,7 +138,7 @@ export default function AboutPage() {
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
               {['12+ publications', '3R-aligned', 'No ethics clearance', 'Peer-reviewed methods'].map(badge => (
-                <span key={badge} className="inline-flex items-center gap-1.5 text-[12px] text-gray-500 font-medium">
+                <span key={badge} className="inline-flex items-center gap-1.5 text-[12px] text-gray-500 dark:text-gray-400 font-medium">
                   <CheckCircle size={13} className="text-teal shrink-0" />
                   {badge}
                 </span>
@@ -169,15 +148,15 @@ export default function AboutPage() {
 
           <AnimateIn delay={0.1}>
             <div className="space-y-5">
-              <div className="bg-white border-l-4 border-gold rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="bg-white dark:bg-gray-900 border-l-4 border-gold rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="font-serif text-[19px] font-semibold text-teal mb-3">Vision</h3>
-                <p className="text-[14px] text-gray-500 leading-relaxed">
+                <p className="text-[14px] text-gray-500 dark:text-gray-400 leading-relaxed">
                   To advance biological research through innovative and scientifically validated model systems that contribute to better health, sustainable science, and next-generation product development. We aim to bridge academic excellence with industrial research by delivering reliable and impactful scientific solutions globally.
                 </p>
               </div>
-              <div className="bg-white border-l-4 border-coral rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="bg-white dark:bg-gray-900 border-l-4 border-coral rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="font-serif text-[19px] font-semibold text-teal mb-3">Mission</h3>
-                <p className="text-[14px] text-gray-500 leading-relaxed">
+                <p className="text-[14px] text-gray-500 dark:text-gray-400 leading-relaxed">
                   We are committed to providing standardized, accurate, and research-driven assay services using advanced in vivo model systems and modern scientific methodologies. Our mission is to support researchers and industries with reliable biological screening platforms that accelerate scientific discovery, product validation, and translational research.
                 </p>
               </div>
@@ -187,17 +166,17 @@ export default function AboutPage() {
       </section>
 
       {/* ── INDUSTRIES ───────────────────────────────────── */}
-      <section className="section-pad py-16 bg-white">
+      <section className="section-pad py-16 bg-white dark:bg-gray-900">
         <AnimateIn className="mb-10">
           <p className="eyebrow text-teal mb-2">Who we serve</p>
-          <h2 className="font-serif text-3xl md:text-4xl text-slate font-bold">Industries &amp; Clients</h2>
+          <h2 className="font-serif text-3xl md:text-4xl text-slate dark:text-gray-100 font-bold">Industries &amp; Clients</h2>
         </AnimateIn>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {INDUSTRIES.map((ind, i) => (
             <AnimateIn key={ind.name} delay={i * 0.05}>
-              <div className="group bg-white border border-gray-100 rounded-2xl p-5 flex flex-col items-center gap-3 card-hover hover:border-teal/25 hover:shadow-lg hover:shadow-teal/5 cursor-default">
+              <div className="group bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-5 flex flex-col items-center gap-3 card-hover hover:border-teal/25 hover:shadow-lg hover:shadow-teal/5 cursor-default">
                 <div className="text-3xl">{ind.icon}</div>
-                <span className="text-[13px] font-medium text-slate text-center">{ind.name}</span>
+                <span className="text-[13px] font-medium text-slate dark:text-gray-300 text-center">{ind.name}</span>
               </div>
             </AnimateIn>
           ))}
@@ -205,12 +184,12 @@ export default function AboutPage() {
       </section>
 
       {/* ── CTA ──────────────────────────────────────────── */}
-      <section className="section-pad py-16 bg-offwhite border-t border-gray-100">
+      <section className="section-pad py-16 bg-offwhite dark:bg-gray-800 border-t border-gray-100 dark:border-gray-700">
         <AnimateIn>
-          <div className="bg-white border border-gray-100 rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
+          <div className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-700 rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
             <div>
-              <h3 className="font-serif text-[22px] font-semibold text-slate mb-1">Ready to start a study?</h3>
-              <p className="text-[14px] text-gray-500">Free initial consultation — we design the assay panel around your compound.</p>
+              <h3 className="font-serif text-[22px] font-semibold text-slate dark:text-gray-100 mb-1">Ready to start a study?</h3>
+              <p className="text-[14px] text-gray-500 dark:text-gray-400">Free initial consultation — we design the assay panel around your compound.</p>
             </div>
             <Link href="/contact" className="btn-primary shrink-0 px-7 py-3.5 rounded-xl text-[14px]">
               Get in touch

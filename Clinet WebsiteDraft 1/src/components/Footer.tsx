@@ -1,107 +1,111 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { Mail, Phone, MapPin } from 'lucide-react'
 import logoSrc from '@/../public/logo.png'
 import AnimateIn from '@/components/ui/AnimateIn'
 
-const NAV = [
-  { href: '/',             label: 'Home' },
-  { href: '/about',        label: 'About' },
-  { href: '/services',     label: 'Services' },
-  { href: '/publications', label: 'Publications' },
-  { href: '/contact',      label: 'Contact' },
-]
-
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-gray-100">
-      {/* Main footer grid */}
-      <div className="section-pad py-14 md:py-16 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-14">
+    <footer className="bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-700">
+      {/* Main footer — 2 columns */}
+      <div className="section-pad py-14 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start">
 
-        {/* Brand column */}
-        <AnimateIn>
-          <div className="flex flex-col gap-5">
-            <Link href="/" className="flex items-center gap-3 group w-fit">
-              <div className="w-10 h-10 rounded-xl overflow-hidden ring-1 ring-teal/10 group-hover:ring-teal/30 transition-all duration-200">
-                <Image src={logoSrc} alt="WormEra" width={40} height={40} className="w-full h-full object-contain" />
+          {/* ── Left: Brand + contact info + socials ── */}
+          <AnimateIn>
+            <div className="flex flex-col gap-6">
+              {/* Logo */}
+              <Link href="/" className="flex items-center gap-3 group w-fit">
+                <div className="w-10 h-10 rounded-xl overflow-hidden ring-1 ring-teal/10 group-hover:ring-teal/30 transition-all duration-200">
+                  <Image src={logoSrc} alt="WormEra" width={40} height={40} className="w-full h-full object-contain" />
+                </div>
+                <div>
+                  <p className="text-[14px] font-bold text-slate dark:text-gray-100 leading-tight">WormEra Research Lab</p>
+                  <p className="text-[11px] text-gray-400 dark:text-gray-500 uppercase tracking-widest leading-tight">C. elegans CRO · Ahmedabad</p>
+                </div>
+              </Link>
+
+              {/* Tagline */}
+              <p className="text-[13.5px] text-gray-500 dark:text-gray-400 leading-relaxed max-w-[380px]">
+                Scientifically rigorous whole-organism bioassay services — grounded in 5+ years of expertise and 12+ peer-reviewed publications.
+              </p>
+
+              {/* Contact info */}
+              <div className="flex flex-col gap-2.5">
+                <a href="mailto:wormeraresearchlab@gmail.com"
+                  className="inline-flex items-center gap-2.5 text-[13px] text-gray-500 dark:text-gray-400 hover:text-teal dark:hover:text-teal transition-colors font-medium">
+                  <Mail size={13} className="text-teal shrink-0" />
+                  wormeraresearchlab@gmail.com
+                </a>
+                <a href="tel:+919925993634"
+                  className="inline-flex items-center gap-2.5 text-[13px] text-gray-500 dark:text-gray-400 hover:text-teal dark:hover:text-teal transition-colors font-medium">
+                  <Phone size={13} className="text-teal shrink-0" />
+                  +91-9925993634
+                </a>
+                <span className="inline-flex items-start gap-2.5 text-[13px] text-gray-500 dark:text-gray-400 font-medium">
+                  <MapPin size={13} className="text-teal shrink-0 mt-0.5" />
+                  AIC-GISC Foundation, GTU Campus, Chandkheda, Ahmedabad
+                </span>
               </div>
-              <div>
-                <p className="text-[14px] font-bold text-slate leading-tight">WormEra Research Lab</p>
-                <p className="text-[11px] text-gray-400 uppercase tracking-widest leading-tight">C. elegans CRO · Ahmedabad</p>
+
+              {/* Social icons */}
+              <div className="flex items-center gap-3">
+                <a href="#" aria-label="LinkedIn"
+                  className="w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-teal/10 hover:text-teal transition-all duration-200">
+                  <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                </a>
+                <a href="#" aria-label="YouTube"
+                  className="w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-coral/10 hover:text-coral transition-all duration-200">
+                  <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  </svg>
+                </a>
+                <a href="#" aria-label="Instagram"
+                  className="w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-coral/10 hover:text-coral transition-all duration-200">
+                  <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                  </svg>
+                </a>
               </div>
-            </Link>
-            <p className="text-[13.5px] text-gray-500 leading-relaxed max-w-[260px]">
-              Scientifically rigorous whole-organism bioassay services — grounded in 5+ years of expertise and 12+ peer-reviewed publications.
-            </p>
-            {/* Social icons */}
-            <div className="flex items-center gap-4">
-              <a href="#" aria-label="LinkedIn" className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-400 hover:bg-teal/10 hover:text-teal transition-all duration-200">
-                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-              </a>
-              <a href="#" aria-label="YouTube" className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-400 hover:bg-coral/10 hover:text-coral transition-all duration-200">
-                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                </svg>
-              </a>
-              <a href="#" aria-label="Instagram" className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-400 hover:bg-coral/10 hover:text-coral transition-all duration-200">
-                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-                </svg>
-              </a>
             </div>
-          </div>
-        </AnimateIn>
+          </AnimateIn>
 
-        {/* Navigation */}
-        <AnimateIn delay={0.06}>
-          <div>
-            <p className="text-[11px] font-bold text-slate uppercase tracking-widest mb-4">Navigation</p>
-            <ul className="space-y-2.5">
-              {NAV.map(l => (
-                <li key={l.href}>
-                  <Link href={l.href} className="text-[14px] text-gray-500 hover:text-teal transition-colors font-medium">
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </AnimateIn>
+          {/* ── Right: CTA ── */}
+          <AnimateIn delay={0.1}>
+            <div className="flex flex-col gap-6 md:items-end md:text-right">
+              <div>
+                <p className="text-[11px] font-bold text-slate dark:text-gray-100 uppercase tracking-widest mb-4">Start a study</p>
+                <p className="font-serif text-[22px] md:text-[24px] font-semibold text-slate dark:text-gray-100 leading-snug mb-2 max-w-[280px] md:ml-auto">
+                  Ready to screen your compound with a living organism?
+                </p>
+                <p className="text-[13px] text-gray-400 dark:text-gray-500 mb-6 max-w-[260px] md:ml-auto">
+                  Free initial consultation — we design the assay panel around your compound.
+                </p>
+                <Link href="/contact" className="btn-primary text-[13px] px-6 py-3 rounded-xl">
+                  Free Consultation
+                </Link>
+              </div>
 
-        {/* Contact CTA */}
-        <AnimateIn delay={0.12}>
-          <div>
-            <p className="text-[11px] font-bold text-slate uppercase tracking-widest mb-4">Get in touch</p>
-            <p className="font-serif text-[18px] font-semibold text-slate leading-snug mb-4 max-w-[220px]">
-              Ready to screen your compound with a living organism?
-            </p>
-            <a
-              href="mailto:wormeraresearchlab@gmail.com"
-              className="block text-[13.5px] text-gray-500 hover:text-teal transition-colors mb-1 font-medium"
-            >
-              wormeraresearchlab@gmail.com
-            </a>
-            <a
-              href="tel:+919925993634"
-              className="block text-[13.5px] text-gray-500 hover:text-teal transition-colors mb-5 font-medium"
-            >
-              +91-9925993634
-            </a>
-            <Link href="/contact" className="btn-primary text-[13px] px-5 py-2.5 rounded-xl">
-              Free Consultation
-            </Link>
-          </div>
-        </AnimateIn>
+              <div className="w-full md:max-w-[300px] pt-5 border-t border-gray-100 dark:border-gray-700">
+                <p className="text-[11px] font-semibold text-teal uppercase tracking-wider mb-1">AIC-GISC Foundation Incubatee</p>
+                <p className="text-[12px] text-gray-400 dark:text-gray-500 leading-relaxed">
+                  Founded by researchers from Nirma University, Ahmedabad.
+                </p>
+              </div>
+            </div>
+          </AnimateIn>
 
+        </div>
       </div>
 
       {/* Bottom bar */}
-      <div className="section-pad py-4 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-2">
-        <p className="text-[12px] text-gray-400">
+      <div className="section-pad py-4 border-t border-gray-100 dark:border-gray-700 flex flex-col sm:flex-row items-center justify-between gap-2">
+        <p className="text-[12px] text-gray-400 dark:text-gray-500">
           © {new Date().getFullYear()} WormEra Research Lab. All rights reserved.
         </p>
-        <p className="text-[12px] text-gray-400">
+        <p className="text-[12px] text-gray-400 dark:text-gray-500">
           Founded by researchers from Nirma University, Ahmedabad
         </p>
       </div>
