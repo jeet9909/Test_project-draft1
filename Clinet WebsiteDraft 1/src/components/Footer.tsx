@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-700">
       {/* Main footer — 2 columns */}
       <div className="section-pad py-14 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-10 items-start">
 
           {/* ── Left: Brand + contact info + socials ── */}
           <AnimateIn>
@@ -26,7 +26,7 @@ export default function Footer() {
               </Link>
 
               {/* Tagline */}
-              <p className="text-[13.5px] text-gray-500 dark:text-gray-400 leading-relaxed max-w-[380px]">
+              <p className="text-[13.5px] text-gray-500 dark:text-gray-400 leading-relaxed max-w-[480px]">
                 Scientifically rigorous whole-organism bioassay services — grounded in 5+ years of expertise and 12+ peer-reviewed publications.
               </p>
 
@@ -74,13 +74,13 @@ export default function Footer() {
 
           {/* ── Right: CTA ── */}
           <AnimateIn delay={0.1}>
-            <div className="flex flex-col gap-6 md:items-end md:text-right">
+            <div className="flex flex-col gap-6">
               <div>
                 <p className="text-[11px] font-bold text-slate dark:text-gray-100 uppercase tracking-widest mb-4">Start a study</p>
-                <p className="font-serif text-[22px] md:text-[24px] font-semibold text-slate dark:text-gray-100 leading-snug mb-2 max-w-[280px] md:ml-auto">
+                <p className="font-serif text-[22px] md:text-[24px] font-semibold text-slate dark:text-gray-100 leading-snug mb-2 max-w-[320px]">
                   Ready to screen your compound with a living organism?
                 </p>
-                <p className="text-[13px] text-gray-400 dark:text-gray-500 mb-6 max-w-[260px] md:ml-auto">
+                <p className="text-[13px] text-gray-400 dark:text-gray-500 mb-6 max-w-[300px]">
                   Free initial consultation — we design the assay panel around your compound.
                 </p>
                 <Link href="/contact" className="btn-primary text-[13px] px-6 py-3 rounded-xl">
@@ -88,7 +88,7 @@ export default function Footer() {
                 </Link>
               </div>
 
-              <div className="w-full md:max-w-[300px] pt-5 border-t border-gray-100 dark:border-gray-700">
+              <div className="w-full pt-5 border-t border-gray-100 dark:border-gray-700">
                 <p className="text-[11px] font-semibold text-teal uppercase tracking-wider mb-1">AIC-GISC Foundation Incubatee</p>
                 <p className="text-[12px] text-gray-400 dark:text-gray-500 leading-relaxed">
                   Founded by researchers from Nirma University, Ahmedabad.
