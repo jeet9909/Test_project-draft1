@@ -42,9 +42,9 @@ export default function Navbar() {
             <Image src={logoSrc} alt="WormEra" width={52} height={52} className="w-10 h-10 object-contain" priority />
           </div>
           <div className="hidden sm:block">
-            <p className="text-[10px] text-gray-400 leading-none mb-0.5 font-medium tracking-wide uppercase">Whole-organism research platform</p>
-            <p className="text-[13px] text-slate font-semibold leading-tight max-w-[260px]">
-              Pioneering Rapid In Vivo Screening through <em className="text-teal not-italic font-semibold">C. elegans</em>
+            <p className="text-[14px] text-slate font-bold leading-tight tracking-tight">WormEra Research Lab</p>
+            <p className="text-[11px] text-gray-400 leading-tight font-medium tracking-wide uppercase">
+              C. elegans CRO · Ahmedabad
             </p>
           </div>
         </Link>

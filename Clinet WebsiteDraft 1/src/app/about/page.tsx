@@ -71,8 +71,60 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ── TEAM CARDS — full width container ────────────── */}
+      <section className="section-pad py-20 md:py-28 bg-offwhite dot-grid">
+        <AnimateIn className="mb-12">
+          <p className="eyebrow text-teal mb-2">Meet the founders</p>
+          <h2 className="font-serif text-3xl md:text-4xl text-slate font-bold">The people behind the research</h2>
+        </AnimateIn>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {TEAM.map((person, i) => (
+            <AnimateIn key={person.name} delay={i * 0.12}>
+              <div className="group bg-white border border-gray-100 rounded-2xl overflow-hidden card-hover hover:border-teal/20 hover:shadow-xl hover:shadow-teal/5 h-full">
+                <div className="flex flex-col sm:flex-row h-full">
+                  {/* Photo — fixed width column */}
+                  <div className="relative w-full sm:w-56 lg:w-64 flex-shrink-0 aspect-[4/3] sm:aspect-auto bg-gradient-to-br from-teal/5 to-teal/10 overflow-hidden">
+                    <Image
+                      src={person.photo}
+                      alt={person.name}
+                      fill
+                      sizes="(max-width: 640px) 100vw, 256px"
+                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+
+                  {/* Details */}
+                  <div className="flex flex-col justify-between p-6 lg:p-8 flex-1">
+                    <div>
+                      <h3 className="font-serif text-[20px] font-semibold text-slate mb-1">{person.name}</h3>
+                      <p className="text-[13px] text-coral font-semibold mb-1">{person.role}</p>
+                      <p className="text-[12px] text-gray-400 mb-4">
+                        {person.affiliation}{person.note ? ` — ${person.note}` : ''}
+                      </p>
+                      <p className="text-[14px] text-gray-500 leading-relaxed">{person.expertise}</p>
+                    </div>
+                    <div className="mt-5 pt-5 border-t border-gray-100">
+                      <a
+                        href={person.scholar}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-teal hover:text-teal-dark transition-colors"
+                      >
+                        Google Scholar Profile →
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </AnimateIn>
+          ))}
+        </div>
+      </section>
+
       {/* ── TRUST SIGNALS ────────────────────────────────── */}
-      <section className="section-pad py-10 bg-offwhite border-y border-gray-100">
+      <section className="section-pad py-10 bg-white border-y border-gray-100">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {TRUST.map((t, i) => (
             <AnimateIn key={t.label} delay={i * 0.07}>
@@ -82,53 +134,6 @@ export default function AboutPage() {
                 </div>
                 <p className="font-serif text-[2.2rem] font-bold text-teal leading-none">{t.label}</p>
                 <p className="text-[12px] text-gray-500">{t.desc}</p>
-              </div>
-            </AnimateIn>
-          ))}
-        </div>
-      </section>
-
-      {/* ── TEAM CARDS ───────────────────────────────────── */}
-      <section className="section-pad py-20 md:py-28 bg-white">
-        <AnimateIn className="mb-12">
-          <p className="eyebrow text-teal mb-2">Meet the founders</p>
-          <h2 className="font-serif text-3xl md:text-4xl text-slate font-bold">The people behind the research</h2>
-        </AnimateIn>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl">
-          {TEAM.map((person, i) => (
-            <AnimateIn key={person.name} delay={i * 0.12}>
-              <div className="group bg-white border border-gray-100 rounded-2xl overflow-hidden card-hover hover:border-teal/20 hover:shadow-xl hover:shadow-teal/5">
-                {/* Photo */}
-                <div className="relative w-full aspect-[4/3] bg-gradient-to-br from-teal/5 to-teal/10 overflow-hidden">
-                  <Image
-                    src={person.photo}
-                    alt={person.name}
-                    fill
-                    sizes="(max-width: 640px) 100vw, 50vw"
-                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-4 left-4 right-4 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                    <a
-                      href={person.scholar}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-sm text-teal text-[12px] font-semibold px-3.5 py-1.5 rounded-full shadow-sm"
-                    >
-                      Google Scholar →
-                    </a>
-                  </div>
-                </div>
-                {/* Details */}
-                <div className="p-6">
-                  <h3 className="font-serif text-[19px] font-semibold text-slate mb-1">{person.name}</h3>
-                  <p className="text-[13px] text-coral font-medium mb-1">{person.role}</p>
-                  <p className="text-[12px] text-gray-400 mb-3">
-                    {person.affiliation}{person.note ? ` — ${person.note}` : ''}
-                  </p>
-                  <p className="text-[13px] text-gray-500 leading-relaxed">{person.expertise}</p>
-                </div>
               </div>
             </AnimateIn>
           ))}

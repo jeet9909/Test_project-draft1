@@ -55,15 +55,14 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
             className="font-serif text-[2.6rem] md:text-[3.5rem] lg:text-[4rem] font-bold text-slate leading-[1.1] mb-6 tracking-tight"
           >
-            Whole-organism research<br className="hidden md:block" /> platform.{' '}
-            <span className="text-teal">Pioneering Rapid</span>{' '}
+            Science-backed screening<br className="hidden md:block" /> for your compound —{' '}
+            <span className="text-teal">faster</span>, smarter, and truly{' '}
             <span className="relative whitespace-nowrap">
-              <em>In Vivo</em> Screening
+              <em>in vivo</em>
               <svg className="absolute -bottom-1 left-0 w-full" height="4" viewBox="0 0 200 4" preserveAspectRatio="none">
                 <path d="M0 3 Q50 0 100 2 Q150 4 200 1" stroke="#E86A33" strokeWidth="2.5" fill="none" strokeLinecap="round" />
               </svg>
-            </span>
-            {' '}through <em>C. elegans</em>.
+            </span>.
           </motion.h1>
 
           <motion.p
