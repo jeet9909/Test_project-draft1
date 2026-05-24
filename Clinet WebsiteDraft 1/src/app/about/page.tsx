@@ -4,7 +4,7 @@ import Link from 'next/link'
 import geminiPhoto from '@/../public/images/team/gemini-gajera.png'
 import nidhiPhoto from '@/../public/images/team/nidhi-thakkar.png'
 import AnimateIn from '@/components/ui/AnimateIn'
-import { CheckCircle, BookOpen, FlaskConical, Award, Users } from 'lucide-react'
+import { CheckCircle } from 'lucide-react'
 
 export const metadata: Metadata = { title: 'About — WormEra Research Lab' }
 
@@ -27,13 +27,6 @@ const TEAM = [
     note: 'Ph.D. Thesis Submitted',
     photo: nidhiPhoto,
   },
-]
-
-const TRUST = [
-  { icon: BookOpen, label: '12+', desc: 'Peer-reviewed publications' },
-  { icon: FlaskConical, label: '5+', desc: 'Years C. elegans expertise' },
-  { icon: Award, label: '3R', desc: 'Aligned — no mammalian ethics required' },
-  { icon: Users, label: '8', desc: 'Industries served globally' },
 ]
 
 const INDUSTRIES = [
@@ -96,23 +89,6 @@ export default function AboutPage() {
                     </div>
                   </div>
                 </div>
-              </div>
-            </AnimateIn>
-          ))}
-        </div>
-      </section>
-
-      {/* ── TRUST SIGNALS ────────────────────────────────── */}
-      <section className="section-pad py-10 bg-white dark:bg-gray-900 border-y border-gray-100 dark:border-gray-700">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {TRUST.map((t, i) => (
-            <AnimateIn key={t.label} delay={i * 0.07}>
-              <div className="flex flex-col items-center text-center gap-2">
-                <div className="w-10 h-10 rounded-xl bg-teal/8 dark:bg-teal/15 flex items-center justify-center">
-                  <t.icon size={18} className="text-teal" />
-                </div>
-                <p className="font-serif text-[2.2rem] font-bold text-teal leading-none">{t.label}</p>
-                <p className="text-[12px] text-gray-500 dark:text-gray-400">{t.desc}</p>
               </div>
             </AnimateIn>
           ))}

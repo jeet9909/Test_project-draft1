@@ -1,9 +1,31 @@
 'use client'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowRight, CheckCircle } from 'lucide-react'
+import { ArrowRight, FlaskConical, Clock, Eye, DollarSign, CheckCircle } from 'lucide-react'
 import AnimateIn from '@/components/ui/AnimateIn'
-import CountUp from '@/components/ui/CountUp'
+
+const PLATFORM_CARDS = [
+  {
+    icon: Eye,
+    title: 'Transparent organism',
+    body: 'Enables live imaging and real-time monitoring at every assay stage — no sacrifice required mid-study.',
+  },
+  {
+    icon: Clock,
+    title: 'Rapid lifecycle',
+    body: 'Short life cycle delivers results in days, not months — far faster than rodent model timelines.',
+  },
+  {
+    icon: FlaskConical,
+    title: 'Conserved biology',
+    body: '~1 mm organism with human-relevant conserved pathways — true in vivo context beyond cell culture.',
+  },
+  {
+    icon: DollarSign,
+    title: 'Cost-efficient',
+    body: 'Organism-level screening with measurable phenotypic outputs at a fraction of mammalian study costs.',
+  },
+]
 
 export default function HomePage() {
   return (
@@ -83,21 +105,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── STATS ─────────────────────────────────────────── */}
-      <section className="section-pad py-14 bg-white dark:bg-gray-900 border-y border-gray-100 dark:border-gray-700">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
-          {[
-            { end: 12, suffix: '+', label: 'Peer-reviewed publications', desc: 'Spanning 5 research areas' },
-            { end: 5,  suffix: '+', label: 'Years C. elegans expertise', desc: 'Deep domain knowledge' },
-            { end: 3,  suffix: '',  label: 'Core service pillars',       desc: 'Toxicity · Efficacy · AMR' },
-            { end: 8,  suffix: '',  label: 'Industries served',          desc: 'Pharma to AYUSH' },
-          ].map((s, i) => (
-            <AnimateIn key={s.label} delay={i * 0.07} className="text-center">
-              <p className="font-serif text-[3.2rem] font-bold text-teal leading-none mb-1">
-                <CountUp end={s.end} suffix={s.suffix} />
-              </p>
-              <p className="text-[13px] font-semibold text-slate dark:text-gray-100 mb-0.5">{s.label}</p>
-              <p className="text-[11px] text-gray-400 dark:text-gray-500">{s.desc}</p>
+      {/* ─── PLATFORM ADVANTAGE ────────────────────────────── */}
+      <section className="section-pad py-20 md:py-28 bg-offwhite dark:bg-gray-800 dot-grid">
+        <AnimateIn className="mb-12">
+          <p className="eyebrow text-teal mb-2">The platform advantage</p>
+          <h2 className="font-serif text-3xl md:text-4xl text-slate dark:text-gray-100 font-bold">Why <em>C. elegans</em>?</h2>
+        </AnimateIn>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {PLATFORM_CARDS.map((card, i) => (
+            <AnimateIn key={card.title} delay={i * 0.08}>
+              <div className="group bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 card-hover h-full
+                             hover:border-teal/20 hover:shadow-xl hover:shadow-teal/5 cursor-default">
+                <div className="w-10 h-10 rounded-xl bg-teal/8 dark:bg-teal/15 flex items-center justify-center mb-4 group-hover:bg-teal/14 transition-colors">
+                  <card.icon size={20} className="text-teal" />
+                </div>
+                <h3 className="font-serif text-[17px] font-semibold text-slate dark:text-gray-100 mb-2.5">{card.title}</h3>
+                <p className="text-[13.5px] text-gray-500 dark:text-gray-400 leading-relaxed">{card.body}</p>
+              </div>
             </AnimateIn>
           ))}
         </div>

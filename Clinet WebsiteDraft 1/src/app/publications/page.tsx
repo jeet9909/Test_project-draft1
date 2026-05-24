@@ -2,6 +2,7 @@
 import { useState, useMemo } from 'react'
 import { Search, X, ExternalLink } from 'lucide-react'
 import AnimateIn from '@/components/ui/AnimateIn'
+import CountUp from '@/components/ui/CountUp'
 
 const PUBS = [
   { id: 1,  title: "Berberine Attenuates Chromobacterium violaceum's Virulence by Targeting Efflux and Denitrification Machinery", journal: 'Chemistry & Biodiversity', year: 2025, doi: 'https://doi.org/10.1002/cbdv.202503727', pmid: '42127231', pmcid: null, tag: 'Anti-Pathogenic', oa: false },
@@ -74,6 +75,26 @@ export default function PublicationsPage() {
               12+ peer-reviewed publications spanning antimicrobial discovery, aging biology, functional screening, and model organism validation.
             </p>
           </AnimateIn>
+        </div>
+      </section>
+
+      {/* ── STATS ────────────────────────────────────────── */}
+      <section className="section-pad py-12 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-700">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
+          {[
+            { end: 12, suffix: '+', label: 'Peer-reviewed publications', desc: 'Spanning 5 research areas' },
+            { end: 5,  suffix: '+', label: 'Years C. elegans expertise', desc: 'Deep domain knowledge' },
+            { end: 3,  suffix: '',  label: 'Core service pillars',       desc: 'Toxicity · Efficacy · AMR' },
+            { end: 8,  suffix: '',  label: 'Industries served',          desc: 'Pharma to AYUSH' },
+          ].map((s, i) => (
+            <AnimateIn key={s.label} delay={i * 0.07} className="text-center">
+              <p className="font-serif text-[3.2rem] font-bold text-teal leading-none mb-1">
+                <CountUp end={s.end} suffix={s.suffix} />
+              </p>
+              <p className="text-[13px] font-semibold text-slate dark:text-gray-100 mb-0.5">{s.label}</p>
+              <p className="text-[11px] text-gray-400 dark:text-gray-500">{s.desc}</p>
+            </AnimateIn>
+          ))}
         </div>
       </section>
 
