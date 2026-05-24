@@ -37,8 +37,7 @@ const TAG_STYLES: Record<string, string> = {
 const YEARS = ['All Years', '2025', '2024', '2023', '2022', '2021']
 
 function openLink(url: string) {
-  const win = window.open('', '_blank', 'noopener,noreferrer')
-  if (win) win.location.href = url
+  window.open(url, '_blank', 'noopener,noreferrer')
 }
 
 export default function PublicationsPage() {
