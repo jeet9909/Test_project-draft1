@@ -43,7 +43,7 @@ export default function HomePage() {
           >
             <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal/8 dark:bg-teal/15 border border-teal/15 dark:border-teal/30 text-teal text-[11px] font-semibold uppercase tracking-widest mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-teal animate-pulse" />
-              C. elegans Model Platform · Ahmedabad, India
+              Whole-organism research platform
             </span>
           </motion.div>
 
@@ -53,14 +53,13 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
             className="font-serif text-[2.6rem] md:text-[3.5rem] lg:text-[4rem] font-bold text-slate dark:text-gray-100 leading-[1.1] mb-6 tracking-tight"
           >
-            Science-backed screening<br className="hidden md:block" /> for your compound —{' '}
-            <span className="text-teal">faster</span>, smarter, and truly{' '}
+            Pioneering Rapid <em>In Vivo</em> Screening<br className="hidden md:block" /> through{' '}
             <span className="relative whitespace-nowrap">
-              <em>in vivo</em>
+              <em>C. elegans</em>
               <svg className="absolute -bottom-1 left-0 w-full" height="4" viewBox="0 0 200 4" preserveAspectRatio="none">
                 <path d="M0 3 Q50 0 100 2 Q150 4 200 1" stroke="#E86A33" strokeWidth="2.5" fill="none" strokeLinecap="round" />
               </svg>
-            </span>.
+            </span>{' '}Model.
           </motion.h1>
 
           <motion.p
@@ -69,9 +68,11 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.18, ease: 'easeOut' }}
             className="text-[16px] md:text-[17px] text-gray-500 dark:text-gray-400 leading-relaxed max-w-2xl mb-10"
           >
-            WormEra Research Lab provides scientifically rigorous, whole-organism bioassay services
-            for nutraceutical, pharmaceutical, antimicrobial, and functional ingredient evaluation —
-            grounded in 5+ years of expertise and 12+ peer-reviewed publications.
+            WormEra Research Lab is a specialized research and service laboratory focused on{' '}
+            <em>Caenorhabditis elegans</em>&#8211;based in vivo screening for nutraceutical, pharmaceutical,
+            antimicrobial and functional ingredient evaluation. With a strong emphasis on scientific
+            accuracy, innovation and translational research, the laboratory provides reliable
+            preclinical screening solutions for academia and industry.
           </motion.p>
 
           <motion.div
@@ -108,8 +109,10 @@ export default function HomePage() {
       {/* ─── PLATFORM ADVANTAGE ────────────────────────────── */}
       <section className="section-pad py-20 md:py-28 bg-offwhite dark:bg-gray-800 dot-grid">
         <AnimateIn className="mb-12">
-          <p className="eyebrow text-teal mb-2">The platform advantage</p>
-          <h2 className="font-serif text-3xl md:text-4xl text-slate dark:text-gray-100 font-bold">Why <em>C. elegans</em>?</h2>
+          <h2 className="font-serif text-3xl md:text-4xl text-slate dark:text-gray-100 font-bold mb-3">The Platform Advantage</h2>
+          <p className="text-[16px] text-gray-500 dark:text-gray-400 max-w-xl">
+            <em>C. elegans</em> offers a unique combination of biological relevance, speed, and cost-efficiency.
+          </p>
         </AnimateIn>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {PLATFORM_CARDS.map((card, i) => (

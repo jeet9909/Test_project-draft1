@@ -45,34 +45,8 @@ const INDUSTRIES = [
 export default function AboutPage() {
   return (
     <>
-      {/* ── HERO ─────────────────────────────────────────── */}
-      <section className="relative pt-28 md:pt-36 pb-20 section-pad bg-white dark:bg-navy overflow-hidden">
-        <div className="absolute inset-0 dot-grid opacity-40 pointer-events-none" />
-        <div className="absolute -top-24 -right-24 w-[500px] h-[500px] rounded-full bg-teal/4 blur-3xl pointer-events-none" />
-        <div className="relative max-w-3xl">
-          <AnimateIn>
-            <span className="eyebrow text-teal mb-4 block">Ahmedabad, India</span>
-            <h1 className="font-serif text-[2.6rem] md:text-[3.5rem] font-bold text-slate dark:text-gray-100 leading-[1.1] mb-5 tracking-tight">
-              Built by researchers,<br />for researchers.
-            </h1>
-            <p className="text-[16px] text-gray-500 dark:text-gray-400 leading-relaxed mb-8 max-w-xl">
-              WormEra is founded on 5+ years of hands-on <em>C. elegans</em> expertise —
-              delivering reproducible whole-organism bioassay data to researchers and industry worldwide.
-            </p>
-            <div className="flex flex-wrap gap-2.5">
-              {['12+ Publications', 'Nirma University founders', '3R-aligned', 'No ethics clearance'].map(p => (
-                <span key={p} className="inline-flex items-center gap-1.5 text-[12.5px] text-gray-600 dark:text-gray-300 font-medium bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 px-3.5 py-1.5 rounded-full">
-                  <CheckCircle size={12} className="text-teal shrink-0" />
-                  {p}
-                </span>
-              ))}
-            </div>
-          </AnimateIn>
-        </div>
-      </section>
-
       {/* ── TEAM ─────────────────────────────────────────── */}
-      <section className="section-pad py-20 md:py-24 bg-offwhite dark:bg-gray-900 dot-grid">
+      <section className="section-pad pt-28 md:pt-36 pb-20 md:pb-24 bg-offwhite dark:bg-gray-900 dot-grid">
         <AnimateIn className="mb-12">
           <p className="eyebrow text-teal mb-2">Meet the founders</p>
           <h2 className="font-serif text-3xl md:text-4xl text-slate dark:text-gray-100 font-bold">The people behind the research</h2>
