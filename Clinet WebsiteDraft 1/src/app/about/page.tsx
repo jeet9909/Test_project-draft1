@@ -48,7 +48,7 @@ export default function AboutPage() {
       {/* ── TEAM ─────────────────────────────────────────── */}
       <section className="section-pad pt-28 md:pt-36 pb-20 md:pb-24 bg-offwhite dark:bg-gray-900 dot-grid">
         <AnimateIn className="mb-12">
-          <p className="eyebrow text-teal mb-2">Meet the founders</p>
+          <p className="eyebrow text-teal dark:text-[#9FE1CB] mb-2">Meet the founders</p>
           <h2 className="font-serif text-3xl md:text-4xl text-slate dark:text-gray-100 font-bold">The people behind the research</h2>
         </AnimateIn>
 
@@ -83,7 +83,7 @@ export default function AboutPage() {
                       {/* Expertise as pills */}
                       <div className="flex flex-wrap gap-1.5">
                         {person.expertise.map(e => (
-                          <span key={e} className="text-[11px] px-2.5 py-1 rounded-full bg-teal/6 dark:bg-teal/12 text-teal font-medium border border-teal/15 dark:border-teal/25">
+                          <span key={e} className="text-[11px] px-2.5 py-1 rounded-full bg-teal/6 dark:bg-teal/12 text-teal dark:text-[#9FE1CB] font-medium border border-teal/15 dark:border-teal/25">
                             {e}
                           </span>
                         ))}
@@ -94,7 +94,7 @@ export default function AboutPage() {
                         href={person.scholar}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-teal hover:text-teal-dark transition-colors"
+                        className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-teal dark:text-[#9FE1CB] hover:text-teal-dark dark:hover:text-white transition-colors"
                       >
                         Google Scholar Profile →
                       </a>
@@ -134,7 +134,7 @@ export default function AboutPage() {
             <div className="mt-8 flex flex-wrap gap-2.5">
               {['12+ publications', '3R-aligned', 'No ethics clearance', 'Peer-reviewed methods'].map(badge => (
                 <span key={badge} className="inline-flex items-center gap-1.5 text-[12px] bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 font-medium px-3 py-1.5 rounded-full">
-                  <CheckCircle size={12} className="text-teal shrink-0" />
+                  <CheckCircle size={12} className="text-teal dark:text-[#9FE1CB] shrink-0" />
                   {badge}
                 </span>
               ))}
@@ -183,7 +183,7 @@ export default function AboutPage() {
       {/* ── INDUSTRIES ───────────────────────────────────── */}
       <section className="section-pad py-16 bg-offwhite dark:bg-gray-800 dot-grid border-t border-gray-100 dark:border-gray-700">
         <AnimateIn className="mb-10">
-          <p className="eyebrow text-teal mb-2">Who we serve</p>
+          <p className="eyebrow text-teal dark:text-[#9FE1CB] mb-2">Who we serve</p>
           <h2 className="font-serif text-3xl md:text-4xl text-slate dark:text-gray-100 font-bold">Industries &amp; Clients</h2>
         </AnimateIn>
         <div className="flex flex-wrap gap-3">

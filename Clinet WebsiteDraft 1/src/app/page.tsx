@@ -41,8 +41,8 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
           >
-            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal/8 dark:bg-teal/15 border border-teal/15 dark:border-teal/30 text-teal text-[11px] font-semibold uppercase tracking-widest mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-teal animate-pulse" />
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal/8 dark:bg-teal/15 border border-teal/15 dark:border-teal/30 text-teal dark:text-[#9FE1CB] text-[11px] font-semibold uppercase tracking-widest mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-teal dark:bg-[#9FE1CB] animate-pulse" />
               Whole-organism research platform
             </span>
           </motion.div>
@@ -98,7 +98,7 @@ export default function HomePage() {
           >
             {['12+ Peer-reviewed publications', '5+ Years C. elegans expertise', 'No ethics clearance required'].map(t => (
               <span key={t} className="inline-flex items-center gap-1.5 text-[12px] text-gray-500 dark:text-gray-400 font-medium">
-                <CheckCircle size={13} className="text-teal shrink-0" />
+                <CheckCircle size={13} className="text-teal dark:text-[#9FE1CB] shrink-0" />
                 {t}
               </span>
             ))}
@@ -120,7 +120,7 @@ export default function HomePage() {
               <div className="group bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 card-hover h-full
                              hover:border-teal/20 hover:shadow-xl hover:shadow-teal/5 cursor-default">
                 <div className="w-10 h-10 rounded-xl bg-teal/8 dark:bg-teal/15 flex items-center justify-center mb-4 group-hover:bg-teal/14 transition-colors">
-                  <card.icon size={20} className="text-teal" />
+                  <card.icon size={20} className="text-teal dark:text-[#9FE1CB]" />
                 </div>
                 <h3 className="font-serif text-[17px] font-semibold text-slate dark:text-gray-100 mb-2.5">{card.title}</h3>
                 <p className="text-[13.5px] text-gray-500 dark:text-gray-400 leading-relaxed">{card.body}</p>

@@ -33,17 +33,17 @@ export default function Footer() {
               {/* Contact info */}
               <div className="flex flex-col gap-2.5">
                 <a href="mailto:wormeraresearchlab@gmail.com"
-                  className="inline-flex items-center gap-2.5 text-[13px] text-gray-500 dark:text-gray-400 hover:text-teal dark:hover:text-teal transition-colors font-medium">
-                  <Mail size={13} className="text-teal shrink-0" />
+                  className="inline-flex items-center gap-2.5 text-[13px] text-gray-500 dark:text-gray-400 hover:text-teal dark:hover:text-[#9FE1CB] transition-colors font-medium">
+                  <Mail size={13} className="text-teal dark:text-[#9FE1CB] shrink-0" />
                   wormeraresearchlab@gmail.com
                 </a>
                 <a href="tel:+919925993634"
-                  className="inline-flex items-center gap-2.5 text-[13px] text-gray-500 dark:text-gray-400 hover:text-teal dark:hover:text-teal transition-colors font-medium">
-                  <Phone size={13} className="text-teal shrink-0" />
+                  className="inline-flex items-center gap-2.5 text-[13px] text-gray-500 dark:text-gray-400 hover:text-teal dark:hover:text-[#9FE1CB] transition-colors font-medium">
+                  <Phone size={13} className="text-teal dark:text-[#9FE1CB] shrink-0" />
                   +91-9925993634
                 </a>
                 <span className="inline-flex items-start gap-2.5 text-[13px] text-gray-500 dark:text-gray-400 font-medium">
-                  <MapPin size={13} className="text-teal shrink-0 mt-0.5" />
+                  <MapPin size={13} className="text-teal dark:text-[#9FE1CB] shrink-0 mt-0.5" />
                   AIC-GISC Foundation, GTU Campus, Chandkheda, Ahmedabad
                 </span>
               </div>
@@ -89,7 +89,7 @@ export default function Footer() {
               </div>
 
               <div className="w-full pt-5 border-t border-gray-100 dark:border-gray-700">
-                <p className="text-[11px] font-semibold text-teal uppercase tracking-wider mb-1">AIC-GISC Foundation Incubatee</p>
+                <p className="text-[11px] font-semibold text-teal dark:text-[#9FE1CB] uppercase tracking-wider mb-1">AIC-GISC Foundation Incubatee</p>
                 <p className="text-[12px] text-gray-400 dark:text-gray-500 leading-relaxed">
                   Founded by researchers from Nirma University, Ahmedabad.
                 </p>

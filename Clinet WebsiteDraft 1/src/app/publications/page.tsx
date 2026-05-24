@@ -25,7 +25,7 @@ const PUBS = [
 const TAGS = ['All', 'Anti-Pathogenic', 'Anthelmintic', 'Aging & Lifespan', 'Stress / Aging', 'Microbiome', 'Review', 'In Vivo Model']
 
 const TAG_STYLES: Record<string, string> = {
-  'Anti-Pathogenic': 'bg-teal/10 text-teal border-teal/20',
+  'Anti-Pathogenic': 'bg-teal/10 dark:bg-teal/15 text-teal dark:text-[#9FE1CB] border-teal/20 dark:border-teal/30',
   'Anthelmintic':    'bg-coral/10 text-coral border-coral/20',
   'Aging & Lifespan':'bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-900/25 dark:text-amber-400 dark:border-amber-700/30',
   'Stress / Aging':  'bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-900/25 dark:text-emerald-400 dark:border-emerald-700/30',
@@ -72,8 +72,8 @@ export default function PublicationsPage() {
         <div className="absolute -top-32 -right-32 w-[450px] h-[450px] rounded-full bg-teal/5 blur-3xl pointer-events-none" />
         <div className="relative">
           <AnimateIn>
-            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal/8 dark:bg-teal/15 border border-teal/15 dark:border-teal/30 text-teal text-[11px] font-semibold uppercase tracking-widest mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-teal animate-pulse" />
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal/8 dark:bg-teal/15 border border-teal/15 dark:border-teal/30 text-teal dark:text-[#9FE1CB] text-[11px] font-semibold uppercase tracking-widest mb-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-teal dark:bg-[#9FE1CB] animate-pulse" />
               Research output
             </span>
             <h1 className="font-serif text-[2.6rem] md:text-[3.2rem] text-slate dark:text-gray-100 font-bold leading-tight mb-4">
@@ -96,7 +96,7 @@ export default function PublicationsPage() {
             { end: 8,  suffix: '',  label: 'Industries served',          desc: 'Pharma to AYUSH' },
           ].map((s, i) => (
             <AnimateIn key={s.label} delay={i * 0.07} className="text-center">
-              <p className="font-serif text-[3.2rem] font-bold text-teal leading-none mb-1">
+              <p className="font-serif text-[3.2rem] font-bold text-teal dark:text-[#9FE1CB] leading-none mb-1">
                 <CountUp end={s.end} suffix={s.suffix} />
               </p>
               <p className="text-[13px] font-semibold text-slate dark:text-gray-100 mb-0.5">{s.label}</p>
@@ -183,7 +183,7 @@ export default function PublicationsPage() {
           <div className="text-center py-20">
             <p className="font-serif text-[18px] text-slate dark:text-gray-100 mb-2">No publications match your filters.</p>
             <button onClick={() => { setSearch(''); setTag('All'); setYear('All Years') }}
-              className="text-[13px] text-teal hover:underline font-medium mt-2 cursor-pointer">
+              className="text-[13px] text-teal dark:text-[#9FE1CB] hover:underline font-medium mt-2 cursor-pointer">
               Clear all filters
             </button>
           </div>
@@ -212,7 +212,7 @@ export default function PublicationsPage() {
                 </h3>
                 <p className="text-[12px] text-gray-400 dark:text-gray-500 font-medium">{p.journal} · {p.year}</p>
                 <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-gray-100 dark:border-gray-700">
-                  <a href={p.doi} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-[12px] font-semibold text-teal hover:text-teal-dark transition-colors">
+                  <a href={p.doi} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-[12px] font-semibold text-teal dark:text-[#9FE1CB] hover:text-teal-dark dark:hover:text-white transition-colors">
                     View Paper <ExternalLink size={11} />
                   </a>
                   {p.pmid && (

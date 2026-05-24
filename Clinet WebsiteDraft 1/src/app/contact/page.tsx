@@ -33,8 +33,8 @@ export default function ContactPage() {
         <div className="absolute -bottom-20 -right-20 w-[350px] h-[350px] rounded-full bg-coral/4 blur-3xl pointer-events-none" />
         <div className="relative">
           <AnimateIn>
-            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal/8 dark:bg-teal/15 border border-teal/15 dark:border-teal/30 text-teal text-[11px] font-semibold uppercase tracking-widest mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-teal animate-pulse" />
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal/8 dark:bg-teal/15 border border-teal/15 dark:border-teal/30 text-teal dark:text-[#9FE1CB] text-[11px] font-semibold uppercase tracking-widest mb-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-teal dark:bg-[#9FE1CB] animate-pulse" />
               Free consultation
             </span>
             <h1 className="font-serif text-[2.4rem] md:text-[3.2rem] text-slate dark:text-gray-100 font-bold leading-tight mb-4">
@@ -48,7 +48,7 @@ export default function ContactPage() {
             {/* Quick action chips */}
             <div className="flex flex-wrap gap-3 mt-8">
               <a href="mailto:wormeraresearchlab@gmail.com"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal/8 dark:bg-teal/15 border border-teal/20 text-teal text-[12.5px] font-semibold hover:bg-teal/15 transition-colors">
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal/8 dark:bg-teal/15 border border-teal/20 text-teal dark:text-[#9FE1CB] text-[12.5px] font-semibold hover:bg-teal/15 transition-colors">
                 <Mail size={13} />
                 Email us directly
               </a>

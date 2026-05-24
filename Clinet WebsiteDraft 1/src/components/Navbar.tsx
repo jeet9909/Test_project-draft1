@@ -62,7 +62,7 @@ export default function Navbar() {
               href={l.href}
               className={`relative px-3.5 py-2 rounded-lg text-[13.5px] font-medium transition-all duration-150
                 ${pathname === l.href
-                  ? 'text-teal bg-teal/6 dark:bg-teal/15 font-semibold'
+                  ? 'text-teal dark:text-[#9FE1CB] bg-teal/6 dark:bg-teal/15 font-semibold'
                   : 'text-gray-500 dark:text-gray-400 hover:text-slate dark:hover:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800'
                 }`}
             >
@@ -82,7 +82,7 @@ export default function Navbar() {
               aria-label="Toggle theme"
             >
               {theme === 'dark'
-                ? <Sun size={16} className="text-teal" />
+                ? <Sun size={16} className="text-[#9FE1CB]" />
                 : <Moon size={16} className="text-gray-500" />
               }
             </button>
@@ -102,7 +102,7 @@ export default function Navbar() {
               aria-label="Toggle theme"
             >
               {theme === 'dark'
-                ? <Sun size={16} className="text-teal" />
+                ? <Sun size={16} className="text-[#9FE1CB]" />
                 : <Moon size={16} className="text-gray-500" />
               }
             </button>
@@ -128,7 +128,7 @@ export default function Navbar() {
                 onClick={() => setOpen(false)}
                 className={`block px-4 py-2.5 rounded-xl text-[14px] font-medium transition-colors
                   ${pathname === l.href
-                    ? 'bg-teal/8 dark:bg-teal/15 text-teal font-semibold'
+                    ? 'bg-teal/8 dark:bg-teal/15 text-teal dark:text-[#9FE1CB] font-semibold'
                     : 'text-slate dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
                   }`}
               >
