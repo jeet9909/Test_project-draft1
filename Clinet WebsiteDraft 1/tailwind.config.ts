@@ -10,7 +10,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        teal:     { DEFAULT: "#0A4F5C", dark: "#083D47", light: "#E1F5EE" },
+        teal:     { DEFAULT: "#0A4F5C", dark: "#083D47", light: "#E1F5EE", lightText: "#9FE1CB" },
         coral:    { DEFAULT: "#E86A33", dark: "#C55A28", light: "#FAECE7" },
         gold:     { DEFAULT: "#C9A227", light: "#FDF3D0" },
         sage:     { DEFAULT: "#6B8E6B", light: "#EDF4ED" },

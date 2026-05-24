@@ -1,6 +1,6 @@
 'use client'
-import { useState, useMemo } from 'react'
-import { Search, X, ExternalLink } from 'lucide-react'
+import { useState, useMemo, useRef, useEffect } from 'react'
+import { Search, X, ExternalLink, ChevronDown } from 'lucide-react'
 import AnimateIn from '@/components/ui/AnimateIn'
 import CountUp from '@/components/ui/CountUp'
 
@@ -27,11 +27,11 @@ const TAGS = ['All', 'Anti-Pathogenic', 'Anthelmintic', 'Aging & Lifespan', 'Str
 const TAG_STYLES: Record<string, string> = {
   'Anti-Pathogenic': 'bg-teal/10 text-teal border-teal/20',
   'Anthelmintic':    'bg-coral/10 text-coral border-coral/20',
-  'Aging & Lifespan':'bg-amber-50 text-amber-700 border-amber-200',
-  'Stress / Aging':  'bg-emerald-50 text-emerald-700 border-emerald-200',
-  'Microbiome':      'bg-purple-50 text-purple-600 border-purple-200',
-  'Review':          'bg-gray-100 text-gray-500 border-gray-200',
-  'In Vivo Model':   'bg-blue-50 text-blue-600 border-blue-200',
+  'Aging & Lifespan':'bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-900/25 dark:text-amber-400 dark:border-amber-700/30',
+  'Stress / Aging':  'bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-900/25 dark:text-emerald-400 dark:border-emerald-700/30',
+  'Microbiome':      'bg-purple-50 text-purple-600 border-purple-200 dark:bg-purple-900/25 dark:text-purple-400 dark:border-purple-700/30',
+  'Review':          'bg-gray-100 text-gray-500 border-gray-200 dark:bg-gray-700 dark:text-gray-400 dark:border-gray-600',
+  'In Vivo Model':   'bg-blue-50 text-blue-600 border-blue-200 dark:bg-blue-900/25 dark:text-blue-400 dark:border-blue-700/30',
 }
 
 const YEARS = ['All Years', '2025', '2024', '2023', '2022', '2021']
@@ -45,6 +45,18 @@ export default function PublicationsPage() {
   const [search, setSearch] = useState('')
   const [tag, setTag] = useState('All')
   const [year, setYear] = useState('All Years')
+  const [yearOpen, setYearOpen] = useState(false)
+  const yearRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (yearRef.current && !yearRef.current.contains(e.target as Node)) {
+        setYearOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
+  }, [])
 
   const filtered = useMemo(() =>
     PUBS.filter(p => {
@@ -100,8 +112,8 @@ export default function PublicationsPage() {
 
       {/* ── FILTERS ──────────────────────────────────────── */}
       <section className="section-pad py-5 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-700 sticky top-16 z-30 shadow-sm shadow-gray-100/50 dark:shadow-black/20">
-        {/* Search + year row */}
         <div className="flex flex-col sm:flex-row gap-3 mb-4">
+          {/* Search */}
           <div className="relative flex-1">
             <Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
             <input
@@ -112,21 +124,40 @@ export default function PublicationsPage() {
               className="w-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-xl pl-9 pr-9 py-2.5 text-[14px] text-slate dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:border-teal focus:ring-1 focus:ring-teal/20 transition-all"
             />
             {search && (
-              <button
-                onClick={() => setSearch('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-slate dark:hover:text-gray-200 transition-colors cursor-pointer"
-              >
+              <button onClick={() => setSearch('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-slate dark:hover:text-gray-200 transition-colors cursor-pointer">
                 <X size={14} />
               </button>
             )}
           </div>
-          <select
-            value={year}
-            onChange={e => setYear(e.target.value)}
-            className="border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-xl px-3.5 py-2.5 text-[14px] text-slate dark:text-gray-100 focus:outline-none focus:border-teal cursor-pointer"
-          >
-            {YEARS.map(y => <option key={y}>{y}</option>)}
-          </select>
+
+          {/* Custom year dropdown */}
+          <div ref={yearRef} className="relative">
+            <button
+              onClick={() => setYearOpen(v => !v)}
+              className="flex items-center justify-between gap-3 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-xl px-4 py-2.5 text-[14px] text-slate dark:text-gray-100 focus:outline-none focus:border-teal hover:border-teal/40 transition-all cursor-pointer min-w-[140px]"
+            >
+              {year}
+              <ChevronDown size={14} className={`text-gray-400 transition-transform duration-200 ${yearOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {yearOpen && (
+              <div className="absolute top-full mt-1.5 left-0 right-0 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg shadow-black/8 dark:shadow-black/30 overflow-hidden z-50">
+                {YEARS.map(y => (
+                  <button
+                    key={y}
+                    onClick={() => { setYear(y); setYearOpen(false) }}
+                    className={`w-full text-left px-4 py-2.5 text-[13.5px] transition-colors cursor-pointer ${
+                      year === y
+                        ? 'bg-teal text-white font-semibold'
+                        : 'text-slate dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-700'
+                    }`}
+                  >
+                    {y}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
           <span className="text-[13px] text-gray-400 dark:text-gray-500 self-center sm:ml-1 shrink-0 font-medium">
             {filtered.length} <span className="text-gray-300 dark:text-gray-600">/</span> {PUBS.length}
           </span>
@@ -156,63 +187,45 @@ export default function PublicationsPage() {
           <div className="text-center py-20">
             <p className="font-serif text-[18px] text-slate dark:text-gray-100 mb-2">No publications match your filters.</p>
             <button onClick={() => { setSearch(''); setTag('All'); setYear('All Years') }}
-              className="text-[13px] text-teal hover:underline font-medium mt-2">
+              className="text-[13px] text-teal hover:underline font-medium mt-2 cursor-pointer">
               Clear all filters
             </button>
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {filtered.map(p => (
-              <div
-                key={p.id}
-                className="group bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-5 flex flex-col gap-3 card-hover hover:border-teal/20 hover:shadow-xl hover:shadow-teal/5"
-              >
-                {/* Badges row */}
+              <div key={p.id} className="group bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-5 flex flex-col gap-3 card-hover hover:border-teal/20 hover:shadow-xl hover:shadow-teal/5">
+                {/* Badges */}
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full border uppercase tracking-wider ${TAG_STYLES[p.tag] || 'bg-gray-100 text-gray-500 border-gray-200'}`}>
                     {p.tag}
                   </span>
                   {p.oa && (
-                    <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200 uppercase tracking-wider">
+                    <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200 dark:bg-emerald-900/25 dark:text-emerald-400 dark:border-emerald-700/30 uppercase tracking-wider">
                       Open Access
                     </span>
                   )}
                   {!p.pmid && !p.pmcid && !p.oa && (
-                    <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-gray-50 dark:bg-gray-700 text-gray-400 border border-gray-200 dark:border-gray-600 uppercase tracking-wider">
+                    <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-gray-50 dark:bg-gray-700 text-gray-400 dark:text-gray-400 border border-gray-200 dark:border-gray-600 uppercase tracking-wider">
                       Preprint
                     </span>
                   )}
                 </div>
-
-                {/* Title */}
                 <h3 className="font-sans text-[14px] font-semibold text-slate dark:text-gray-100 leading-snug flex-1 group-hover:text-teal transition-colors">
                   {p.title}
                 </h3>
-
-                {/* Journal · year */}
                 <p className="text-[12px] text-gray-400 dark:text-gray-500 font-medium">{p.journal} · {p.year}</p>
-
-                {/* Links */}
                 <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-gray-100 dark:border-gray-700">
-                  <button
-                    onClick={() => openLink(p.doi)}
-                    className="inline-flex items-center gap-1 text-[12px] font-semibold text-teal hover:text-teal-dark transition-colors cursor-pointer"
-                  >
+                  <button onClick={() => openLink(p.doi)} className="inline-flex items-center gap-1 text-[12px] font-semibold text-teal hover:text-teal-dark transition-colors cursor-pointer">
                     View Paper <ExternalLink size={11} />
                   </button>
                   {p.pmid && (
-                    <button
-                      onClick={() => openLink(`https://pubmed.ncbi.nlm.nih.gov/${p.pmid}/`)}
-                      className="text-[12px] text-gray-400 dark:text-gray-500 hover:text-teal transition-colors font-medium cursor-pointer"
-                    >
+                    <button onClick={() => openLink(`https://pubmed.ncbi.nlm.nih.gov/${p.pmid}/`)} className="text-[12px] text-gray-400 dark:text-gray-500 hover:text-teal transition-colors font-medium cursor-pointer">
                       PubMed
                     </button>
                   )}
                   {p.pmcid && (
-                    <button
-                      onClick={() => openLink(`https://www.ncbi.nlm.nih.gov/pmc/articles/${p.pmcid}/`)}
-                      className="text-[12px] text-gray-400 dark:text-gray-500 hover:text-teal transition-colors font-medium cursor-pointer"
-                    >
+                    <button onClick={() => openLink(`https://www.ncbi.nlm.nih.gov/pmc/articles/${p.pmcid}/`)} className="text-[12px] text-gray-400 dark:text-gray-500 hover:text-teal transition-colors font-medium cursor-pointer">
                       PMC
                     </button>
                   )}
@@ -228,16 +241,10 @@ export default function PublicationsPage() {
             <p className="font-serif text-[20px] text-slate dark:text-gray-100 font-semibold mb-2">View Complete Publication Profiles</p>
             <p className="text-[13px] text-gray-400 dark:text-gray-500 mb-6">Explore all citations and metrics on Google Scholar.</p>
             <div className="flex justify-center gap-4 flex-wrap">
-              <button
-                onClick={() => openLink('https://scholar.google.com/citations?user=9gwqNg8AAAAJ')}
-                className="btn-outline text-[13px] px-6 py-2.5 rounded-xl"
-              >
+              <button onClick={() => openLink('https://scholar.google.com/citations?user=9gwqNg8AAAAJ')} className="btn-outline text-[13px] px-6 py-2.5 rounded-xl">
                 Dr. Gemini Gajera
               </button>
-              <button
-                onClick={() => openLink('https://scholar.google.com/citations?user=3T0DfMcAAAAJ')}
-                className="btn-outline text-[13px] px-6 py-2.5 rounded-xl"
-              >
+              <button onClick={() => openLink('https://scholar.google.com/citations?user=3T0DfMcAAAAJ')} className="btn-outline text-[13px] px-6 py-2.5 rounded-xl">
                 Ms. Nidhi Thakkar
               </button>
             </div>

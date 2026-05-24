@@ -26,6 +26,10 @@ html { scroll-behavior: smooth; }
     background-image: radial-gradient(#0A4F5C18 1px, transparent 1px);
     background-size: 24px 24px;
   }
+  .dark .dot-grid {
+    background-image: radial-gradient(rgba(99,179,160,0.18) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
 
   .card-hover {
     @apply transition-all duration-300 ease-out;
