@@ -36,9 +36,6 @@ const TAG_STYLES: Record<string, string> = {
 
 const YEARS = ['All Years', '2025', '2024', '2023', '2022', '2021']
 
-function openLink(url: string) {
-  window.open(url, '_blank', 'noopener,noreferrer')
-}
 
 export default function PublicationsPage() {
   const [search, setSearch] = useState('')
@@ -215,18 +212,18 @@ export default function PublicationsPage() {
                 </h3>
                 <p className="text-[12px] text-gray-400 dark:text-gray-500 font-medium">{p.journal} · {p.year}</p>
                 <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-gray-100 dark:border-gray-700">
-                  <button onClick={() => openLink(p.doi)} className="inline-flex items-center gap-1 text-[12px] font-semibold text-teal hover:text-teal-dark transition-colors cursor-pointer">
+                  <a href={p.doi} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-[12px] font-semibold text-teal hover:text-teal-dark transition-colors">
                     View Paper <ExternalLink size={11} />
-                  </button>
+                  </a>
                   {p.pmid && (
-                    <button onClick={() => openLink(`https://pubmed.ncbi.nlm.nih.gov/${p.pmid}/`)} className="text-[12px] text-gray-400 dark:text-gray-500 hover:text-teal transition-colors font-medium cursor-pointer">
+                    <a href={`https://pubmed.ncbi.nlm.nih.gov/${p.pmid}/`} target="_blank" rel="noopener noreferrer" className="text-[12px] text-gray-400 dark:text-gray-500 hover:text-teal transition-colors font-medium">
                       PubMed
-                    </button>
+                    </a>
                   )}
                   {p.pmcid && (
-                    <button onClick={() => openLink(`https://www.ncbi.nlm.nih.gov/pmc/articles/${p.pmcid}/`)} className="text-[12px] text-gray-400 dark:text-gray-500 hover:text-teal transition-colors font-medium cursor-pointer">
+                    <a href={`https://www.ncbi.nlm.nih.gov/pmc/articles/${p.pmcid}/`} target="_blank" rel="noopener noreferrer" className="text-[12px] text-gray-400 dark:text-gray-500 hover:text-teal transition-colors font-medium">
                       PMC
-                    </button>
+                    </a>
                   )}
                 </div>
               </div>
@@ -240,12 +237,12 @@ export default function PublicationsPage() {
             <p className="font-serif text-[20px] text-slate dark:text-gray-100 font-semibold mb-2">View Complete Publication Profiles</p>
             <p className="text-[13px] text-gray-400 dark:text-gray-500 mb-6">Explore all citations and metrics on Google Scholar.</p>
             <div className="flex justify-center gap-4 flex-wrap">
-              <button onClick={() => openLink('https://scholar.google.com/citations?user=9gwqNg8AAAAJ')} className="btn-outline text-[13px] px-6 py-2.5 rounded-xl">
+              <a href="https://scholar.google.com/citations?user=9gwqNg8AAAAJ" target="_blank" rel="noopener noreferrer" className="btn-outline text-[13px] px-6 py-2.5 rounded-xl">
                 Dr. Gemini Gajera
-              </button>
-              <button onClick={() => openLink('https://scholar.google.com/citations?user=3T0DfMcAAAAJ')} className="btn-outline text-[13px] px-6 py-2.5 rounded-xl">
+              </a>
+              <a href="https://scholar.google.com/citations?user=3T0DfMcAAAAJ" target="_blank" rel="noopener noreferrer" className="btn-outline text-[13px] px-6 py-2.5 rounded-xl">
                 Ms. Nidhi Thakkar
-              </button>
+              </a>
             </div>
           </div>
         </AnimateIn>
