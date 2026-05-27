@@ -45,39 +45,38 @@ export default function AboutPage() {
           <p className="text-[15px] text-gray-500 dark:text-gray-400">A blend of scientific expertise and business acumen driving innovation.</p>
         </AnimateIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl">
           {TEAM.map((person, i) => (
             <AnimateIn key={person.name} delay={i * 0.12}>
-              <div className="group bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl overflow-hidden card-hover hover:border-teal/20 hover:shadow-xl hover:shadow-teal/5 h-full flex flex-col">
+              <div className="group bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl overflow-hidden card-hover hover:border-teal/20 hover:shadow-xl hover:shadow-teal/5 flex flex-col">
+                {/* Photo — full width portrait */}
+                <div className="relative w-full aspect-[4/5] overflow-hidden bg-gradient-to-br from-teal/5 to-teal/10">
+                  <Image
+                    src={person.photo}
+                    alt={person.name}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 400px"
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                {/* Accent bar */}
                 <div className={`h-1 bg-gradient-to-r ${person.accent}`} />
-                <div className="flex flex-col sm:flex-row flex-1">
-                  {/* Photo */}
-                  <div className="relative w-full sm:w-52 lg:w-60 flex-shrink-0 aspect-[4/3] sm:aspect-auto bg-gradient-to-br from-teal/5 to-teal/10 overflow-hidden">
-                    <Image
-                      src={person.photo}
-                      alt={person.name}
-                      fill
-                      sizes="(max-width: 640px) 100vw, 240px"
-                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                    />
+                {/* Details */}
+                <div className="p-5 flex flex-col gap-3">
+                  <div>
+                    <h3 className="font-serif text-[19px] font-semibold text-slate dark:text-gray-100 leading-snug">{person.name}</h3>
+                    {person.note && (
+                      <p className="text-[12px] text-gray-400 dark:text-gray-500 mt-0.5">{person.note}</p>
+                    )}
                   </div>
-                  {/* Details */}
-                  <div className="flex flex-col justify-center p-6 lg:p-7 flex-1 gap-3">
-                    <div>
-                      <h3 className="font-serif text-[20px] font-semibold text-slate dark:text-gray-100 mb-1">{person.name}</h3>
-                      {person.note && (
-                        <p className="text-[12px] text-gray-400 dark:text-gray-500">{person.note}</p>
-                      )}
-                    </div>
-                    <a
-                      href={person.scholar}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-teal dark:text-[#9FE1CB] hover:text-teal-dark dark:hover:text-white transition-colors"
-                    >
-                      Google Scholar Profile →
-                    </a>
-                  </div>
+                  <a
+                    href={person.scholar}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-teal dark:text-[#9FE1CB] hover:text-teal-dark dark:hover:text-white transition-colors"
+                  >
+                    Google Scholar Profile →
+                  </a>
                 </div>
               </div>
             </AnimateIn>
