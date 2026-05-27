@@ -7,21 +7,21 @@ const PLATFORM_CARDS = [
   {
     icon: Eye,
     title: 'Transparent organism',
-    body: 'Enables live imaging and real-time monitoring at every assay stage — no sacrifice required mid-study.',
+    body: 'Enables live imaging, photography, and real-time monitoring at every stage of the assay.',
   },
   {
     icon: Clock,
-    title: 'Rapid lifecycle',
-    body: 'Short life cycle delivers results in days, not months — far faster than rodent model timelines.',
+    title: 'Rapid lifecycle model',
+    body: 'Short life cycle enables accelerated experimental timelines compared to rodent models.',
   },
   {
     icon: FlaskConical,
     title: 'Conserved biology',
-    body: '~1 mm organism with human-relevant conserved pathways — true in vivo context beyond cell culture.',
+    body: '~1mm organism with conserved pathways relevant to human systems — true in vivo context beyond cell culture.',
   },
   {
     icon: DollarSign,
-    title: 'Cost-efficient',
+    title: 'Cost-efficient screening',
     body: 'Organism-level screening with measurable phenotypic outputs at a fraction of mammalian study costs.',
   },
 ]

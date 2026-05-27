@@ -33,16 +33,12 @@ export default function ContactPage() {
         <div className="absolute -bottom-20 -right-20 w-[350px] h-[350px] rounded-full bg-coral/4 blur-3xl pointer-events-none" />
         <div className="relative">
           <AnimateIn>
-            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal/8 dark:bg-teal/15 border border-teal/15 dark:border-teal/30 text-teal dark:text-[#9FE1CB] text-[11px] font-semibold uppercase tracking-widest mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-teal dark:bg-[#9FE1CB] animate-pulse" />
-              Free consultation
-            </span>
             <h1 className="font-serif text-[2.4rem] md:text-[3.2rem] text-slate dark:text-gray-100 font-bold leading-tight mb-4">
               Let&apos;s talk about<br className="hidden md:block" /> your compound.
             </h1>
             <p className="text-[16px] text-gray-500 dark:text-gray-400 max-w-xl leading-relaxed">
               Whether you need a single assay or a full screening panel, we&apos;ll design
-              the right study around your research question — no commitment required.
+              the right study around your research question.
             </p>
 
             {/* Quick action chips */}
@@ -204,35 +200,6 @@ export default function ContactPage() {
                   </svg>
                   Chat on WhatsApp
                 </a>
-              </div>
-
-              {/* Free consultation callout */}
-              <div className="bg-teal/5 dark:bg-teal/10 border border-teal/15 dark:border-teal/25 rounded-2xl p-6">
-                <div className="w-9 h-9 rounded-xl bg-teal/10 dark:bg-teal/20 flex items-center justify-center mb-4">
-                  <CheckCircle size={18} className="text-teal dark:text-[#9FE1CB]" />
-                </div>
-                <h3 className="font-serif text-[17px] font-semibold text-slate dark:text-gray-100 mb-1">Book a Free Consultation</h3>
-                <p className="text-[13px] text-gray-500 dark:text-gray-400 mb-5 leading-relaxed">
-                  30-minute call to discuss your compound and design the right assay panel. No commitment required.
-                </p>
-                <div className="flex flex-col gap-3">
-                  <a
-                    href={GOOGLE_FORM_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary text-[13px] px-5 py-2.5 rounded-xl w-full justify-center"
-                  >
-                    Enquiry Now
-                    <ExternalLink size={13} />
-                  </a>
-                  <a
-                    href="mailto:wormeraresearchlab@gmail.com?subject=Consultation%20Request"
-                    className="inline-flex items-center justify-center gap-1.5 text-[13px] font-semibold text-teal dark:text-[#9FE1CB] hover:text-teal-dark dark:hover:text-white transition-colors"
-                  >
-                    Schedule via Email
-                    <ArrowRight size={13} />
-                  </a>
-                </div>
               </div>
 
               {/* Incubatee badge */}

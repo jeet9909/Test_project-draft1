@@ -48,7 +48,8 @@ export default function AboutPage() {
       <section className="section-pad pt-28 md:pt-36 pb-20 md:pb-24 bg-offwhite dark:bg-gray-900 dot-grid">
         <AnimateIn className="mb-12">
           <p className="eyebrow text-teal dark:text-[#9FE1CB] mb-2">Meet the founders</p>
-          <h2 className="font-serif text-3xl md:text-4xl text-slate dark:text-gray-100 font-bold">The people behind the research</h2>
+          <h2 className="font-serif text-3xl md:text-4xl text-slate dark:text-gray-100 font-bold mb-2">The people behind the research</h2>
+          <p className="text-[15px] text-gray-500 dark:text-gray-400">A blend of scientific expertise and business acumen driving innovation.</p>
         </AnimateIn>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -118,20 +119,14 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-4 text-[15px] text-gray-500 dark:text-gray-400 leading-relaxed">
               <p>
-                WormEra Research Lab is a specialized research platform founded by researchers, for researchers. Built on over five years of hands-on expertise in <em>Caenorhabditis elegans</em> biology, we offer scientifically rigorous, whole-organism bioassay services to industries that demand reliable pre-clinical data.
+                WormEra Research Lab is a specialized research platform founded by researchers, for researchers. Built on over five years of hands-on expertise in <em>Caenorhabditis elegans</em> biology, we offer scientifically rigorous, whole-organism bioassay services to industries that demand reliable pre-clinical data &#8212; faster and more affordably than conventional models allow.
               </p>
-              {/* Pull quote */}
-              <blockquote className="my-6 border-l-4 border-teal pl-5 py-1">
-                <p className="font-serif text-[17px] font-semibold text-slate dark:text-gray-200 leading-snug italic">
-                  &ldquo;Grounded in science, not shortcuts — 12+ peer-reviewed publications and counting.&rdquo;
-                </p>
-              </blockquote>
               <p>
-                Established in Ahmedabad and founded by researchers from Nirma University with deep expertise in host-pathogen interactions, stress biology, functional screening, and validated experimental design.
+                We are established in Ahmedabad and founded by researchers from Nirma University with deep expertise in host-pathogen interactions, stress biology, functional screening, and validated experimental design. With 14+ peer-reviewed publications and a commitment to reproducibility, our work is grounded in science &#8212; not shortcuts.
               </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-2.5">
-              {['12+ publications', '3R-aligned', 'No ethics clearance', 'Peer-reviewed methods'].map(badge => (
+              {['14+ publications', '3R-aligned', 'No ethics clearance', 'Peer-reviewed methods'].map(badge => (
                 <span key={badge} className="inline-flex items-center gap-1.5 text-[12px] bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 font-medium px-3 py-1.5 rounded-full">
                   <CheckCircle size={12} className="text-teal dark:text-[#9FE1CB] shrink-0" />
                   {badge}
@@ -154,7 +149,7 @@ export default function AboutPage() {
                     <h3 className="font-serif text-[19px] font-semibold text-slate dark:text-gray-100">Vision</h3>
                   </div>
                   <p className="text-[14px] text-gray-500 dark:text-gray-400 leading-relaxed">
-                    To advance biological research through innovative and scientifically validated model systems that contribute to better health, sustainable science, and next-generation product development. We aim to bridge academic excellence with industrial research globally.
+                    Our vision is to advance biological research through innovative and scientifically validated model systems that contribute to better health, sustainable science and next-generation product development. We aim to bridge academic excellence with industrial research by delivering reliable and impactful scientific solutions globally.
                   </p>
                 </div>
               </div>
@@ -170,7 +165,7 @@ export default function AboutPage() {
                     <h3 className="font-serif text-[19px] font-semibold text-slate dark:text-gray-100">Mission</h3>
                   </div>
                   <p className="text-[14px] text-gray-500 dark:text-gray-400 leading-relaxed">
-                    We are committed to providing standardized, accurate, and research-driven assay services using advanced in vivo model systems. Our mission is to support researchers and industries with reliable biological screening platforms that accelerate scientific discovery and translational research.
+                    Innovation, scientific integrity, quality and collaboration are the core values of WormEra Research Lab. We are committed to providing standardized, accurate and research-driven assay services using advanced in vivo model systems and modern scientific methodologies. Our mission is to support researchers and industries with reliable biological screening platforms that accelerate scientific discovery, product validation and translational research.
                   </p>
                 </div>
               </div>

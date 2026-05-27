@@ -9,7 +9,7 @@ export default function Footer() {
 
             {/* Tagline */}
             <p className="font-serif text-[20px] md:text-[22px] text-slate dark:text-gray-100 font-semibold leading-snug max-w-md">
-              Reach out for a free consultation. We&apos;ll design the right assay for your compound.
+              Ready to start your study?
             </p>
 
             {/* Email */}
