@@ -10,21 +10,15 @@ export const metadata: Metadata = { title: 'About — WormEra Research Lab' }
 const TEAM = [
   {
     name: 'Dr. Gemini Gajera',
-    role: 'Principal Investigator & Co-Founder',
-    expertise: ['Host-pathogen interactions', 'Stress biology', 'C. elegans functional screening'],
-    scholar: 'https://scholar.google.com/citations?user=9gwqNg8AAAAJ',
-    affiliation: 'Nirma University, Ahmedabad',
     note: '',
+    scholar: 'https://scholar.google.com/citations?user=9gwqNg8AAAAJ',
     photo: geminiPhoto,
     accent: 'from-teal to-teal/60',
   },
   {
     name: 'Ms. Nidhi Thakkar',
-    role: 'Research Scientist & Co-Founder',
-    expertise: ['Antimicrobial research', 'Experimental design', 'In vivo bioassays'],
-    scholar: 'https://scholar.google.com/citations?user=3T0DfMcAAAAJ',
-    affiliation: 'Nirma University, Ahmedabad',
     note: 'Ph.D. Thesis Submitted',
+    scholar: 'https://scholar.google.com/citations?user=3T0DfMcAAAAJ',
     photo: nidhiPhoto,
     accent: 'from-coral to-coral/60',
   },
@@ -47,8 +41,7 @@ export default function AboutPage() {
       {/* ── TEAM ─────────────────────────────────────────── */}
       <section className="section-pad pt-28 md:pt-36 pb-20 md:pb-24 bg-offwhite dark:bg-gray-900 dot-grid">
         <AnimateIn className="mb-12">
-          <p className="eyebrow text-teal dark:text-[#9FE1CB] mb-2">Meet the founders</p>
-          <h2 className="font-serif text-3xl md:text-4xl text-slate dark:text-gray-100 font-bold mb-2">The people behind the research</h2>
+          <h2 className="font-serif text-3xl md:text-4xl text-slate dark:text-gray-100 font-bold mb-2">The Team</h2>
           <p className="text-[15px] text-gray-500 dark:text-gray-400">A blend of scientific expertise and business acumen driving innovation.</p>
         </AnimateIn>
 
@@ -56,9 +49,7 @@ export default function AboutPage() {
           {TEAM.map((person, i) => (
             <AnimateIn key={person.name} delay={i * 0.12}>
               <div className="group bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl overflow-hidden card-hover hover:border-teal/20 hover:shadow-xl hover:shadow-teal/5 h-full flex flex-col">
-                {/* Gradient accent bar */}
                 <div className={`h-1 bg-gradient-to-r ${person.accent}`} />
-
                 <div className="flex flex-col sm:flex-row flex-1">
                   {/* Photo */}
                   <div className="relative w-full sm:w-52 lg:w-60 flex-shrink-0 aspect-[4/3] sm:aspect-auto bg-gradient-to-br from-teal/5 to-teal/10 overflow-hidden">
@@ -69,36 +60,23 @@ export default function AboutPage() {
                       sizes="(max-width: 640px) 100vw, 240px"
                       className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
-
                   {/* Details */}
-                  <div className="flex flex-col justify-between p-6 lg:p-7 flex-1">
+                  <div className="flex flex-col justify-center p-6 lg:p-7 flex-1 gap-3">
                     <div>
-                      <h3 className="font-serif text-[20px] font-semibold text-slate dark:text-gray-100 mb-0.5">{person.name}</h3>
-                      <p className="text-[13px] text-coral font-semibold mb-1">{person.role}</p>
-                      <p className="text-[11.5px] text-gray-400 dark:text-gray-500 mb-4">
-                        {person.affiliation}{person.note ? ` — ${person.note}` : ''}
-                      </p>
-                      {/* Expertise as pills */}
-                      <div className="flex flex-wrap gap-1.5">
-                        {person.expertise.map(e => (
-                          <span key={e} className="text-[11px] px-2.5 py-1 rounded-full bg-teal/6 dark:bg-teal/12 text-teal dark:text-[#9FE1CB] font-medium border border-teal/15 dark:border-teal/25">
-                            {e}
-                          </span>
-                        ))}
-                      </div>
+                      <h3 className="font-serif text-[20px] font-semibold text-slate dark:text-gray-100 mb-1">{person.name}</h3>
+                      {person.note && (
+                        <p className="text-[12px] text-gray-400 dark:text-gray-500">{person.note}</p>
+                      )}
                     </div>
-                    <div className="mt-5 pt-4 border-t border-gray-100 dark:border-gray-700">
-                      <a
-                        href={person.scholar}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-teal dark:text-[#9FE1CB] hover:text-teal-dark dark:hover:text-white transition-colors"
-                      >
-                        Google Scholar Profile →
-                      </a>
-                    </div>
+                    <a
+                      href={person.scholar}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-teal dark:text-[#9FE1CB] hover:text-teal-dark dark:hover:text-white transition-colors"
+                    >
+                      Google Scholar Profile →
+                    </a>
                   </div>
                 </div>
               </div>
@@ -113,7 +91,6 @@ export default function AboutPage() {
 
           {/* Story */}
           <AnimateIn direction="left">
-            <p className="eyebrow text-coral mb-3">Our story</p>
             <h2 className="font-serif text-3xl md:text-[2.2rem] text-slate dark:text-gray-100 font-bold mb-6 leading-snug">
               About WormEra<br />Research Lab
             </h2>
