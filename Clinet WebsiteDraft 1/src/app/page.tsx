@@ -1,7 +1,6 @@
 'use client'
-import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowRight, FlaskConical, Clock, Eye, DollarSign, CheckCircle } from 'lucide-react'
+import { FlaskConical, Clock, Eye, DollarSign } from 'lucide-react'
 import AnimateIn from '@/components/ui/AnimateIn'
 
 const PLATFORM_CARDS = [
@@ -75,34 +74,6 @@ export default function HomePage() {
             preclinical screening solutions for academia and industry.
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.28, ease: 'easeOut' }}
-            className="flex flex-wrap gap-3"
-          >
-            <Link href="/contact" className="btn-primary text-[14px] px-7 py-3.5 rounded-xl shadow-md shadow-coral/15">
-              Request a free consultation
-              <ArrowRight size={16} />
-            </Link>
-            <Link href="/services" className="btn-outline text-[14px] px-7 py-3.5 rounded-xl">
-              Explore services
-            </Link>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.42 }}
-            className="flex flex-wrap gap-3 mt-10"
-          >
-            {['12+ Peer-reviewed publications', '5+ Years C. elegans expertise', 'No ethics clearance required'].map(t => (
-              <span key={t} className="inline-flex items-center gap-1.5 text-[12px] text-gray-500 dark:text-gray-400 font-medium">
-                <CheckCircle size={13} className="text-teal dark:text-[#9FE1CB] shrink-0" />
-                {t}
-              </span>
-            ))}
-          </motion.div>
         </div>
       </section>
 

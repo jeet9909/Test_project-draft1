@@ -1,10 +1,9 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import Link from 'next/link'
 import geminiPhoto from '@/../public/images/team/gemini-gajera.png'
 import nidhiPhoto from '@/../public/images/team/nidhi-thakkar.png'
 import AnimateIn from '@/components/ui/AnimateIn'
-import { CheckCircle, ArrowRight, Eye, Target } from 'lucide-react'
+import { CheckCircle, Eye, Target } from 'lucide-react'
 
 export const metadata: Metadata = { title: 'About — WormEra Research Lab' }
 
@@ -198,30 +197,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── CTA ──────────────────────────────────────────── */}
-      <section className="relative section-pad py-20 bg-teal overflow-hidden">
-        <div className="absolute inset-0 dot-grid opacity-10 pointer-events-none" />
-        <AnimateIn className="relative">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-            <div>
-              <p className="eyebrow text-[#9FE1CB] mb-3">Start a collaboration</p>
-              <h3 className="font-serif text-[26px] md:text-[30px] font-bold text-white mb-2 leading-tight">
-                Ready to start a study?
-              </h3>
-              <p className="text-[15px] text-white/70 max-w-md leading-relaxed">
-                Free initial consultation — we design the assay panel around your compound and research question.
-              </p>
-            </div>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2.5 bg-white text-teal hover:bg-white/95 active:scale-[0.98] px-8 py-4 rounded-xl text-[14px] font-semibold transition-all duration-200 shadow-xl shadow-black/15 shrink-0 whitespace-nowrap"
-            >
-              Get in touch
-              <ArrowRight size={16} />
-            </Link>
-          </div>
-        </AnimateIn>
-      </section>
     </>
   )
 }

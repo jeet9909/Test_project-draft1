@@ -86,7 +86,7 @@ export default function ContactPage() {
                 {sent ? (
                   <div className="flex flex-col items-center text-center py-12 gap-4">
                     <div className="w-16 h-16 rounded-full bg-teal/10 dark:bg-teal/15 flex items-center justify-center">
-                      <CheckCircle size={28} className="text-teal" />
+                      <CheckCircle size={28} className="text-teal dark:text-[#9FE1CB]" />
                     </div>
                     <div>
                       <p className="font-serif text-[22px] text-slate dark:text-gray-100 font-semibold mb-1">Message sent!</p>
@@ -179,7 +179,7 @@ export default function ContactPage() {
                   {CONTACT_ITEMS.map(item => (
                     <div key={item.label} className="flex items-start gap-3.5">
                       <div className="w-8 h-8 rounded-lg bg-teal/8 dark:bg-teal/15 flex items-center justify-center shrink-0">
-                        <item.icon size={14} className="text-teal" />
+                        <item.icon size={14} className="text-teal dark:text-[#9FE1CB]" />
                       </div>
                       <div>
                         <p className="text-[10px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-0.5">{item.label}</p>
@@ -209,7 +209,7 @@ export default function ContactPage() {
               {/* Free consultation callout */}
               <div className="bg-teal/5 dark:bg-teal/10 border border-teal/15 dark:border-teal/25 rounded-2xl p-6">
                 <div className="w-9 h-9 rounded-xl bg-teal/10 dark:bg-teal/20 flex items-center justify-center mb-4">
-                  <CheckCircle size={18} className="text-teal" />
+                  <CheckCircle size={18} className="text-teal dark:text-[#9FE1CB]" />
                 </div>
                 <h3 className="font-serif text-[17px] font-semibold text-slate dark:text-gray-100 mb-1">Book a Free Consultation</h3>
                 <p className="text-[13px] text-gray-500 dark:text-gray-400 mb-5 leading-relaxed">
@@ -227,7 +227,7 @@ export default function ContactPage() {
                   </a>
                   <a
                     href="mailto:wormeraresearchlab@gmail.com?subject=Consultation%20Request"
-                    className="inline-flex items-center justify-center gap-1.5 text-[13px] font-semibold text-teal hover:text-teal-dark transition-colors"
+                    className="inline-flex items-center justify-center gap-1.5 text-[13px] font-semibold text-teal dark:text-[#9FE1CB] hover:text-teal-dark dark:hover:text-white transition-colors"
                   >
                     Schedule via Email
                     <ArrowRight size={13} />
@@ -237,7 +237,7 @@ export default function ContactPage() {
 
               {/* Incubatee badge */}
               <div className="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-5 text-center shadow-sm">
-                <p className="text-[11px] font-semibold text-teal mb-1 uppercase tracking-wide">AIC-GISC Foundation Incubatee</p>
+                <p className="text-[11px] font-semibold text-teal dark:text-[#9FE1CB] mb-1 uppercase tracking-wide">AIC-GISC Foundation Incubatee</p>
                 <p className="text-[12px] text-gray-400 dark:text-gray-500 leading-relaxed">
                   Founded by researchers from Nirma University, Ahmedabad.<br />
                   Supported by AIC-GISC Foundation, GTU Campus.
