@@ -25,7 +25,7 @@ const PUBS = [
 const TAGS = ['All', 'Anti-Pathogenic', 'Anthelmintic', 'Aging & Lifespan', 'Stress / Aging', 'Microbiome', 'Review', 'In Vivo Model']
 
 const TAG_STYLES: Record<string, string> = {
-  'Anti-Pathogenic': 'bg-teal/10 text-teal border-teal/20',
+  'Anti-Pathogenic': 'bg-teal/10 dark:bg-teal/15 text-teal dark:text-[#9FE1CB] border-teal/20 dark:border-teal/30',
   'Anthelmintic':    'bg-coral/10 text-coral border-coral/20',
   'Aging & Lifespan':'bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-900/25 dark:text-amber-400 dark:border-amber-700/30',
   'Stress / Aging':  'bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-900/25 dark:text-emerald-400 dark:border-emerald-700/30',
@@ -36,10 +36,6 @@ const TAG_STYLES: Record<string, string> = {
 
 const YEARS = ['All Years', '2025', '2024', '2023', '2022', '2021']
 
-function openLink(url: string) {
-  const win = window.open('', '_blank', 'noopener,noreferrer')
-  if (win) win.location.href = url
-}
 
 export default function PublicationsPage() {
   const [search, setSearch] = useState('')
@@ -76,15 +72,15 @@ export default function PublicationsPage() {
         <div className="absolute -top-32 -right-32 w-[450px] h-[450px] rounded-full bg-teal/5 blur-3xl pointer-events-none" />
         <div className="relative">
           <AnimateIn>
-            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal/8 dark:bg-teal/15 border border-teal/15 dark:border-teal/30 text-teal text-[11px] font-semibold uppercase tracking-widest mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-teal animate-pulse" />
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal/8 dark:bg-teal/15 border border-teal/15 dark:border-teal/30 text-teal dark:text-[#9FE1CB] text-[11px] font-semibold uppercase tracking-widest mb-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-teal dark:bg-[#9FE1CB] animate-pulse" />
               Research output
             </span>
             <h1 className="font-serif text-[2.6rem] md:text-[3.2rem] text-slate dark:text-gray-100 font-bold leading-tight mb-4">
               Publications
             </h1>
             <p className="text-[16px] text-gray-500 dark:text-gray-400 max-w-2xl leading-relaxed">
-              12+ peer-reviewed publications spanning antimicrobial discovery, aging biology, functional screening, and model organism validation.
+              14+ peer-reviewed publications spanning antimicrobial discovery, aging biology, functional screening, and model organism validation.
             </p>
           </AnimateIn>
         </div>
@@ -94,13 +90,13 @@ export default function PublicationsPage() {
       <section className="section-pad py-12 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-700">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
           {[
-            { end: 12, suffix: '+', label: 'Peer-reviewed publications', desc: 'Spanning 5 research areas' },
+            { end: 14, suffix: '+', label: 'Peer-reviewed publications', desc: 'Spanning 5 research areas' },
             { end: 5,  suffix: '+', label: 'Years C. elegans expertise', desc: 'Deep domain knowledge' },
             { end: 3,  suffix: '',  label: 'Core service pillars',       desc: 'Toxicity · Efficacy · AMR' },
             { end: 8,  suffix: '',  label: 'Industries served',          desc: 'Pharma to AYUSH' },
           ].map((s, i) => (
             <AnimateIn key={s.label} delay={i * 0.07} className="text-center">
-              <p className="font-serif text-[3.2rem] font-bold text-teal leading-none mb-1">
+              <p className="font-serif text-[3.2rem] font-bold text-teal dark:text-[#9FE1CB] leading-none mb-1">
                 <CountUp end={s.end} suffix={s.suffix} />
               </p>
               <p className="text-[13px] font-semibold text-slate dark:text-gray-100 mb-0.5">{s.label}</p>
@@ -187,7 +183,7 @@ export default function PublicationsPage() {
           <div className="text-center py-20">
             <p className="font-serif text-[18px] text-slate dark:text-gray-100 mb-2">No publications match your filters.</p>
             <button onClick={() => { setSearch(''); setTag('All'); setYear('All Years') }}
-              className="text-[13px] text-teal hover:underline font-medium mt-2 cursor-pointer">
+              className="text-[13px] text-teal dark:text-[#9FE1CB] hover:underline font-medium mt-2 cursor-pointer">
               Clear all filters
             </button>
           </div>
@@ -216,18 +212,18 @@ export default function PublicationsPage() {
                 </h3>
                 <p className="text-[12px] text-gray-400 dark:text-gray-500 font-medium">{p.journal} · {p.year}</p>
                 <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-gray-100 dark:border-gray-700">
-                  <button onClick={() => openLink(p.doi)} className="inline-flex items-center gap-1 text-[12px] font-semibold text-teal hover:text-teal-dark transition-colors cursor-pointer">
+                  <a href={p.doi} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-[12px] font-semibold text-teal dark:text-[#9FE1CB] hover:text-teal-dark dark:hover:text-white transition-colors">
                     View Paper <ExternalLink size={11} />
-                  </button>
+                  </a>
                   {p.pmid && (
-                    <button onClick={() => openLink(`https://pubmed.ncbi.nlm.nih.gov/${p.pmid}/`)} className="text-[12px] text-gray-400 dark:text-gray-500 hover:text-teal transition-colors font-medium cursor-pointer">
+                    <a href={`https://pubmed.ncbi.nlm.nih.gov/${p.pmid}/`} target="_blank" rel="noopener noreferrer" className="text-[12px] text-gray-400 dark:text-gray-500 hover:text-teal transition-colors font-medium">
                       PubMed
-                    </button>
+                    </a>
                   )}
                   {p.pmcid && (
-                    <button onClick={() => openLink(`https://www.ncbi.nlm.nih.gov/pmc/articles/${p.pmcid}/`)} className="text-[12px] text-gray-400 dark:text-gray-500 hover:text-teal transition-colors font-medium cursor-pointer">
+                    <a href={`https://www.ncbi.nlm.nih.gov/pmc/articles/${p.pmcid}/`} target="_blank" rel="noopener noreferrer" className="text-[12px] text-gray-400 dark:text-gray-500 hover:text-teal transition-colors font-medium">
                       PMC
-                    </button>
+                    </a>
                   )}
                 </div>
               </div>
@@ -241,12 +237,12 @@ export default function PublicationsPage() {
             <p className="font-serif text-[20px] text-slate dark:text-gray-100 font-semibold mb-2">View Complete Publication Profiles</p>
             <p className="text-[13px] text-gray-400 dark:text-gray-500 mb-6">Explore all citations and metrics on Google Scholar.</p>
             <div className="flex justify-center gap-4 flex-wrap">
-              <button onClick={() => openLink('https://scholar.google.com/citations?user=9gwqNg8AAAAJ')} className="btn-outline text-[13px] px-6 py-2.5 rounded-xl">
+              <a href="https://scholar.google.com/citations?user=9gwqNg8AAAAJ" target="_blank" rel="noopener noreferrer" className="btn-outline text-[13px] px-6 py-2.5 rounded-xl">
                 Dr. Gemini Gajera
-              </button>
-              <button onClick={() => openLink('https://scholar.google.com/citations?user=3T0DfMcAAAAJ')} className="btn-outline text-[13px] px-6 py-2.5 rounded-xl">
+              </a>
+              <a href="https://scholar.google.com/citations?user=3T0DfMcAAAAJ" target="_blank" rel="noopener noreferrer" className="btn-outline text-[13px] px-6 py-2.5 rounded-xl">
                 Ms. Nidhi Thakkar
-              </button>
+              </a>
             </div>
           </div>
         </AnimateIn>
