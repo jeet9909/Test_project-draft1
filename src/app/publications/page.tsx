@@ -65,11 +65,12 @@ export default function PublicationsPage() {
 
   return (
     <>
-      {/* ── HERO ─────────────────────────────────────────── */}
-      <section className="relative pt-28 md:pt-36 pb-16 section-pad bg-white dark:bg-navy overflow-hidden">
+      {/* ── HERO + STATS ─────────────────────────────────── */}
+      <section className="relative pt-28 md:pt-36 pb-14 section-pad bg-white dark:bg-navy overflow-hidden border-b border-gray-100 dark:border-gray-700">
         <div className="absolute inset-0 dot-grid opacity-40 pointer-events-none" />
         <div className="absolute -top-32 -right-32 w-[450px] h-[450px] rounded-full bg-teal/5 blur-3xl pointer-events-none" />
-        <div className="relative">
+        <div className="relative grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-10 lg:gap-16 items-center">
+          {/* Left — text */}
           <AnimateIn>
             <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal/8 dark:bg-teal/15 border border-teal/15 dark:border-teal/30 text-teal dark:text-[#9FE1CB] text-[11px] font-semibold uppercase tracking-widest mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-teal dark:bg-[#9FE1CB] animate-pulse" />
@@ -78,28 +79,26 @@ export default function PublicationsPage() {
             <h1 className="font-serif text-[2.6rem] md:text-[3.2rem] text-slate dark:text-gray-100 font-bold leading-tight mb-4">
               Publications
             </h1>
-            <p className="text-[16px] text-gray-500 dark:text-gray-400 max-w-2xl leading-relaxed">
+            <p className="text-[16px] text-gray-500 dark:text-gray-400 leading-relaxed">
               14+ peer-reviewed publications spanning antimicrobial discovery, aging biology, functional screening, and model organism validation.
             </p>
           </AnimateIn>
-        </div>
-      </section>
 
-      {/* ── STATS ────────────────────────────────────────── */}
-      <section className="section-pad py-12 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-700">
-        <div className="grid grid-cols-2 gap-6 md:gap-10 max-w-xl">
-          {[
-            { end: 14, suffix: '+', label: 'Peer-reviewed publications', desc: 'Spanning 5 research areas' },
-            { end: 5,  suffix: '+', label: 'Years C. elegans expertise', desc: 'Deep domain knowledge' },
-          ].map((s, i) => (
-            <AnimateIn key={s.label} delay={i * 0.07} className="text-center">
-              <p className="font-serif text-[3.2rem] font-bold text-teal dark:text-[#9FE1CB] leading-none mb-1">
-                <CountUp end={s.end} suffix={s.suffix} />
-              </p>
-              <p className="text-[13px] font-semibold text-slate dark:text-gray-100 mb-0.5">{s.label}</p>
-              <p className="text-[11px] text-gray-400 dark:text-gray-500">{s.desc}</p>
-            </AnimateIn>
-          ))}
+          {/* Right — stats fill the empty space */}
+          <div className="grid grid-cols-2 gap-8">
+            {[
+              { end: 14, suffix: '+', label: 'Peer-reviewed publications', desc: 'Spanning 5 research areas' },
+              { end: 5,  suffix: '+', label: 'Years C. elegans expertise', desc: 'Deep domain knowledge' },
+            ].map((s, i) => (
+              <AnimateIn key={s.label} delay={i * 0.1} className="text-center">
+                <p className="font-serif text-[3.2rem] font-bold text-teal dark:text-[#9FE1CB] leading-none mb-1">
+                  <CountUp end={s.end} suffix={s.suffix} />
+                </p>
+                <p className="text-[13px] font-semibold text-slate dark:text-gray-100 mb-0.5">{s.label}</p>
+                <p className="text-[11px] text-gray-400 dark:text-gray-500">{s.desc}</p>
+              </AnimateIn>
+            ))}
+          </div>
         </div>
       </section>
 
