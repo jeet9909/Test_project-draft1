@@ -16,29 +16,24 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   const pathname = usePathname()
-  const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
-
-  useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 60)
-    window.addEventListener('scroll', fn, { passive: true })
-    return () => window.removeEventListener('scroll', fn)
-  }, [])
 
   useEffect(() => setOpen(false), [pathname])
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300
-      ${scrolled
-        ? 'bg-white/97 dark:bg-navy/97 backdrop-blur-sm shadow-[0_1px_20px_rgba(0,0,0,0.06)] border-b border-gray-100 dark:border-gray-700'
-        : 'bg-white dark:bg-navy border-b border-gray-100 dark:border-gray-700'
-      }`}
-    >
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-navy border-b border-gray-100 dark:border-gray-700 shadow-[0_1px_8px_rgba(0,0,0,0.05)]">
       <nav className="section-pad flex items-center justify-between h-16 md:h-20">
 
-        {/* Logo */}
+        {/* Logo — larger so it's clearly visible */}
         <Link href="/" className="flex items-center group" aria-label="WormEra Research Lab">
-          <Image src={logoSrc} alt="WormEra Research Lab" width={160} height={48} className="h-10 w-auto object-contain group-hover:opacity-85 transition-opacity duration-200" priority />
+          <Image
+            src={logoSrc}
+            alt="WormEra Research Lab"
+            width={200}
+            height={60}
+            className="h-12 md:h-14 w-auto object-contain group-hover:opacity-85 transition-opacity duration-200"
+            priority
+          />
         </Link>
 
         {/* Desktop nav */}
@@ -49,7 +44,7 @@ export default function Navbar() {
               href={l.href}
               className={`relative px-3.5 py-2 rounded-lg text-[13.5px] font-medium transition-all duration-150
                 ${pathname === l.href
-                  ? 'text-teal dark:text-[#9FE1CB] bg-teal/6 dark:bg-teal/15 font-semibold'
+                  ? 'text-teal dark:text-[#D1FAE5] bg-teal/8 dark:bg-teal/15 font-semibold'
                   : 'text-gray-500 dark:text-gray-400 hover:text-slate dark:hover:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800'
                 }`}
             >
@@ -76,7 +71,7 @@ export default function Navbar() {
       {/* Mobile menu */}
       {open && (
         <div className="md:hidden bg-white dark:bg-navy border-t border-gray-100 dark:border-gray-700 px-5 py-4 shadow-lg">
-          <div className="space-y-1 mb-4">
+          <div className="space-y-1">
             {NAV_LINKS.map(l => (
               <Link
                 key={l.href}
@@ -84,7 +79,7 @@ export default function Navbar() {
                 onClick={() => setOpen(false)}
                 className={`block px-4 py-2.5 rounded-xl text-[14px] font-medium transition-colors
                   ${pathname === l.href
-                    ? 'bg-teal/8 dark:bg-teal/15 text-teal dark:text-[#9FE1CB] font-semibold'
+                    ? 'bg-teal/8 dark:bg-teal/15 text-teal dark:text-[#D1FAE5] font-semibold'
                     : 'text-slate dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
                   }`}
               >

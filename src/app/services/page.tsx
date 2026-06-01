@@ -134,14 +134,7 @@ export default function ServicesPage() {
                   <pillar.icon size={22} className="text-teal" />
                 </div>
                 <h2 className="font-serif text-[22px] font-semibold text-slate dark:text-gray-100 mb-3 leading-snug">{pillar.title}</h2>
-                <p className="text-[14px] text-gray-500 dark:text-gray-400 leading-relaxed mb-5">{pillar.description}</p>
-                <div className="flex flex-wrap gap-1.5 mb-6">
-                  {pillar.tags.map(t => (
-                    <span key={t} className="bg-teal/8 dark:bg-teal/15 text-teal text-[11px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wide">
-                      {t}
-                    </span>
-                  ))}
-                </div>
+                <p className="text-[14px] text-gray-500 dark:text-gray-400 leading-relaxed mb-6">{pillar.description}</p>
                 <Link href="/contact" className="btn-primary text-[13px] px-5 py-2.5 rounded-xl">
                   Request this service
                   <ArrowRight size={14} />

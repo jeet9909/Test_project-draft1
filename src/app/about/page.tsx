@@ -3,7 +3,7 @@ import Image from 'next/image'
 import geminiPhoto from '@/../public/images/team/gemini-gajera.png'
 import nidhiPhoto from '@/../public/images/team/nidhi-thakkar.png'
 import AnimateIn from '@/components/ui/AnimateIn'
-import { CheckCircle, Eye, Target, Pill, Leaf, Sparkles, Sprout, FlaskConical, Microscope, GraduationCap, Rocket } from 'lucide-react'
+import { Eye, Target, Pill, Leaf, Sparkles, Sprout, FlaskConical, Microscope, GraduationCap, Rocket } from 'lucide-react'
 
 export const metadata: Metadata = { title: 'About — WormEra Research Lab' }
 
@@ -17,7 +17,7 @@ const TEAM = [
   },
   {
     name: 'Ms. Nidhi Thakkar',
-    note: 'Ph.D. Thesis Submitted',
+    note: '',
     scholar: 'https://scholar.google.com/citations?user=3T0DfMcAAAAJ',
     photo: nidhiPhoto,
     accentBar: 'bg-coral',
@@ -64,7 +64,7 @@ export default function AboutPage() {
                 <div className="group bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl overflow-hidden hover:border-teal/25 hover:shadow-2xl hover:shadow-teal/8 hover:-translate-y-1 transition-all duration-300 flex flex-col">
 
                   {/* Portrait — same fixed height on both */}
-                  <div className="relative w-full h-72 overflow-hidden bg-gradient-to-br from-teal/5 to-teal/10">
+                  <div className="relative w-full aspect-[3/4] overflow-hidden bg-gradient-to-br from-teal/5 to-teal/10">
                     <Image
                       src={person.photo}
                       alt={person.name}
@@ -119,14 +119,6 @@ export default function AboutPage() {
               <p>
                 We are established in Ahmedabad and founded by researchers from Nirma University with deep expertise in host-pathogen interactions, stress biology, functional screening, and validated experimental design. With 14+ peer-reviewed publications and a commitment to reproducibility, our work is grounded in science &#8212; not shortcuts.
               </p>
-            </div>
-            <div className="mt-8 flex flex-wrap gap-2.5">
-              {['14+ publications', '3R-aligned', 'No ethics clearance', 'Peer-reviewed methods'].map(badge => (
-                <span key={badge} className="inline-flex items-center gap-1.5 text-[12px] bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 font-medium px-3 py-1.5 rounded-full">
-                  <CheckCircle size={12} className="text-teal dark:text-[#9FE1CB] shrink-0" />
-                  {badge}
-                </span>
-              ))}
             </div>
           </AnimateIn>
 

@@ -52,28 +52,27 @@ export default function HomePage() {
         <div className="absolute inset-0 flex items-center section-pad">
           <div className="max-w-lg lg:max-w-2xl">
 
-            {/* LINE 1 — "Whole-organism research platform" — clearly readable */}
-            <motion.p
-              initial={{ opacity: 0, x: -16 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-[#9FE1CB] font-semibold uppercase tracking-[0.22em] text-[13px] md:text-[14px] mb-4"
-            >
-              Whole-organism research platform
-            </motion.p>
-
-            {/* LINE 2 — Main headline — same weight, same visual prominence */}
+            {/* H1 — Main headline */}
             <motion.h1
               initial={{ opacity: 0, x: -22 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.75, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="font-serif font-bold text-white leading-[1.12] tracking-tight mb-6"
-              style={{ fontSize: 'clamp(2rem, 4.2vw, 3.6rem)' }}
+              transition={{ duration: 0.7, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+              className="font-serif font-bold text-white leading-[1.1] tracking-tight mb-4"
+              style={{ fontSize: 'clamp(2.2rem, 4.5vw, 4rem)' }}
             >
-              Pioneering Rapid <em>In&nbsp;Vivo</em><br />
-              Screening through<br />
-              <em>C.&nbsp;elegans</em> Model.
+              Whole-organism<br />research platform
             </motion.h1>
+
+            {/* Subtitle */}
+            <motion.p
+              initial={{ opacity: 0, x: -16 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-white/80 font-medium text-[15px] md:text-[17px] leading-snug mb-6 max-w-md"
+            >
+              Pioneering Rapid <em>In&nbsp;Vivo</em> Screening through{' '}
+              <em>Caenorhabditis elegans</em> Model
+            </motion.p>
 
             {/* coral accent bar */}
             <motion.div
@@ -96,7 +95,7 @@ export default function HomePage() {
           className="text-[16px] md:text-[17px] text-gray-500 dark:text-gray-400 leading-[1.9] max-w-3xl"
         >
           WormEra Research Lab is a specialized research and service laboratory focused on{' '}
-          <em>Caenorhabditis elegans</em>&#8211;based <em>in vivo</em> screening for nutraceutical, pharmaceutical,
+          <em>C. elegans</em>&#8211;based <em>in vivo</em> screening for nutraceutical, pharmaceutical,
           antimicrobial and functional ingredient evaluation. With a strong emphasis on scientific
           accuracy, innovation and translational research, the laboratory provides reliable
           preclinical screening solutions for academia and industry.
