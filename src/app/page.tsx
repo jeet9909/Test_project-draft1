@@ -74,14 +74,6 @@ export default function HomePage() {
               <em>Caenorhabditis elegans</em> Model
             </motion.p>
 
-            {/* coral accent bar */}
-            <motion.div
-              initial={{ scaleX: 0, opacity: 0 }}
-              animate={{ scaleX: 1, opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.3, ease: 'easeOut' }}
-              className="w-12 h-[3px] bg-coral rounded-full origin-left"
-            />
-
           </div>
         </div>
       </section>

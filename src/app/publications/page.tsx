@@ -22,7 +22,6 @@ const PUBS = [
   { id: 15, title: 'Anthelmintic activity of Ferula asafoetida against the model worm Caenorhabditis elegans', journal: 'OSF Preprints', year: 2021, doi: 'https://doi.org/10.31219/osf.io/ra3zp', pmid: null, pmcid: null, tag: 'Anthelmintic', oa: false },
 ]
 
-const TAGS = ['All', 'Anti-Pathogenic', 'Anthelmintic', 'Aging & Lifespan', 'Stress / Aging', 'Microbiome', 'Review', 'In Vivo Model']
 
 const TAG_STYLES: Record<string, string> = {
   'Anti-Pathogenic': 'bg-teal/10 dark:bg-teal/15 text-teal dark:text-[#9FE1CB] border-teal/20 dark:border-teal/30',
@@ -88,12 +87,10 @@ export default function PublicationsPage() {
 
       {/* ── STATS ────────────────────────────────────────── */}
       <section className="section-pad py-12 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-700">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
+        <div className="grid grid-cols-2 gap-6 md:gap-10 max-w-xl">
           {[
             { end: 14, suffix: '+', label: 'Peer-reviewed publications', desc: 'Spanning 5 research areas' },
             { end: 5,  suffix: '+', label: 'Years C. elegans expertise', desc: 'Deep domain knowledge' },
-            { end: 3,  suffix: '',  label: 'Core service pillars',       desc: 'Toxicity · Efficacy · AMR' },
-            { end: 8,  suffix: '',  label: 'Industries served',          desc: 'Pharma to AYUSH' },
           ].map((s, i) => (
             <AnimateIn key={s.label} delay={i * 0.07} className="text-center">
               <p className="font-serif text-[3.2rem] font-bold text-teal dark:text-[#9FE1CB] leading-none mb-1">
@@ -157,23 +154,6 @@ export default function PublicationsPage() {
           <span className="text-[13px] text-gray-400 dark:text-gray-500 self-center sm:ml-1 shrink-0 font-medium">
             {filtered.length} <span className="text-gray-300 dark:text-gray-600">/</span> {PUBS.length}
           </span>
-        </div>
-
-        {/* Tag pills */}
-        <div className="flex flex-wrap gap-2">
-          {TAGS.map(t => (
-            <button
-              key={t}
-              onClick={() => setTag(t)}
-              className={`px-3.5 py-1.5 rounded-full text-[12px] font-semibold transition-all duration-150 cursor-pointer ${
-                tag === t
-                  ? 'bg-teal text-white shadow-sm shadow-teal/25'
-                  : 'bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-slate dark:hover:text-gray-200'
-              }`}
-            >
-              {t}
-            </button>
-          ))}
         </div>
       </section>
 
