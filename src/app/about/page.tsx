@@ -10,25 +10,17 @@ export const metadata: Metadata = { title: 'About — WormEra Research Lab' }
 const TEAM = [
   {
     name: 'Dr. Gemini Gajera',
-    role: 'Principal Investigator & Co-Founder',
-    institution: 'Nirma University, Ahmedabad',
     note: '',
-    tags: ['Host-pathogen interactions', 'Stress biology', 'C. elegans functional screening'],
     scholar: 'https://scholar.google.com/citations?user=9gwqNg8AAAAJ',
     photo: geminiPhoto,
     accentBar: 'bg-teal',
-    roleColor: 'text-teal dark:text-[#9FE1CB]',
   },
   {
     name: 'Ms. Nidhi Thakkar',
-    role: 'Research Scientist & Co-Founder',
-    institution: 'Nirma University, Ahmedabad',
     note: 'Ph.D. Thesis Submitted',
-    tags: ['Antimicrobial research', 'Experimental design', 'In vivo bioassays'],
     scholar: 'https://scholar.google.com/citations?user=3T0DfMcAAAAJ',
     photo: nidhiPhoto,
     accentBar: 'bg-coral',
-    roleColor: 'text-coral',
   },
 ]
 
@@ -85,31 +77,18 @@ export default function AboutPage() {
                     </div>
 
                     {/* Details */}
-                    <div className="flex flex-col gap-1.5 min-w-0">
+                    <div className="flex flex-col gap-2 min-w-0 justify-center">
                       <h3 className="font-serif text-[18px] font-semibold text-slate dark:text-gray-100 leading-snug">
                         {person.name}
                       </h3>
-                      <p className={`text-[12.5px] font-semibold ${person.roleColor}`}>
-                        {person.role}
-                      </p>
-                      <p className="text-[12px] text-gray-400 dark:text-gray-500">
-                        {person.institution}{person.note ? ` — ${person.note}` : ''}
-                      </p>
-
-                      {/* Expertise tags */}
-                      <div className="flex flex-wrap gap-1.5 mt-1">
-                        {person.tags.map(tag => (
-                          <span key={tag} className="text-[11px] bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-500 dark:text-gray-300 px-2.5 py-0.5 rounded-full">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-
+                      {person.note && (
+                        <p className="text-[12.5px] text-gray-400 dark:text-gray-500 font-medium">{person.note}</p>
+                      )}
                       <a
                         href={person.scholar}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-[12.5px] font-semibold text-teal dark:text-[#9FE1CB] hover:underline mt-1.5"
+                        className="inline-flex items-center gap-1 text-[13px] font-semibold text-teal dark:text-[#9FE1CB] hover:underline"
                       >
                         Google Scholar Profile →
                       </a>
