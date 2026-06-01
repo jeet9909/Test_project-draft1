@@ -44,7 +44,7 @@ export default function AboutPage() {
         <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-teal/5 blur-3xl pointer-events-none" />
 
         {/* Title left | Both portraits right — fills full width */}
-        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="relative grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-center">
 
           {/* LEFT — section header */}
           <AnimateIn direction="left">
@@ -63,8 +63,8 @@ export default function AboutPage() {
               <AnimateIn key={person.name} delay={i * 0.12}>
                 <div className="group bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl overflow-hidden hover:border-teal/25 hover:shadow-2xl hover:shadow-teal/8 hover:-translate-y-1 transition-all duration-300 flex flex-col">
 
-                  {/* Portrait — same aspect on both */}
-                  <div className="relative w-full aspect-[3/4] overflow-hidden bg-gradient-to-br from-teal/5 to-teal/10">
+                  {/* Portrait — same fixed height on both */}
+                  <div className="relative w-full h-52 overflow-hidden bg-gradient-to-br from-teal/5 to-teal/10">
                     <Image
                       src={person.photo}
                       alt={person.name}
