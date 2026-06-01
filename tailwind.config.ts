@@ -1,5 +1,7 @@
 import type { Config } from "tailwindcss";
 
+// PALETTE 1 — Deep teal + warm cream
+// Scientific trust meets biological warmth
 const config: Config = {
   darkMode: 'class',
   content: [
@@ -10,13 +12,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        teal:     { DEFAULT: "#0A4F5C", dark: "#083D47", light: "#E1F5EE", lightText: "#9FE1CB" },
-        coral:    { DEFAULT: "#E86A33", dark: "#C55A28", light: "#FAECE7" },
-        gold:     { DEFAULT: "#C9A227", light: "#FDF3D0" },
-        sage:     { DEFAULT: "#6B8E6B", light: "#EDF4ED" },
-        slate:    { DEFAULT: "#2D3748" },
-        offwhite: { DEFAULT: "#F7FAFC" },
-        navy:     { DEFAULT: "#0F172A" },
+        teal:     { DEFAULT: "#2A9D8F", dark: "#1A3A3A", light: "#E8F7F5", lightText: "#57C5B6" },
+        coral:    { DEFAULT: "#E9C46A", dark: "#C9A44A", light: "#FDF6D8" },
+        gold:     { DEFAULT: "#E9C46A", light: "#FDF6D8" },
+        sage:     { DEFAULT: "#57C5B6", light: "#E8F7F5" },
+        slate:    { DEFAULT: "#1A3A3A" },
+        offwhite: { DEFAULT: "#FDF8F0" },
+        navy:     { DEFAULT: "#1A3A3A" },
       },
       fontFamily: {
         sans:  ["Inter", "system-ui", "sans-serif"],

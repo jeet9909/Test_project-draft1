@@ -41,7 +41,7 @@ export default function Navbar() {
           <Image src={logoSrc} alt="WormEra Research Lab" width={160} height={48} className="h-10 w-auto object-contain group-hover:opacity-85 transition-opacity duration-200" priority />
         </Link>
 
-        {/* Desktop nav + CTA */}
+        {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-1">
           {NAV_LINKS.map(l => (
             <Link
