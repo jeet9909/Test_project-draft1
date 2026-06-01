@@ -16,14 +16,16 @@ export default function Footer() {
 
           {/* ── LEFT ──────────────────────────────────── */}
           <div className="flex flex-col items-start gap-6">
-            {/* Logo — white/transparent on dark footer */}
-            <Image
-              src={logoSrc}
-              alt="WormEra Research Lab"
-              width={180}
-              height={54}
-              className="h-11 w-auto object-contain brightness-0 invert"
-            />
+            {/* Logo — same white-pill treatment as navbar */}
+            <div className="bg-white rounded-xl px-4 py-2 inline-block shadow-sm shadow-black/20">
+              <Image
+                src={logoSrc}
+                alt="WormEra Research Lab"
+                width={160}
+                height={48}
+                className="h-10 w-auto object-contain"
+              />
+            </div>
 
             {/* Tagline */}
             <p className="font-serif text-[1.2rem] md:text-[1.35rem] text-white font-semibold leading-snug max-w-sm">

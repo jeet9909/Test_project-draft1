@@ -21,8 +21,10 @@ const config: Config = {
         navy:     { DEFAULT: "#1A3A3A" },
       },
       fontFamily: {
-        sans:  ["Inter", "system-ui", "sans-serif"],
-        serif: ["Playfair Display", "Georgia", "serif"],
+        sans:  ["DM Sans", "system-ui", "sans-serif"],
+        serif: ["DM Serif Display", "Georgia", "serif"],
+        lora:  ["Lora", "Georgia", "serif"],
+        mono:  ["Source Code Pro", "Menlo", "monospace"],
       },
     },
   },

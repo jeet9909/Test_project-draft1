@@ -1,4 +1,4 @@
-/** @type {import('next').NextConfig} */
+﻿/** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
   basePath: "/Test_project-draft1",
@@ -14,3 +14,7 @@ const nextConfig = {
 };
 
 export default nextConfig;
+
+
+
+

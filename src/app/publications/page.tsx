@@ -207,12 +207,12 @@ export default function PublicationsPage() {
                     </span>
                   )}
                 </div>
-                <h3 className="font-sans text-[14px] font-semibold text-slate dark:text-gray-100 leading-snug flex-1 group-hover:text-teal transition-colors">
+                <h3 className="font-lora text-[13.5px] font-semibold text-slate dark:text-gray-100 leading-snug flex-1 group-hover:text-teal transition-colors">
                   {p.title}
                 </h3>
-                <p className="text-[12px] text-gray-400 dark:text-gray-500 font-medium">{p.journal} · {p.year}</p>
+                <p className="text-[12px] text-gray-400 dark:text-gray-500 font-medium font-sans">{p.journal} · {p.year}</p>
                 <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-gray-100 dark:border-gray-700">
-                  <a href={p.doi} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-[12px] font-semibold text-teal dark:text-[#9FE1CB] hover:text-teal-dark dark:hover:text-white transition-colors">
+                  <a href={p.doi} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-[11px] font-mono text-teal dark:text-[#9FE1CB] hover:text-teal-dark dark:hover:text-white transition-colors">
                     View Paper <ExternalLink size={11} />
                   </a>
                   {p.pmid && (

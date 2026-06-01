@@ -10,17 +10,25 @@ export const metadata: Metadata = { title: 'About — WormEra Research Lab' }
 const TEAM = [
   {
     name: 'Dr. Gemini Gajera',
+    role: 'Principal Investigator & Co-Founder',
+    institution: 'Nirma University, Ahmedabad',
     note: '',
+    tags: ['Host-pathogen interactions', 'Stress biology', 'C. elegans functional screening'],
     scholar: 'https://scholar.google.com/citations?user=9gwqNg8AAAAJ',
     photo: geminiPhoto,
-    accent: 'from-teal to-teal/60',
+    accentBar: 'bg-teal',
+    roleColor: 'text-teal dark:text-[#9FE1CB]',
   },
   {
     name: 'Ms. Nidhi Thakkar',
+    role: 'Research Scientist & Co-Founder',
+    institution: 'Nirma University, Ahmedabad',
     note: 'Ph.D. Thesis Submitted',
+    tags: ['Antimicrobial research', 'Experimental design', 'In vivo bioassays'],
     scholar: 'https://scholar.google.com/citations?user=3T0DfMcAAAAJ',
     photo: nidhiPhoto,
-    accent: 'from-coral to-coral/60',
+    accentBar: 'bg-coral',
+    roleColor: 'text-coral',
   },
 ]
 
@@ -43,67 +51,74 @@ export default function AboutPage() {
         <div className="absolute inset-0 dot-grid opacity-40 pointer-events-none" />
         <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-teal/5 blur-3xl pointer-events-none" />
 
-        <div className="relative grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-14 lg:gap-20 items-start">
-
-          {/* Left — header */}
-          <AnimateIn direction="left">
-            <p className="eyebrow text-teal dark:text-[#9FE1CB] mb-3">The people behind the science</p>
-            <h1 className="font-serif text-[2.4rem] md:text-[3rem] text-slate dark:text-gray-100 font-bold leading-tight mb-5">
-              About WormEra
+        <div className="relative">
+          {/* Section header */}
+          <AnimateIn className="mb-12">
+            <p className="eyebrow text-teal dark:text-[#9FE1CB] mb-3">Meet the Founders</p>
+            <h1 className="font-serif text-[2.2rem] md:text-[2.8rem] text-slate dark:text-gray-100 font-bold leading-tight mb-3">
+              The people behind the research
             </h1>
-            <p className="text-[15px] text-gray-500 dark:text-gray-400 leading-relaxed mb-8">
-              A blend of scientific expertise and business acumen driving innovation in <em>C. elegans</em>-based research.
+            <p className="text-[15px] text-gray-500 dark:text-gray-400 max-w-xl leading-relaxed">
+              A blend of scientific expertise and business acumen driving innovation.
             </p>
-            {/* Trust badges */}
-            <div className="flex flex-wrap gap-2.5">
-              {['14+ publications', '3R-aligned', 'No ethics clearance', 'Peer-reviewed methods'].map(badge => (
-                <span key={badge} className="inline-flex items-center gap-1.5 text-[12px] bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 font-medium px-3 py-1.5 rounded-full">
-                  <CheckCircle size={12} className="text-teal dark:text-[#9FE1CB] shrink-0" />
-                  {badge}
-                </span>
-              ))}
-            </div>
           </AnimateIn>
 
-          {/* Right — team cards */}
-          <div className="grid grid-cols-2 gap-5">
+          {/* Horizontal team cards — 2 col on md+ */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {TEAM.map((person, i) => (
               <AnimateIn key={person.name} delay={i * 0.12}>
-                <div className="group flex flex-col rounded-2xl overflow-hidden bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 hover:border-teal/25 hover:shadow-2xl hover:shadow-teal/8 transition-all duration-300">
-                  {/* Photo */}
-                  <div className="relative w-full aspect-[3/4] overflow-hidden bg-gradient-to-br from-teal/5 to-teal/10 shrink-0">
-                    <Image
-                      src={person.photo}
-                      alt={person.name}
-                      fill
-                      sizes="(max-width: 640px) 50vw, 280px"
-                      className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
-                    />
-                  </div>
-                  {/* Accent bar */}
-                  <div className={`h-[3px] bg-gradient-to-r ${person.accent}`} />
-                  {/* Details */}
-                  <div className="p-5 flex flex-col gap-2">
-                    <h3 className="font-serif text-[17px] font-semibold text-slate dark:text-gray-100 leading-snug">
-                      {person.name}
-                    </h3>
-                    {person.note && (
-                      <p className="text-[11.5px] text-gray-400 dark:text-gray-500 font-medium">{person.note}</p>
-                    )}
-                    <a
-                      href={person.scholar}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-[12.5px] font-semibold text-teal dark:text-[#9FE1CB] hover:underline mt-1"
-                    >
-                      Google Scholar →
-                    </a>
+                <div className="group bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-teal/5 transition-all duration-300">
+                  {/* Accent top bar */}
+                  <div className={`h-[3px] w-full ${person.accentBar}`} />
+
+                  {/* Horizontal content: photo left, details right */}
+                  <div className="flex gap-5 p-5">
+                    {/* Photo — square */}
+                    <div className="relative w-24 h-28 md:w-28 md:h-32 rounded-xl overflow-hidden bg-gradient-to-br from-teal/5 to-teal/10 shrink-0">
+                      <Image
+                        src={person.photo}
+                        alt={person.name}
+                        fill
+                        sizes="112px"
+                        className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
+                      />
+                    </div>
+
+                    {/* Details */}
+                    <div className="flex flex-col gap-1.5 min-w-0">
+                      <h3 className="font-serif text-[18px] font-semibold text-slate dark:text-gray-100 leading-snug">
+                        {person.name}
+                      </h3>
+                      <p className={`text-[12.5px] font-semibold ${person.roleColor}`}>
+                        {person.role}
+                      </p>
+                      <p className="text-[12px] text-gray-400 dark:text-gray-500">
+                        {person.institution}{person.note ? ` — ${person.note}` : ''}
+                      </p>
+
+                      {/* Expertise tags */}
+                      <div className="flex flex-wrap gap-1.5 mt-1">
+                        {person.tags.map(tag => (
+                          <span key={tag} className="text-[11px] bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-500 dark:text-gray-300 px-2.5 py-0.5 rounded-full">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      <a
+                        href={person.scholar}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-[12.5px] font-semibold text-teal dark:text-[#9FE1CB] hover:underline mt-1.5"
+                      >
+                        Google Scholar Profile →
+                      </a>
+                    </div>
                   </div>
                 </div>
               </AnimateIn>
             ))}
           </div>
-
         </div>
       </section>
 
