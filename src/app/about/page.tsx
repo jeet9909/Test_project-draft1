@@ -43,31 +43,33 @@ export default function AboutPage() {
         <div className="absolute inset-0 dot-grid opacity-40 pointer-events-none" />
         <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-teal/5 blur-3xl pointer-events-none" />
 
-        <div className="relative">
-          {/* Section header */}
-          <AnimateIn className="mb-12">
+        {/* Title left | Both portraits right — fills full width */}
+        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+          {/* LEFT — section header */}
+          <AnimateIn direction="left">
             <p className="eyebrow text-teal dark:text-[#9FE1CB] mb-3">Meet the Founders</p>
-            <h1 className="font-serif text-[2.2rem] md:text-[2.8rem] text-slate dark:text-gray-100 font-bold leading-tight mb-3">
+            <h1 className="font-serif text-[2.2rem] md:text-[2.8rem] text-slate dark:text-gray-100 font-bold leading-tight mb-4">
               The people behind the research
             </h1>
-            <p className="text-[15px] text-gray-500 dark:text-gray-400 max-w-xl leading-relaxed">
+            <p className="text-[15px] text-gray-500 dark:text-gray-400 leading-relaxed">
               A blend of scientific expertise and business acumen driving innovation.
             </p>
           </AnimateIn>
 
-          {/* Portrait cards — centred, constrained width */}
-          <div className="grid grid-cols-2 gap-6 max-w-2xl">
+          {/* RIGHT — two equal portrait cards */}
+          <div className="grid grid-cols-2 gap-5">
             {TEAM.map((person, i) => (
               <AnimateIn key={person.name} delay={i * 0.12}>
                 <div className="group bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl overflow-hidden hover:border-teal/25 hover:shadow-2xl hover:shadow-teal/8 hover:-translate-y-1 transition-all duration-300 flex flex-col">
 
-                  {/* Portrait photo */}
-                  <div className="relative w-full aspect-[4/5] overflow-hidden bg-gradient-to-br from-teal/5 to-teal/10">
+                  {/* Portrait — same aspect on both */}
+                  <div className="relative w-full aspect-[3/4] overflow-hidden bg-gradient-to-br from-teal/5 to-teal/10">
                     <Image
                       src={person.photo}
                       alt={person.name}
                       fill
-                      sizes="(max-width: 768px) 50vw, 320px"
+                      sizes="(max-width: 1024px) 50vw, 25vw"
                       className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
                     />
                   </div>
@@ -76,18 +78,18 @@ export default function AboutPage() {
                   <div className={`h-[3px] w-full ${person.accentBar}`} />
 
                   {/* Details */}
-                  <div className="p-5 flex flex-col gap-2">
-                    <h3 className="font-serif text-[18px] font-semibold text-slate dark:text-gray-100 leading-snug">
+                  <div className="p-4 flex flex-col gap-1.5">
+                    <h3 className="font-serif text-[17px] font-semibold text-slate dark:text-gray-100 leading-snug">
                       {person.name}
                     </h3>
                     {person.note && (
-                      <p className="text-[12px] text-gray-400 dark:text-gray-500 font-medium">{person.note}</p>
+                      <p className="text-[12px] text-gray-400 dark:text-gray-500">{person.note}</p>
                     )}
                     <a
                       href={person.scholar}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-teal dark:text-[#9FE1CB] hover:underline mt-1"
+                      className="inline-flex items-center gap-1 text-[12.5px] font-semibold text-teal dark:text-[#9FE1CB] hover:underline mt-1"
                     >
                       Google Scholar Profile →
                     </a>
@@ -97,6 +99,7 @@ export default function AboutPage() {
               </AnimateIn>
             ))}
           </div>
+
         </div>
       </section>
 
