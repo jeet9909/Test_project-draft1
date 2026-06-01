@@ -64,13 +64,13 @@ export default function AboutPage() {
                 <div className="group bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl overflow-hidden hover:border-teal/25 hover:shadow-2xl hover:shadow-teal/8 hover:-translate-y-1 transition-all duration-300 flex flex-col">
 
                   {/* Portrait — same fixed height on both */}
-                  <div className="relative w-full h-52 overflow-hidden bg-gradient-to-br from-teal/5 to-teal/10">
+                  <div className="relative w-full h-72 overflow-hidden bg-gradient-to-br from-teal/5 to-teal/10">
                     <Image
                       src={person.photo}
                       alt={person.name}
                       fill
                       sizes="(max-width: 1024px) 50vw, 25vw"
-                      className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
+                      className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.04]"
                     />
                   </div>
 
