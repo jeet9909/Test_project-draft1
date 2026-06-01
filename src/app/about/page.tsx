@@ -41,51 +41,69 @@ export default function AboutPage() {
       {/* ── TEAM ─────────────────────────────────────────── */}
       <section className="relative section-pad pt-28 md:pt-36 pb-20 md:pb-24 bg-white dark:bg-navy overflow-hidden">
         <div className="absolute inset-0 dot-grid opacity-40 pointer-events-none" />
-        <div className="absolute -top-32 -right-32 w-[400px] h-[400px] rounded-full bg-teal/5 blur-3xl pointer-events-none" />
-        <div className="relative">
-        <AnimateIn className="mb-12">
-          <p className="eyebrow text-teal dark:text-[#9FE1CB] mb-2">The people behind the science</p>
-          <h1 className="font-serif text-[2.4rem] md:text-[3.2rem] text-slate dark:text-gray-100 font-bold leading-tight mb-4">About WormEra</h1>
-          <p className="text-[15px] text-gray-500 dark:text-gray-400 max-w-xl leading-relaxed">A blend of scientific expertise and business acumen driving innovation in <em>C. elegans</em>-based research.</p>
-        </AnimateIn>
+        <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-teal/5 blur-3xl pointer-events-none" />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl">
-          {TEAM.map((person, i) => (
-            <AnimateIn key={person.name} delay={i * 0.12}>
-              <div className="group bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl overflow-hidden card-hover hover:border-teal/20 hover:shadow-xl hover:shadow-teal/5 flex flex-col">
-                {/* Photo — full width portrait */}
-                <div className="relative w-full aspect-[4/5] overflow-hidden bg-gradient-to-br from-teal/5 to-teal/10">
-                  <Image
-                    src={person.photo}
-                    alt={person.name}
-                    fill
-                    sizes="(max-width: 640px) 100vw, 400px"
-                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                {/* Accent bar */}
-                <div className={`h-1 bg-gradient-to-r ${person.accent}`} />
-                {/* Details */}
-                <div className="p-5 flex flex-col gap-3">
-                  <div>
-                    <h3 className="font-serif text-[19px] font-semibold text-slate dark:text-gray-100 leading-snug">{person.name}</h3>
-                    {person.note && (
-                      <p className="text-[12px] text-gray-400 dark:text-gray-500 mt-0.5">{person.note}</p>
-                    )}
+        <div className="relative grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-14 lg:gap-20 items-start">
+
+          {/* Left — header */}
+          <AnimateIn direction="left">
+            <p className="eyebrow text-teal dark:text-[#9FE1CB] mb-3">The people behind the science</p>
+            <h1 className="font-serif text-[2.4rem] md:text-[3rem] text-slate dark:text-gray-100 font-bold leading-tight mb-5">
+              About WormEra
+            </h1>
+            <p className="text-[15px] text-gray-500 dark:text-gray-400 leading-relaxed mb-8">
+              A blend of scientific expertise and business acumen driving innovation in <em>C. elegans</em>-based research.
+            </p>
+            {/* Trust badges */}
+            <div className="flex flex-wrap gap-2.5">
+              {['14+ publications', '3R-aligned', 'No ethics clearance', 'Peer-reviewed methods'].map(badge => (
+                <span key={badge} className="inline-flex items-center gap-1.5 text-[12px] bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 font-medium px-3 py-1.5 rounded-full">
+                  <CheckCircle size={12} className="text-teal dark:text-[#9FE1CB] shrink-0" />
+                  {badge}
+                </span>
+              ))}
+            </div>
+          </AnimateIn>
+
+          {/* Right — team cards */}
+          <div className="grid grid-cols-2 gap-5">
+            {TEAM.map((person, i) => (
+              <AnimateIn key={person.name} delay={i * 0.12}>
+                <div className="group flex flex-col rounded-2xl overflow-hidden bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 hover:border-teal/25 hover:shadow-2xl hover:shadow-teal/8 transition-all duration-300">
+                  {/* Photo */}
+                  <div className="relative w-full aspect-[3/4] overflow-hidden bg-gradient-to-br from-teal/5 to-teal/10 shrink-0">
+                    <Image
+                      src={person.photo}
+                      alt={person.name}
+                      fill
+                      sizes="(max-width: 640px) 50vw, 280px"
+                      className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
+                    />
                   </div>
-                  <a
-                    href={person.scholar}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-teal dark:text-[#9FE1CB] hover:text-teal-dark dark:hover:text-white transition-colors"
-                  >
-                    Google Scholar Profile →
-                  </a>
+                  {/* Accent bar */}
+                  <div className={`h-[3px] bg-gradient-to-r ${person.accent}`} />
+                  {/* Details */}
+                  <div className="p-5 flex flex-col gap-2">
+                    <h3 className="font-serif text-[17px] font-semibold text-slate dark:text-gray-100 leading-snug">
+                      {person.name}
+                    </h3>
+                    {person.note && (
+                      <p className="text-[11.5px] text-gray-400 dark:text-gray-500 font-medium">{person.note}</p>
+                    )}
+                    <a
+                      href={person.scholar}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-[12.5px] font-semibold text-teal dark:text-[#9FE1CB] hover:underline mt-1"
+                    >
+                      Google Scholar →
+                    </a>
+                  </div>
                 </div>
-              </div>
-            </AnimateIn>
-          ))}
-        </div>
+              </AnimateIn>
+            ))}
+          </div>
+
         </div>
       </section>
 
