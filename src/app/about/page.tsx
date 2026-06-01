@@ -55,45 +55,44 @@ export default function AboutPage() {
             </p>
           </AnimateIn>
 
-          {/* Horizontal team cards — 2 col on md+ */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Portrait cards — centred, constrained width */}
+          <div className="grid grid-cols-2 gap-6 max-w-2xl">
             {TEAM.map((person, i) => (
               <AnimateIn key={person.name} delay={i * 0.12}>
-                <div className="group bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-teal/5 transition-all duration-300">
-                  {/* Accent top bar */}
+                <div className="group bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl overflow-hidden hover:border-teal/25 hover:shadow-2xl hover:shadow-teal/8 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+
+                  {/* Portrait photo */}
+                  <div className="relative w-full aspect-[4/5] overflow-hidden bg-gradient-to-br from-teal/5 to-teal/10">
+                    <Image
+                      src={person.photo}
+                      alt={person.name}
+                      fill
+                      sizes="(max-width: 768px) 50vw, 320px"
+                      className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
+                    />
+                  </div>
+
+                  {/* Accent bar */}
                   <div className={`h-[3px] w-full ${person.accentBar}`} />
 
-                  {/* Horizontal content: photo left, details right */}
-                  <div className="flex gap-5 p-5">
-                    {/* Photo — square */}
-                    <div className="relative w-24 h-28 md:w-28 md:h-32 rounded-xl overflow-hidden bg-gradient-to-br from-teal/5 to-teal/10 shrink-0">
-                      <Image
-                        src={person.photo}
-                        alt={person.name}
-                        fill
-                        sizes="112px"
-                        className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
-                      />
-                    </div>
-
-                    {/* Details */}
-                    <div className="flex flex-col gap-2 min-w-0 justify-center">
-                      <h3 className="font-serif text-[18px] font-semibold text-slate dark:text-gray-100 leading-snug">
-                        {person.name}
-                      </h3>
-                      {person.note && (
-                        <p className="text-[12.5px] text-gray-400 dark:text-gray-500 font-medium">{person.note}</p>
-                      )}
-                      <a
-                        href={person.scholar}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-[13px] font-semibold text-teal dark:text-[#9FE1CB] hover:underline"
-                      >
-                        Google Scholar Profile →
-                      </a>
-                    </div>
+                  {/* Details */}
+                  <div className="p-5 flex flex-col gap-2">
+                    <h3 className="font-serif text-[18px] font-semibold text-slate dark:text-gray-100 leading-snug">
+                      {person.name}
+                    </h3>
+                    {person.note && (
+                      <p className="text-[12px] text-gray-400 dark:text-gray-500 font-medium">{person.note}</p>
+                    )}
+                    <a
+                      href={person.scholar}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-teal dark:text-[#9FE1CB] hover:underline mt-1"
+                    >
+                      Google Scholar Profile →
+                    </a>
                   </div>
+
                 </div>
               </AnimateIn>
             ))}
