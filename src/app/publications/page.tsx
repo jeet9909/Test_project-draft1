@@ -5,6 +5,7 @@ import AnimateIn from '@/components/ui/AnimateIn'
 import CountUp from '@/components/ui/CountUp'
 
 const PUBS = [
+  { id: 16, title: 'Working with Worms: Protocols and Some Practical Considerations for a C. elegans Laboratory', journal: 'Springer (Book Chapter)', year: 2025, doi: 'https://link.springer.com/chapter/10.1007/978-981-92-0038-2_8', pmid: null, pmcid: null, tag: 'Review', oa: false },
   { id: 1,  title: "Berberine Attenuates Chromobacterium violaceum's Virulence by Targeting Efflux and Denitrification Machinery", journal: 'Chemistry & Biodiversity', year: 2025, doi: 'https://doi.org/10.1002/cbdv.202503727', pmid: '42127231', pmcid: null, tag: 'Anti-Pathogenic', oa: false },
   { id: 2,  title: 'Withania somnifera root extract reduces susceptibility of the model worm Caenorhabditis elegans to different types of stressors', journal: 'Preprint', year: 2025, doi: 'https://doi.org/10.64898/2025.12.18.695325', pmid: null, pmcid: 'PMC12767675', tag: 'Stress / Aging', oa: true },
   { id: 3,  title: 'Withania somnifera root extract (LongeFera™) confers beneficial effects on health and lifespan of Caenorhabditis elegans', journal: 'Drug Target Insights', year: 2025, doi: 'https://doi.org/10.33393/dti.2025.3368', pmid: null, pmcid: 'PMC11969495', tag: 'Aging & Lifespan', oa: true },

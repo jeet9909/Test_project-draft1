@@ -29,9 +29,9 @@ export default function Navbar() {
           <Image
             src={logoSrc}
             alt="WormEra Research Lab"
-            width={200}
-            height={60}
-            className="h-12 md:h-14 w-auto object-contain group-hover:opacity-85 transition-opacity duration-200"
+            width={240}
+            height={72}
+            className="h-14 md:h-[4.2rem] w-auto object-contain group-hover:opacity-85 transition-opacity duration-200"
             priority
           />
         </Link>
