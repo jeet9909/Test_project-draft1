@@ -11,13 +11,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        teal:     { DEFAULT: "#52B788", dark: "#1B4332", light: "#E8F5EE", lightText: "#95D5B2" },
-        coral:    { DEFAULT: "#52B788", dark: "#1B4332", light: "#E8F5EE" },
-        gold:     { DEFAULT: "#95D5B2", light: "#E8F5EE" },
-        sage:     { DEFAULT: "#52B788", light: "#E8F5EE" },
-        slate:    { DEFAULT: "#0D1B2A" },
-        offwhite: { DEFAULT: "#F8F9FA" },
-        navy:     { DEFAULT: "#0D1B2A" },
+        teal:     { DEFAULT: "#0F766E", dark: "#0B5A54", light: "#E6F7F1", lightText: "#D1FAE5" },
+        coral:    { DEFAULT: "#059669", dark: "#047857", light: "#D1FAE5" },
+        gold:     { DEFAULT: "#059669", light: "#D1FAE5" },
+        sage:     { DEFAULT: "#0F766E", light: "#E6F7F1" },
+        slate:    { DEFAULT: "#0F172A" },
+        offwhite: { DEFAULT: "#E6F7F1" },
+        navy:     { DEFAULT: "#0F172A" },
       },
       fontFamily: {
         sans:  ["DM Sans", "system-ui", "sans-serif"],
