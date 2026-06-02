@@ -81,14 +81,14 @@ export default function ServicesPage() {
   return (
     <>
       {/* ── HERO BANNER ───────────────────────────────────── */}
-      <section className="relative w-full overflow-hidden mt-16 md:mt-20">
-        {/* Full image — natural 1920×1080, zero cropping */}
+      <section className="relative w-full overflow-hidden mt-16 md:mt-20 h-[340px] md:h-[460px]">
+        {/* Wide image, height-capped so it never dominates the viewport */}
         <Image
           src={servicesHero}
           alt="WormEra laboratory — in vivo screening services"
-          width={1920}
-          height={1080}
-          className="w-full h-auto block"
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
           priority
         />
         {/* Left-heavy gradient overlay for text readability */}
