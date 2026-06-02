@@ -4,7 +4,7 @@ import AnimateIn from '@/components/ui/AnimateIn'
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0F172A] relative overflow-hidden">
+    <footer className="bg-[#0B4F49] relative overflow-hidden">
       {/* very subtle texture */}
       <div className="absolute inset-0 opacity-[0.04]" style={{
         backgroundImage: 'radial-gradient(rgba(255,255,255,0.9) 1px, transparent 1px)',
