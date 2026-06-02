@@ -1,9 +1,8 @@
 'use client'
 import { useState } from 'react'
+import Link from 'next/link'
 import AnimateIn from '@/components/ui/AnimateIn'
-import { Phone, Mail, MapPin, Clock, ArrowRight, CheckCircle, ExternalLink } from 'lucide-react'
-
-const ENQUIRY_FORM_URL = 'https://forms.gle/95cDUCXGAHvjddWw9'
+import { Phone, Mail, MapPin, Clock, ArrowRight, CheckCircle } from 'lucide-react'
 
 const CONTACT_ITEMS = [
   { icon: Phone, label: 'Phone / WhatsApp', value: '+91-9925993634', href: 'tel:+919925993634' },
@@ -44,15 +43,13 @@ export default function ContactPage() {
             </p>
 
             {/* Primary CTA */}
-            <a
-              href={ENQUIRY_FORM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/enquiry"
               className="inline-flex items-center gap-2.5 bg-coral hover:bg-coral-dark text-white px-8 py-4 rounded-xl text-[15px] font-semibold transition-all duration-200 shadow-lg shadow-coral/20 active:scale-[0.98]"
             >
               Enquiry Now
-              <ExternalLink size={16} />
-            </a>
+              <ArrowRight size={16} />
+            </Link>
           </AnimateIn>
         </div>
       </section>
