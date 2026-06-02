@@ -35,12 +35,12 @@ export default function HomePage() {
       {/* ── HERO BANNER ───────────────────────────────────── */}
       {/* mt-16/mt-20 = navbar height — image starts exactly where navbar ends */}
       <section className="relative w-full overflow-hidden mt-16 md:mt-20">
-        {/* Full image — natural 1919×820 ratio, zero cropping */}
+        {/* Full image — natural 1600×825 ratio, zero cropping */}
         <Image
           src={heroBanner}
           alt="C. elegans whole-organism research platform"
-          width={1919}
-          height={820}
+          width={1600}
+          height={825}
           className="w-full h-auto block"
           priority
         />
