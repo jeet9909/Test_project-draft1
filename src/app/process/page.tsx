@@ -39,7 +39,7 @@ export default function ProcessPage() {
         <div className="absolute -top-32 -left-32 w-[400px] h-[400px] rounded-full bg-teal/5 blur-3xl pointer-events-none" />
         <div className="relative pb-12">
           <AnimateIn>
-            <p className="eyebrow text-teal dark:text-[#9FE1CB] mb-2">How it works</p>
+            <p className="eyebrow text-teal dark:text-[#D1FAE5] mb-2">How it works</p>
             <h1 className="font-serif text-[2.4rem] md:text-[3.2rem] text-slate dark:text-gray-100 font-bold leading-tight mb-4">
               From Enquiry to<br className="hidden md:block" /> Data Delivery
             </h1>
@@ -54,7 +54,7 @@ export default function ProcessPage() {
       {/* ── TIMELINE ──────────────────────────────────────── */}
       <section className="section-pad py-16 md:py-20 bg-white dark:bg-gray-900">
         <AnimateIn className="mb-12">
-          <p className="eyebrow text-teal dark:text-[#9FE1CB] mb-2">Workflow</p>
+          <p className="eyebrow text-teal dark:text-[#D1FAE5] mb-2">Workflow</p>
           <h2 className="font-serif text-2xl md:text-3xl text-slate dark:text-gray-100 font-bold">6-Step Research Process</h2>
           <p className="text-[14px] text-gray-400 dark:text-gray-500 mt-2 max-w-xl">
             Every project follows the same rigorous workflow — predictable, transparent, and reproducible.
@@ -66,7 +66,7 @@ export default function ProcessPage() {
       {/* ── SUBMISSION GUIDELINES ─────────────────────────── */}
       <section className="section-pad py-16 bg-offwhite dark:bg-gray-800 dot-grid border-t border-gray-100 dark:border-gray-700">
         <AnimateIn className="mb-8">
-          <p className="eyebrow text-teal dark:text-[#9FE1CB] mb-2">Sample Submission</p>
+          <p className="eyebrow text-teal dark:text-[#D1FAE5] mb-2">Sample Submission</p>
           <h2 className="font-serif text-2xl md:text-3xl text-slate dark:text-gray-100 font-bold">Submission Guidelines</h2>
           <p className="text-[14px] text-gray-400 dark:text-gray-500 mt-2 max-w-xl">
             Follow these guidelines to ensure your compound arrives in optimal condition for testing.
@@ -78,7 +78,7 @@ export default function ProcessPage() {
             <AnimateIn key={g.title} delay={i * 0.08}>
               <div className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-700 rounded-xl p-5 flex gap-4 hover:border-teal/25 hover:shadow-md transition-all duration-200">
                 <div className="w-9 h-9 rounded-xl bg-teal/8 dark:bg-teal/15 flex items-center justify-center shrink-0">
-                  <Package size={16} className="text-teal dark:text-[#9FE1CB]" />
+                  <Package size={16} className="text-teal dark:text-[#D1FAE5]" />
                 </div>
                 <div>
                   <h3 className="font-sans font-semibold text-[13.5px] text-slate dark:text-gray-100 mb-1">{g.title}</h3>
@@ -97,7 +97,7 @@ export default function ProcessPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-1 text-[13px] font-semibold text-teal dark:text-[#9FE1CB] hover:underline mt-2"
+              className="inline-flex items-center gap-1 text-[13px] font-semibold text-teal dark:text-[#D1FAE5] hover:underline mt-2"
             >
               Contact us before shipping →
             </Link>
@@ -108,7 +108,7 @@ export default function ProcessPage() {
       {/* ── FAQ ───────────────────────────────────────────── */}
       <section className="section-pad py-16 md:py-20 bg-white dark:bg-gray-900">
         <AnimateIn className="mb-8">
-          <p className="eyebrow text-teal dark:text-[#9FE1CB] mb-2">FAQ</p>
+          <p className="eyebrow text-teal dark:text-[#D1FAE5] mb-2">FAQ</p>
           <h2 className="font-serif text-2xl md:text-3xl text-slate dark:text-gray-100 font-bold">Frequently Asked Questions</h2>
           <p className="text-[14px] text-gray-400 dark:text-gray-500 mt-2">Everything you need to know before starting a study with WormEra.</p>
         </AnimateIn>

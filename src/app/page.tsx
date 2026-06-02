@@ -114,7 +114,7 @@ export default function HomePage() {
             <AnimateIn key={card.title} delay={i * 0.08}>
               <div className="group bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 h-full flex flex-col gap-4 hover:border-teal/20 hover:shadow-xl hover:shadow-teal/5 transition-all duration-300 cursor-default">
                 <div className="w-10 h-10 rounded-xl bg-teal/8 dark:bg-teal/15 flex items-center justify-center group-hover:bg-teal/14 transition-colors">
-                  <card.icon size={20} className="text-teal dark:text-[#9FE1CB]" />
+                  <card.icon size={20} className="text-teal dark:text-[#D1FAE5]" />
                 </div>
                 <h3 className="font-serif text-[17px] font-semibold text-slate dark:text-gray-100">
                   {card.title}

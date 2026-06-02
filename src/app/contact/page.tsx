@@ -35,7 +35,7 @@ export default function ContactPage() {
         <div className="relative max-w-3xl">
           <AnimateIn>
             <h1 className="font-serif text-[2.4rem] md:text-[3.2rem] text-slate dark:text-gray-100 font-bold leading-tight mb-5">
-              Let&apos;s design the right<br className="hidden md:block" /> study for your compound.
+              Contact Us
             </h1>
             <p className="text-[16px] text-gray-500 dark:text-gray-400 max-w-xl leading-relaxed mb-8">
               Whether you need a single assay or a full screening panel, WormEra brings
@@ -70,7 +70,7 @@ export default function ContactPage() {
                 {sent ? (
                   <div className="flex flex-col items-center text-center py-12 gap-4">
                     <div className="w-16 h-16 rounded-full bg-teal/10 dark:bg-teal/15 flex items-center justify-center">
-                      <CheckCircle size={28} className="text-teal dark:text-[#9FE1CB]" />
+                      <CheckCircle size={28} className="text-teal dark:text-[#D1FAE5]" />
                     </div>
                     <div>
                       <p className="font-serif text-[22px] text-slate dark:text-gray-100 font-semibold mb-1">Message sent!</p>
@@ -78,7 +78,7 @@ export default function ContactPage() {
                     </div>
                     <button
                       onClick={() => { setForm({ name: '', email: '', org: '', message: '' }); setSent(false) }}
-                      className="text-[13px] text-teal dark:text-[#9FE1CB] hover:underline font-medium mt-2 cursor-pointer"
+                      className="text-[13px] text-teal dark:text-[#D1FAE5] hover:underline font-medium mt-2 cursor-pointer"
                     >
                       Send another message
                     </button>
@@ -163,12 +163,12 @@ export default function ContactPage() {
                   {CONTACT_ITEMS.map(item => (
                     <div key={item.label} className="flex items-start gap-3.5">
                       <div className="w-8 h-8 rounded-lg bg-teal/8 dark:bg-teal/15 flex items-center justify-center shrink-0">
-                        <item.icon size={14} className="text-teal dark:text-[#9FE1CB]" />
+                        <item.icon size={14} className="text-teal dark:text-[#D1FAE5]" />
                       </div>
                       <div>
                         <p className="text-[10px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-0.5">{item.label}</p>
                         {item.href
-                          ? <a href={item.href} className="text-[13px] text-slate dark:text-gray-300 hover:text-teal dark:hover:text-[#9FE1CB] transition-colors font-medium">{item.value}</a>
+                          ? <a href={item.href} className="text-[13px] text-slate dark:text-gray-300 hover:text-teal dark:hover:text-[#D1FAE5] transition-colors font-medium">{item.value}</a>
                           : <p className="text-[13px] text-slate dark:text-gray-300 leading-relaxed">{item.value}</p>
                         }
                       </div>

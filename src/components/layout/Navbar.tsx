@@ -59,7 +59,7 @@ export default function Navbar() {
           <div>
             <span className={cn(
               "font-display font-bold text-lg leading-tight block transition-colors duration-300",
-              scrolled ? "text-[#0A4F5C] dark:text-white" : "text-white"
+              scrolled ? "text-[#0F766E] dark:text-white" : "text-white"
             )}>
               WormEra Research Lab
             </span>
@@ -82,10 +82,10 @@ export default function Navbar() {
                   "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200",
                   pathname === link.href
                     ? scrolled
-                      ? "text-[#0A4F5C] dark:text-white bg-[#0A4F5C]/10 dark:bg-white/10"
+                      ? "text-[#0F766E] dark:text-white bg-[#0F766E]/10 dark:bg-white/10"
                       : "text-white bg-white/15"
                     : scrolled
-                    ? "text-gray-700 dark:text-gray-300 hover:text-[#0A4F5C] dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
+                    ? "text-gray-700 dark:text-gray-300 hover:text-[#0F766E] dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
                     : "text-white/90 hover:text-white hover:bg-white/10"
                 )}
               >
@@ -130,7 +130,7 @@ export default function Navbar() {
                   className={cn(
                     "block px-4 py-3 rounded-xl text-sm font-medium transition-all",
                     pathname === link.href
-                      ? "text-[#0A4F5C] dark:text-teal-300 bg-[#0A4F5C]/10 dark:bg-teal-900/30"
+                      ? "text-[#0F766E] dark:text-teal-300 bg-[#0F766E]/10 dark:bg-teal-900/30"
                       : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
                   )}
                 >

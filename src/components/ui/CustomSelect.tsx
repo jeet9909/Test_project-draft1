@@ -87,15 +87,15 @@ export default function CustomSelect({
       onClick={() => handleOptionClick(opt.value)}
       className={cn(
         "w-full text-left px-4 py-2.5 text-sm flex items-center gap-2 cursor-pointer transition-colors",
-        "hover:bg-[#0A4F5C]/10 dark:hover:bg-teal-500/15",
+        "hover:bg-[#0F766E]/10 dark:hover:bg-teal-500/15",
         value === opt.value
-          ? "text-[#0A4F5C] dark:text-teal-300 font-semibold bg-[#0A4F5C]/5 dark:bg-teal-500/10"
+          ? "text-[#0F766E] dark:text-teal-300 font-semibold bg-[#0F766E]/5 dark:bg-teal-500/10"
           : "text-gray-700 dark:text-[#E2E8F0]"
       )}
     >
       <span className="flex-1">{opt.label}</span>
       {value === opt.value && (
-        <Check size={14} className="shrink-0 text-[#0A4F5C] dark:text-teal-300" />
+        <Check size={14} className="shrink-0 text-[#0F766E] dark:text-teal-300" />
       )}
     </button>
   );
@@ -115,7 +115,7 @@ export default function CustomSelect({
           open || hasError
             ? hasError
               ? "border-red-400 dark:border-red-500 ring-2 ring-red-300/40"
-              : "border-[#0A4F5C] dark:border-teal-500 ring-2 ring-[#0A4F5C]/20 dark:ring-teal-500/20"
+              : "border-[#0F766E] dark:border-teal-500 ring-2 ring-[#0F766E]/20 dark:ring-teal-500/20"
             : "border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500",
           "cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
         )}
@@ -129,7 +129,7 @@ export default function CustomSelect({
           size={15}
           className={cn(
             "shrink-0 text-gray-400 transition-transform duration-200",
-            open && "rotate-180 text-[#0A4F5C] dark:text-teal-400"
+            open && "rotate-180 text-[#0F766E] dark:text-teal-400"
           )}
         />
       </button>

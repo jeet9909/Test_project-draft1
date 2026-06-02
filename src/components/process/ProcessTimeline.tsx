@@ -73,7 +73,7 @@ export default function ProcessTimeline() {
                 <p className="text-[12px] text-gray-400 dark:text-gray-500 leading-relaxed mb-2">
                   {s.description}
                 </p>
-                <span className="inline-block px-2 py-0.5 rounded-md bg-teal/8 dark:bg-teal/15 text-teal dark:text-[#9FE1CB] text-[11px] font-medium">
+                <span className="inline-block px-2 py-0.5 rounded-md bg-teal/8 dark:bg-teal/15 text-teal dark:text-[#D1FAE5] text-[11px] font-medium">
                   {s.duration}
                 </span>
               </div>

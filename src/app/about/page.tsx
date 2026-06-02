@@ -48,7 +48,7 @@ export default function AboutPage() {
 
           {/* LEFT — section header */}
           <AnimateIn direction="left">
-            <p className="eyebrow text-teal dark:text-[#9FE1CB] mb-3">Meet the Founders</p>
+            <p className="eyebrow text-teal dark:text-[#D1FAE5] mb-3">Meet the Founders</p>
             <h1 className="font-serif text-[2.2rem] md:text-[2.8rem] text-slate dark:text-gray-100 font-bold leading-tight mb-4">
               The people behind the research
             </h1>
@@ -89,7 +89,7 @@ export default function AboutPage() {
                       href={person.scholar}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-[12.5px] font-semibold text-teal dark:text-[#9FE1CB] hover:underline mt-1"
+                      className="inline-flex items-center gap-1 text-[12.5px] font-semibold text-teal dark:text-[#D1FAE5] hover:underline mt-1"
                     >
                       Google Scholar Profile →
                     </a>
@@ -164,15 +164,15 @@ export default function AboutPage() {
       {/* ── INDUSTRIES ───────────────────────────────────── */}
       <section className="section-pad py-16 bg-offwhite dark:bg-gray-800 dot-grid border-t border-gray-100 dark:border-gray-700">
         <AnimateIn className="mb-10">
-          <p className="eyebrow text-teal dark:text-[#9FE1CB] mb-2">Who we serve</p>
+          <p className="eyebrow text-teal dark:text-[#D1FAE5] mb-2">Who we serve</p>
           <h2 className="font-serif text-3xl md:text-4xl text-slate dark:text-gray-100 font-bold">Industries &amp; Clients</h2>
         </AnimateIn>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {INDUSTRIES.map((ind, i) => (
             <AnimateIn key={ind.name} delay={i * 0.05}>
               <div className="flex flex-col items-center justify-center gap-3 py-7 px-4 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-700 rounded-2xl cursor-default hover:border-teal/30 hover:shadow-md transition-all duration-200">
-                <ind.Icon size={26} className="text-teal dark:text-[#9FE1CB]" strokeWidth={1.5} />
-                <span className="text-[13.5px] font-medium text-teal dark:text-[#9FE1CB]">{ind.name}</span>
+                <ind.Icon size={26} className="text-teal dark:text-[#D1FAE5]" strokeWidth={1.5} />
+                <span className="text-[13.5px] font-medium text-teal dark:text-[#D1FAE5]">{ind.name}</span>
               </div>
             </AnimateIn>
           ))}

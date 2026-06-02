@@ -30,8 +30,8 @@ export default function HeroSection() {
           }}
         />
         {/* Strong teal gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A4F5C]/95 via-[#0A4F5C]/80 to-[#0A4F5C]/40" />
-        <div className="absolute inset-0 bg-[#0A4F5C]/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0F766E]/95 via-[#0F766E]/80 to-[#0F766E]/40" />
+        <div className="absolute inset-0 bg-[#0F766E]/20" />
         <WormBackground count={20} alpha={0.08} speed={0.9} />
       </div>
 
@@ -87,7 +87,7 @@ export default function HeroSection() {
             </Link>
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg border-2 border-white/60 text-white font-semibold hover:bg-white hover:text-[#0A4F5C] transition-all duration-200 text-base"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg border-2 border-white/60 text-white font-semibold hover:bg-white hover:text-[#0F766E] transition-all duration-200 text-base"
             >
               Explore Services
             </Link>

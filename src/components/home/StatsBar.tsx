@@ -14,7 +14,7 @@ export default function StatsBar() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
 
   return (
-    <section ref={ref} className="py-16 bg-[#0A4F5C] dark:bg-[#1E293B]">
+    <section ref={ref} className="py-16 bg-[#0F766E] dark:bg-[#1E293B]">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, i) => (

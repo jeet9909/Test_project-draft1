@@ -5,7 +5,7 @@ import AnimateIn from '@/components/ui/AnimateIn'
 import CountUp from '@/components/ui/CountUp'
 
 const PUBS = [
-  { id: 16, title: 'Working with Worms: Protocols and Some Practical Considerations for a C. elegans Laboratory', journal: 'Springer (Book Chapter)', year: 2025, doi: 'https://link.springer.com/chapter/10.1007/978-981-92-0038-2_8', pmid: null, pmcid: null, tag: 'Review', oa: false },
+  { id: 16, title: 'Working with Worms: Protocols and Some Practical Considerations for a C. elegans Laboratory', journal: 'Model Organisms in Biological Research (Springer Book Chapter)', year: 2026, doi: 'https://link.springer.com/chapter/10.1007/978-981-92-0038-2_8', pmid: null, pmcid: null, tag: 'Review', oa: false },
   { id: 1,  title: "Berberine Attenuates Chromobacterium violaceum's Virulence by Targeting Efflux and Denitrification Machinery", journal: 'Chemistry & Biodiversity', year: 2025, doi: 'https://doi.org/10.1002/cbdv.202503727', pmid: '42127231', pmcid: null, tag: 'Anti-Pathogenic', oa: false },
   { id: 2,  title: 'Withania somnifera root extract reduces susceptibility of the model worm Caenorhabditis elegans to different types of stressors', journal: 'Preprint', year: 2025, doi: 'https://doi.org/10.64898/2025.12.18.695325', pmid: null, pmcid: 'PMC12767675', tag: 'Stress / Aging', oa: true },
   { id: 3,  title: 'Withania somnifera root extract (LongeFera™) confers beneficial effects on health and lifespan of Caenorhabditis elegans', journal: 'Drug Target Insights', year: 2025, doi: 'https://doi.org/10.33393/dti.2025.3368', pmid: null, pmcid: 'PMC11969495', tag: 'Aging & Lifespan', oa: true },
@@ -24,17 +24,8 @@ const PUBS = [
 ]
 
 
-const TAG_STYLES: Record<string, string> = {
-  'Anti-Pathogenic': 'bg-teal/10 dark:bg-teal/15 text-teal dark:text-[#9FE1CB] border-teal/20 dark:border-teal/30',
-  'Anthelmintic':    'bg-coral/10 text-coral border-coral/20',
-  'Aging & Lifespan':'bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-900/25 dark:text-amber-400 dark:border-amber-700/30',
-  'Stress / Aging':  'bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-900/25 dark:text-emerald-400 dark:border-emerald-700/30',
-  'Microbiome':      'bg-purple-50 text-purple-600 border-purple-200 dark:bg-purple-900/25 dark:text-purple-400 dark:border-purple-700/30',
-  'Review':          'bg-gray-100 text-gray-500 border-gray-200 dark:bg-gray-700 dark:text-gray-400 dark:border-gray-600',
-  'In Vivo Model':   'bg-blue-50 text-blue-600 border-blue-200 dark:bg-blue-900/25 dark:text-blue-400 dark:border-blue-700/30',
-}
 
-const YEARS = ['All Years', '2025', '2024', '2023', '2022', '2021']
+const YEARS = ['All Years', '2026', '2025', '2024', '2023', '2022', '2021']
 
 
 export default function PublicationsPage() {
@@ -73,8 +64,8 @@ export default function PublicationsPage() {
         <div className="relative grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-10 lg:gap-16 items-center">
           {/* Left — text */}
           <AnimateIn>
-            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal/8 dark:bg-teal/15 border border-teal/15 dark:border-teal/30 text-teal dark:text-[#9FE1CB] text-[11px] font-semibold uppercase tracking-widest mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-teal dark:bg-[#9FE1CB] animate-pulse" />
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal/8 dark:bg-teal/15 border border-teal/15 dark:border-teal/30 text-teal dark:text-[#D1FAE5] text-[11px] font-semibold uppercase tracking-widest mb-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-teal dark:bg-[#D1FAE5] animate-pulse" />
               Research output
             </span>
             <h1 className="font-serif text-[2.6rem] md:text-[3.2rem] text-slate dark:text-gray-100 font-bold leading-tight mb-4">
@@ -92,7 +83,7 @@ export default function PublicationsPage() {
               { end: 5,  suffix: '+', label: 'Years C. elegans expertise', desc: 'Deep domain knowledge' },
             ].map((s, i) => (
               <AnimateIn key={s.label} delay={i * 0.1} className="text-center">
-                <p className="font-serif text-[3.2rem] font-bold text-teal dark:text-[#9FE1CB] leading-none mb-1">
+                <p className="font-serif text-[3.2rem] font-bold text-teal dark:text-[#D1FAE5] leading-none mb-1">
                   <CountUp end={s.end} suffix={s.suffix} />
                 </p>
                 <p className="text-[13px] font-semibold text-slate dark:text-gray-100 mb-0.5">{s.label}</p>
@@ -163,7 +154,7 @@ export default function PublicationsPage() {
           <div className="text-center py-20">
             <p className="font-serif text-[18px] text-slate dark:text-gray-100 mb-2">No publications match your filters.</p>
             <button onClick={() => { setSearch(''); setTag('All'); setYear('All Years') }}
-              className="text-[13px] text-teal dark:text-[#9FE1CB] hover:underline font-medium mt-2 cursor-pointer">
+              className="text-[13px] text-teal dark:text-[#D1FAE5] hover:underline font-medium mt-2 cursor-pointer">
               Clear all filters
             </button>
           </div>
@@ -171,28 +162,12 @@ export default function PublicationsPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {filtered.map(p => (
               <div key={p.id} className="group bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-5 flex flex-col gap-3 card-hover hover:border-teal/20 hover:shadow-xl hover:shadow-teal/5">
-                {/* Badges */}
-                <div className="flex items-center gap-2 flex-wrap">
-                  <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full border uppercase tracking-wider ${TAG_STYLES[p.tag] || 'bg-gray-100 text-gray-500 border-gray-200'}`}>
-                    {p.tag}
-                  </span>
-                  {p.oa && (
-                    <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200 dark:bg-emerald-900/25 dark:text-emerald-400 dark:border-emerald-700/30 uppercase tracking-wider">
-                      Open Access
-                    </span>
-                  )}
-                  {!p.pmid && !p.pmcid && !p.oa && (
-                    <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-gray-50 dark:bg-gray-700 text-gray-400 dark:text-gray-400 border border-gray-200 dark:border-gray-600 uppercase tracking-wider">
-                      Preprint
-                    </span>
-                  )}
-                </div>
                 <h3 className="font-lora text-[13.5px] font-semibold text-slate dark:text-gray-100 leading-snug flex-1 group-hover:text-teal transition-colors">
                   {p.title}
                 </h3>
                 <p className="text-[12px] text-gray-400 dark:text-gray-500 font-medium font-sans">{p.journal} · {p.year}</p>
                 <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-gray-100 dark:border-gray-700">
-                  <a href={p.doi} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-[11px] font-mono text-teal dark:text-[#9FE1CB] hover:text-teal-dark dark:hover:text-white transition-colors">
+                  <a href={p.doi} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-[11px] font-mono text-teal dark:text-[#D1FAE5] hover:text-teal-dark dark:hover:text-white transition-colors">
                     View Paper <ExternalLink size={11} />
                   </a>
                   {p.pmid && (

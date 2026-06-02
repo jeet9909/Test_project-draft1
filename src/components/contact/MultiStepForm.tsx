@@ -40,7 +40,7 @@ export default function EnquiryForm() {
     return (
       <div className="text-center py-16">
         <CheckCircle size={56} className="text-green-500 mx-auto mb-4" />
-        <h3 className="font-display font-bold text-2xl text-[#0A4F5C] dark:text-white mb-2">
+        <h3 className="font-display font-bold text-2xl text-[#0F766E] dark:text-white mb-2">
           Message Received!
         </h3>
         <p className="text-gray-500 dark:text-[#94A3B8]">

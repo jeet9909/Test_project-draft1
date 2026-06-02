@@ -66,7 +66,7 @@ export default function FAQAccordion() {
             </span>
             <ChevronDown
               size={18}
-              className={`shrink-0 text-teal dark:text-[#9FE1CB] mt-0.5 transition-transform duration-200 ${open === i ? 'rotate-180' : ''}`}
+              className={`shrink-0 text-teal dark:text-[#D1FAE5] mt-0.5 transition-transform duration-200 ${open === i ? 'rotate-180' : ''}`}
             />
           </button>
           {open === i && (
