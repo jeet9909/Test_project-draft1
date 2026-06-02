@@ -2,6 +2,8 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
+import servicesHero from '@/../public/images/services-hero.jpg'
 import AnimateIn from '@/components/ui/AnimateIn'
 import { FlaskConical, Leaf, Microscope, ArrowRight, CheckCircle } from 'lucide-react'
 
@@ -78,23 +80,50 @@ export default function ServicesPage() {
 
   return (
     <>
-      {/* ── HERO ──────────────────────────────────────────── */}
-      <section className="relative pt-28 md:pt-36 pb-0 section-pad bg-white dark:bg-navy overflow-hidden">
-        <div className="absolute inset-0 dot-grid opacity-40 pointer-events-none" />
-        <div className="absolute -top-32 -left-32 w-[400px] h-[400px] rounded-full bg-coral/5 blur-3xl pointer-events-none" />
-        <div className="relative">
-          <AnimateIn>
-            <p className="eyebrow text-teal mb-2">What we offer</p>
-            <h1 className="font-serif text-[2.4rem] md:text-[3.2rem] text-slate dark:text-gray-100 font-bold leading-tight mb-4">
-              Our services
-            </h1>
-            <p className="text-[15px] text-gray-500 dark:text-gray-400 max-w-xl mb-10 leading-relaxed">
+      {/* ── HERO BANNER ───────────────────────────────────── */}
+      <section className="relative w-full overflow-hidden mt-16 md:mt-20">
+        {/* Full image — natural 1920×1080, zero cropping */}
+        <Image
+          src={servicesHero}
+          alt="WormEra laboratory — in vivo screening services"
+          width={1920}
+          height={1080}
+          className="w-full h-auto block"
+          priority
+        />
+        {/* Left-heavy gradient overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/65 to-navy/10" />
+
+        <div className="absolute inset-0 flex items-center section-pad">
+          <div className="max-w-lg lg:max-w-xl">
+            <motion.p
+              initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}
+              className="text-[#D1FAE5] font-semibold uppercase tracking-[0.22em] text-[12px] md:text-[13px] mb-4"
+            >
+              What we offer
+            </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, x: -22 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="font-serif font-bold text-white leading-[1.1] tracking-tight mb-4"
+              style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.6rem)' }}
+            >
+              Our Services
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-[14px] md:text-[15px] text-white/75 leading-relaxed max-w-md"
+            >
               Three core pillars of whole-organism research, each delivering true <em>in vivo</em> data
               that goes beyond what cell-based assays can provide.
-            </p>
-          </AnimateIn>
+            </motion.p>
+          </div>
+        </div>
+      </section>
 
-          {/* Tab pills */}
+      {/* ── TAB PILLS ─────────────────────────────────────── */}
+      <section className="relative pt-10 pb-0 section-pad bg-white dark:bg-navy overflow-hidden">
+        <div className="absolute inset-0 dot-grid opacity-40 pointer-events-none" />
+        <div className="relative">
           <div className="flex flex-wrap gap-2 pb-0">
             {PILLARS.map(p => {
               const Icon = p.icon
