@@ -84,7 +84,7 @@ export default function HomePage() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-[16px] md:text-[17px] text-gray-500 dark:text-gray-400 leading-[1.9] max-w-3xl"
+          className="text-[17px] md:text-[19px] text-slate dark:text-gray-200 leading-[1.85] max-w-3xl"
         >
           WormEra Research Lab is a specialized research and service laboratory focused on{' '}
           <em>C. elegans</em>&#8211;based <em>in vivo</em> screening for nutraceutical, pharmaceutical,
