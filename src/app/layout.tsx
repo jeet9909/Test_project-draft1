@@ -7,7 +7,7 @@ import { ThemeProvider } from '@/components/ThemeProvider'
 export const metadata: Metadata = {
   title: { template: '%s | WormEra Research Lab', default: 'WormEra Research Lab' },
   description: 'C. elegans-based contract research for toxicity, antimicrobial, aging, and functional screening. Founded by researchers from Nirma University, Ahmedabad.',
-  metadataBase: new URL('https://wormeraresearchlab.com'),
+  metadataBase: new URL('https://wormera.in'),
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
